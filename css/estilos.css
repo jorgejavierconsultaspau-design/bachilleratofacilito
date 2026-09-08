@@ -72,6 +72,31 @@ nav a:focus-visible,
     padding: 28px 24px 80px;
 }
 
+.site-footer {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 22px 24px 30px;
+    border-top: 1px solid var(--border-soft);
+    color: var(--text-muted);
+    text-align: center;
+    font-size: 0.88rem;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+.site-footer a {
+    color: var(--primary);
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.site-footer a:hover,
+.site-footer a:focus-visible {
+    text-decoration: underline;
+}
+
 .search-panel {
     position: relative;
     background: linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(239, 246, 255, 0.9));
