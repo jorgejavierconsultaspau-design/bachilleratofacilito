@@ -1181,6 +1181,7 @@ h1, h2, h3 { color: var(--text-main); }
     gap: 22px;
 }
 
+@media (max-width: 700px) {
 /* Ajustes específicos para la página de valoraciones: recortar cuadros si exceden */
 .valoraciones-grid .subject-block-card {
     max-height: 230px;
@@ -1340,6 +1341,8 @@ h1, h2, h3 { color: var(--text-main); }
     .valoraciones-grid > .subject-block-card .subject-block-card__header {
         margin-bottom: 10px;
     }
+
+    .subject-hero__content {
         flex-direction: column;
         align-items: flex-start;
     }
@@ -1353,8 +1356,6 @@ h1, h2, h3 { color: var(--text-main); }
         display: inline-flex;
         margin-bottom: 18px;
     }
-}
-
 }
 
 .btn-outline:hover,
