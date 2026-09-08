@@ -50,7 +50,7 @@
                 </div>
             </div>
 
-            <form class="contact-form" action="https://formsubmit.co/jorgejavierconsultaspau@gmail.com" method="POST">
+            <form id="contact-form" class="contact-form" action="https://formsubmit.co/ajax/jorgejavierconsultaspau@gmail.com" method="POST">
                 <input type="hidden" name="_captcha" value="false">
                 <input type="hidden" name="_subject" value="Nuevo mensaje desde BachilleratoFacilito">
                 <h2>Escríbenos</h2>
@@ -62,6 +62,7 @@
                 <textarea id="contact-message" name="Mensaje" rows="6" required></textarea>
                 <button type="submit" class="btn-neon">Enviar mensaje</button>
                 <p class="form-hint">Te responderemos lo antes posible a través de nuestro correo corporativo.</p>
+                <p id="contact-status" class="contact-status" role="status" aria-live="polite" hidden></p>
             </form>
         </section>
     </main>
@@ -69,5 +70,44 @@
     <footer class="site-footer">
         <p>© 2026 BachilleratoFacilito · <a href="quienes-somos.html">Quiénes somos</a> · <a href="contacto.html">Contacto</a> · <a href="legal.html">Información legal</a></p>
     </footer>
+    <script>
+        const contactForm = document.getElementById('contact-form');
+        const contactButton = contactForm.querySelector('button[type="submit"]');
+        const contactStatus = document.getElementById('contact-status');
+        const originalButtonText = contactButton.textContent;
+
+        contactForm.addEventListener('submit', async (event) => {
+            event.preventDefault();
+            contactButton.disabled = true;
+            contactButton.textContent = 'Enviando...';
+            contactStatus.hidden = true;
+            contactStatus.className = 'contact-status';
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: contactForm.method,
+                    body: new FormData(contactForm),
+                    headers: {
+                        Accept: 'application/json'
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error('No se pudo enviar el mensaje');
+                }
+
+                contactForm.reset();
+                contactStatus.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.';
+                contactStatus.classList.add('contact-status--success');
+            } catch (error) {
+                contactStatus.textContent = 'No se ha podido enviar el mensaje. Inténtalo de nuevo en unos instantes.';
+                contactStatus.classList.add('contact-status--error');
+            } finally {
+                contactStatus.hidden = false;
+                contactButton.disabled = false;
+                contactButton.textContent = originalButtonText;
+            }
+        });
+    </script>
 </body>
 </html>
