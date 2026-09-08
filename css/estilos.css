@@ -1411,33 +1411,6 @@ h1, h2, h3 { color: var(--text-main); }
     box-shadow: 0 10px 24px rgba(37, 99, 235, 0.12);
 }
 
-.subject-value-strip {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 24px;
-}
-
-.subject-value-item {
-    padding: 16px;
-    border-radius: 16px;
-    background: rgba(255, 255, 255, 0.92);
-    border: 1px solid rgba(15, 23, 42, 0.08);
-    box-shadow: 0 10px 24px rgba(15, 23, 42, 0.04);
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
-}
-
-.subject-value-item strong {
-    color: var(--text-main);
-}
-
-.subject-value-item span {
-    color: var(--text-muted);
-    font-size: 0.9rem;
-}
-
 .page-hero {
     margin: 8px 0 24px;
     padding: 24px 28px;
@@ -1520,9 +1493,6 @@ h1, h2, h3 { color: var(--text-main); }
         grid-template-columns: 1fr;
     }
 
-    .subject-value-strip {
-        grid-template-columns: 1fr;
-    }
 }
 
 .physics-hero {
@@ -1906,13 +1876,6 @@ h1, h2, h3 { color: var(--text-main); }
     border: 1px solid rgba(37, 99, 235, 0.18);
 }
 
-.history-bottom-strip {
-    display: grid;
-    grid-template-columns: repeat(4, minmax(0, 1fr));
-    gap: 14px;
-    margin-top: 20px;
-}
-
 @media (max-width: 900px) {
     .history-hero {
         grid-template-columns: 1fr;
@@ -1924,9 +1887,6 @@ h1, h2, h3 { color: var(--text-main); }
         grid-template-columns: 1fr;
     }
 
-    .history-bottom-strip {
-        grid-template-columns: 1fr;
-    }
 }
 
 .library-hero {
