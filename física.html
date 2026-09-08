@@ -73,6 +73,17 @@
 			font-size: 0.88rem;
 			line-height: 1.55;
 		}
+
+		.physics-practice {
+			margin-top: 34px;
+		}
+
+		.physics-practice h2,
+		.physics-theory h2 {
+			margin: 0 0 16px;
+			color: var(--text-main);
+			font-size: 1.45rem;
+		}
 	</style>
 </head>
 <body>
@@ -93,7 +104,7 @@
 				<div>
 					<p class="subject-hero__eyebrow">Asignatura más destacada</p>
 					<h2>Física</h2>
-					<p>Accede directamente a los bloques de Física de la PAU recopilados por Fiquipedia.</p>
+					<p>Si no entiendes algo, no te preocupes: a Newton le pasó lo mismo al principio</p>
 				</div>
 			</div>
 			<div class="physics-hero__composition" aria-hidden="true">
@@ -125,32 +136,116 @@
 			</div>
 		</section>
 
-		<section class="physics-directory" aria-label="Bloques temáticos de Física">
+		<section class="physics-theory" aria-labelledby="teoria-fisica">
+			<h2 id="teoria-fisica">Teoría</h2>
+			<div class="subject-grid">
+				<article class="subject-block-card" id="campo-gravitatorio">
+					<div class="subject-block-card__number">01</div>
+					<div class="subject-block-card__header">
+						<span class="subject-block-card__icon">🌍</span>
+						<h3>BLOQUE I: Campo Gravitatorio</h3>
+					</div>
+					<ul class="bullet-list">
+						<li>Tema 0 (introducción)</li>
+						<li>Leyes de Kepler</li>
+						<li>Hipótesis de Newton (aplicaciones)</li>
+						<li>Fuerzas centrales</li>
+						<li>Trabajo de campo gravitatorio</li>
+						<li>Intensidad y potencial de campo gravitatorio</li>
+						<li>Principio de superposición</li>
+						<li>Teorema de Gauss</li>
+					</ul>
+					<div class="recursos-links">
+						<a href="docs/campo_gravitatorio_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					</div>
+				</article>
+
+				<article class="subject-block-card" id="campo-electromagnetico">
+					<div class="subject-block-card__number">02</div>
+					<div class="subject-block-card__header">
+						<span class="subject-block-card__icon">⚡</span>
+						<h3>BLOQUE II: Campo Electromagnético</h3>
+					</div>
+					<ul class="bullet-list">
+						<li>Campo eléctrico y ley de Coulomb</li>
+						<li>Péndulo eléctrico</li>
+						<li>Principio de superposición</li>
+						<li>Campo e intensidad de campo eléctrico</li>
+						<li>Energía y potencial eléctrico</li>
+						<li>Teorema de Gauss y distribución superficial de cargas</li>
+						<li>Campo magnético, Ley de Lorentz y fuerza entre corrientes paralelas</li>
+						<li>Inducción electromagnética</li>
+					</ul>
+					<div class="recursos-links">
+						<a href="docs/campo_electromagnetico_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					</div>
+				</article>
+
+				<article class="subject-block-card" id="vibraciones-y-ondas">
+					<div class="subject-block-card__number">03</div>
+					<div class="subject-block-card__header">
+						<span class="subject-block-card__icon">🌊</span>
+						<h3>BLOQUE III: Vibraciones y Ondas</h3>
+					</div>
+					<ul class="bullet-list">
+						<li>Movimiento armónico simple</li>
+						<li>Magnitudes y ecuaciones de una onda</li>
+						<li>Ondas sonoras</li>
+						<li>Óptica física</li>
+						<li>Óptica geométrica</li>
+					</ul>
+					<div class="recursos-links">
+						<a href="docs/vibraciones_y_ondas_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					</div>
+				</article>
+
+				<article class="subject-block-card" id="fisica-moderna">
+					<div class="subject-block-card__number">04</div>
+					<div class="subject-block-card__header">
+						<span class="subject-block-card__icon">🚀</span>
+						<h3>BLOQUE IV: Física Moderna</h3>
+					</div>
+					<ul class="bullet-list">
+						<li>Física relativista</li>
+						<li>Física cuántica</li>
+						<li>Física nuclear</li>
+					</ul>
+					<div class="recursos-links">
+						<a href="docs/fisica_moderna_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					</div>
+				</article>
+			</div>
+		</section>
+
+		<section class="physics-practice" aria-labelledby="practica-fisica">
+			<h2 id="practica-fisica">Práctica en Fiquipedia</h2>
+			<div class="physics-directory" aria-label="Bloques temáticos de Física">
 			<article class="physics-directory-card">
 				<h3>Campo Gravitatorio</h3>
 				<p>Leyes de Kepler, gravitación universal, fuerzas centrales y potencial gravitatorio.</p>
-				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-campo-gravitatorio.html" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
+				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-campo-gravitatorio.pdf" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
 			</article>
 			<article class="physics-directory-card">
 				<h3>Campo Electromagnético</h3>
 				<p>Campos eléctrico y magnético, ley de Coulomb, Gauss, Lorentz e inducción.</p>
-				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-campo-electromagnetico.html" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
+				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-campo-electromagnetico.pdf" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
 			</article>
 			<article class="physics-directory-card">
 				<h3>Ondas</h3>
 				<p>Movimiento armónico simple, ondas sonoras, interferencias y propagación de energía.</p>
-				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-ondas.html" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
+				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-ondas.pdf" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
 			</article>
 			<article class="physics-directory-card">
 				<h3>Óptica Geométrica</h3>
 				<p>Reflexión, refracción, espejos, lentes y formación de imágenes.</p>
-				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-optica-geometrica.html" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
+				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-optica-geometrica.pdf" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
 			</article>
 			<article class="physics-directory-card">
 				<h3>Física del Siglo XX</h3>
 				<p>Relatividad, efecto fotoeléctrico, dualidad onda-partícula y física nuclear.</p>
-				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-fisica-siglo-xx.html" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
+				<a href="https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-fisica-siglo-xx.pdf" target="_blank" rel="noopener noreferrer">Practicar en Fiquipedia ➔</a>
 			</article>
+			</div>
 		</section>
 
 		<p class="physics-directory-legal">BachilleratoFacilito actúa como un índice educativo independiente. Los enlaces de práctica redirigen a Fiquipedia, cuyos materiales y recopilaciones pertenecen a sus respectivos autores e instituciones. No alojamos, distribuimos ni comercializamos estos archivos.</p>
