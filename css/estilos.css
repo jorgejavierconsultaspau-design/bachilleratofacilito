@@ -790,37 +790,79 @@ h1, h2, h3 { color: var(--text-main); }
 }
 
 .subject-philosophy-portrait__column {
-    fill: rgba(37, 99, 235, 0.12);
+    fill: rgba(255, 255, 255, 0.48);
     stroke: rgba(15, 23, 42, 0.46);
     stroke-linejoin: round;
     stroke-width: 1.4;
 }
 
 .subject-philosophy-portrait__column-lines,
-.subject-philosophy-portrait__balance,
-.subject-philosophy-portrait__scale {
+.subject-philosophy-portrait__branch {
     fill: none;
-    stroke: rgba(15, 23, 42, 0.46);
+    stroke: rgba(178, 145, 68, 0.78);
     stroke-linecap: round;
     stroke-linejoin: round;
     stroke-width: 1.4;
 }
 
-.subject-philosophy-portrait__balance {
-    stroke: rgba(37, 99, 235, 0.7);
-    stroke-width: 1.8;
+.subject-philosophy-portrait__column-lines {
+    stroke: rgba(15, 23, 42, 0.28);
+    stroke-width: 1.1;
 }
 
-.subject-philosophy-portrait__scale {
-    stroke: rgba(250, 160, 75, 0.8);
+.subject-philosophy-portrait__leaf {
+    fill: rgba(178, 145, 68, 0.4);
+    stroke: rgba(178, 145, 68, 0.78);
+    stroke-width: 0.9;
 }
 
-.subject-philosophy-portrait__labyrinth {
-    fill: none;
-    stroke: rgba(109, 93, 72, 0.62);
-    stroke-linecap: round;
+.subject-philosophy-portrait__capital {
+    fill: rgba(255, 255, 255, 0.68);
+    stroke: rgba(15, 23, 42, 0.46);
     stroke-linejoin: round;
+    stroke-width: 1.4;
+}
+
+.subject-philosophy-portrait__scrolls {
+    fill: none;
+    stroke: rgba(15, 23, 42, 0.62);
+    stroke-linecap: round;
     stroke-width: 1.6;
+}
+
+.subject-philosophy-portrait__book-cover {
+    fill: rgba(37, 99, 235, 0.62);
+    stroke: rgba(15, 23, 42, 0.72);
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+}
+
+.subject-philosophy-portrait__book {
+    fill: rgba(37, 99, 235, 0.12);
+    stroke: rgba(15, 23, 42, 0.58);
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+}
+
+.subject-philosophy-portrait__book-line {
+    fill: none;
+    stroke: rgba(178, 145, 68, 0.68);
+    stroke-linecap: round;
+    stroke-width: 1;
+}
+
+.subject-philosophy-portrait__greek {
+    fill: rgba(15, 23, 42, 0.68);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 9px;
+    letter-spacing: 0.08em;
+}
+
+.subject-philosophy-portrait__ground {
+    fill: none;
+    stroke: rgba(37, 99, 235, 0.68);
+    stroke-linecap: round;
+    stroke-width: 1.5;
 }
 
 @media (max-width: 700px) {
