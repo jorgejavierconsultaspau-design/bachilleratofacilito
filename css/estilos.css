@@ -644,6 +644,200 @@ h1, h2, h3 { color: var(--text-main); }
     line-height: 1.1;
 }
 
+.subject-page-heading {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(240px, 360px);
+    gap: 24px;
+    align-items: center;
+    margin: -8px 0 30px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.14);
+}
+
+.subject-page-heading h2 {
+    margin: 0 0 10px;
+}
+
+.subject-page-heading > div:first-child p {
+    margin: 0;
+    color: var(--text-muted);
+}
+
+.subject-biology-visual,
+.subject-drawing-visual,
+.subject-english-visual {
+    min-height: 190px;
+    display: grid;
+    place-items: center;
+    opacity: 0.92;
+}
+
+.subject-biology-visual svg,
+.subject-drawing-visual svg,
+.subject-english-visual svg {
+    width: min(100%, 360px);
+    height: auto;
+    overflow: visible;
+}
+
+.subject-biology-visual__dna,
+.subject-biology-visual__rungs,
+.subject-biology-visual__membrane {
+    fill: none;
+    stroke: rgba(37, 99, 235, 0.62);
+    stroke-linecap: round;
+    stroke-width: 2;
+}
+
+.subject-biology-visual__rungs {
+    stroke: rgba(15, 23, 42, 0.26);
+    stroke-width: 1.3;
+}
+
+.subject-biology-visual__cell {
+    fill: rgba(125, 211, 190, 0.14);
+    stroke: rgba(37, 99, 235, 0.48);
+    stroke-width: 1.5;
+}
+
+.subject-biology-visual__nucleus {
+    fill: rgba(250, 204, 21, 0.3);
+    stroke: rgba(109, 93, 72, 0.36);
+    stroke-width: 1.5;
+}
+
+.subject-biology-visual__membrane {
+    stroke: rgba(15, 23, 42, 0.24);
+    stroke-width: 1.2;
+}
+
+.subject-drawing-visual__triangle,
+.subject-drawing-visual__circle,
+.subject-drawing-visual__ruler,
+.subject-drawing-visual__axis {
+    fill: none;
+    stroke: rgba(37, 99, 235, 0.58);
+    stroke-linejoin: round;
+    stroke-linecap: round;
+    stroke-width: 1.5;
+}
+
+.subject-drawing-visual__circle {
+    stroke: rgba(250, 160, 75, 0.72);
+    stroke-dasharray: 4 5;
+}
+
+.subject-drawing-visual__ruler {
+    stroke: rgba(15, 23, 42, 0.44);
+    stroke-width: 5;
+}
+
+.subject-drawing-visual__ticks {
+    fill: none;
+    stroke: rgba(250, 204, 21, 0.86);
+    stroke-width: 1.5;
+}
+
+.subject-drawing-visual__axis {
+    stroke: rgba(15, 23, 42, 0.24);
+    stroke-width: 1;
+}
+
+.subject-english-visual__book {
+    fill: rgba(37, 99, 235, 0.06);
+    stroke: rgba(37, 99, 235, 0.58);
+    stroke-linejoin: round;
+    stroke-width: 1.5;
+}
+
+.subject-english-visual__line {
+    fill: none;
+    stroke: rgba(15, 23, 42, 0.26);
+    stroke-linecap: round;
+    stroke-width: 1.2;
+}
+
+.subject-english-visual__bubble {
+    fill: rgba(250, 204, 21, 0.18);
+    stroke: rgba(109, 93, 72, 0.42);
+    stroke-width: 1.2;
+}
+
+.subject-biology-visual text,
+.subject-drawing-visual text,
+.subject-english-visual text {
+    fill: rgba(15, 23, 42, 0.56);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 13px;
+    font-style: italic;
+}
+
+.subject-philosophy-portrait {
+    display: grid;
+    place-items: center;
+    min-height: 170px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+}
+
+.subject-philosophy-portrait svg {
+    width: min(100%, 230px);
+    height: auto;
+}
+
+.subject-philosophy-portrait__halo {
+    fill: rgba(250, 204, 21, 0.12);
+    stroke: rgba(109, 93, 72, 0.24);
+    stroke-width: 1;
+}
+
+.subject-philosophy-portrait__bust {
+    fill: rgba(37, 99, 235, 0.12);
+    stroke: rgba(15, 23, 42, 0.46);
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+}
+
+.subject-philosophy-portrait__hair {
+    fill: rgba(15, 23, 42, 0.16);
+    stroke: rgba(15, 23, 42, 0.46);
+    stroke-width: 1.2;
+}
+
+.subject-philosophy-portrait__face,
+.subject-philosophy-portrait__robe {
+    fill: none;
+    stroke: rgba(15, 23, 42, 0.5);
+    stroke-linecap: round;
+    stroke-width: 1.2;
+}
+
+.subject-philosophy-portrait text {
+    fill: rgba(109, 93, 72, 0.7);
+    font-family: Georgia, 'Times New Roman', serif;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+}
+
+@media (max-width: 700px) {
+    .subject-page-heading {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        margin-top: -4px;
+        padding-bottom: 18px;
+    }
+
+    .subject-biology-visual,
+    .subject-drawing-visual,
+    .subject-english-visual {
+        min-height: 150px;
+    }
+
+    .subject-philosophy-portrait {
+        min-height: 145px;
+    }
+}
+
 .chemistry-hero__content p:last-child {
     max-width: 520px;
     margin: 0;
