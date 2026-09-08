@@ -71,11 +71,92 @@
     </main>
 
     <script>
-        const examenesMates = Array.from({ length: 17 }, (_, index) => 2026 - index).flatMap(ano => [
-            { id: `pau-${ano}-modelo`, ano, convocatoria: 'modelo', etiquetas: ['PAU', 'Matemáticas II', 'modelo', 'preparación'], enlaceOficial: `https://www.uc3m.es/pruebas-acceso/pau/matematicas-ii/${ano}-modelo.pdf` },
-            { id: `pau-${ano}-ordinaria`, ano, convocatoria: 'ordinaria', etiquetas: ['PAU', 'Matemáticas II', 'ordinaria', 'convocatoria'], enlaceOficial: `https://www.uc3m.es/pruebas-acceso/pau/matematicas-ii/${ano}-ordinaria.pdf` },
-            { id: `pau-${ano}-extraordinaria`, ano, convocatoria: 'extraordinaria', etiquetas: ['PAU', 'Matemáticas II', 'extraordinaria', 'convocatoria'], enlaceOficial: `https://www.uc3m.es/pruebas-acceso/pau/matematicas-ii/${ano}-extraordinaria.pdf` }
-        ]);
+                const examenesMates = [
+                    // --- 2026 ---
+                    { id: "2026-modelo", ano: 2026, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2026"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2026-ordinaria", ano: 2026, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2026"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2026-extraordinaria", ano: 2026, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2026"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2025 ---
+                    { id: "2025-modelo", ano: 2025, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2025"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2025-ordinaria", ano: 2025, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2025"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2025-extraordinaria", ano: 2025, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2025"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2024 ---
+                    { id: "2024-modelo", ano: 2024, convocatoria: "Modelo", etiquetas: ["EvAU", "Matemáticas II", "modelo", "2024"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2024-ordinaria", ano: 2024, convocatoria: "Ordinaria", etiquetas: ["EvAU", "Matemáticas II", "ordinaria", "2024"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2024-extraordinaria", ano: 2024, convocatoria: "Extraordinaria", etiquetas: ["EvAU", "Matemáticas II", "extraordinaria", "2024"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2023 ---
+                    { id: "2023-modelo", ano: 2023, convocatoria: "Modelo", etiquetas: ["EvAU", "Matemáticas II", "modelo", "2023"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2023-ordinaria", ano: 2023, convocatoria: "Ordinaria", etiquetas: ["EvAU", "Matemáticas II", "ordinaria", "2023"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-evau-2022-2023" },
+                    { id: "2023-extraordinaria", ano: 2023, convocatoria: "Extraordinaria", etiquetas: ["EvAU", "Matemáticas II", "extraordinaria", "2023"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-evau-2022-2023" },
+
+                    // --- 2022 ---
+                    { id: "2022-modelo", ano: 2022, convocatoria: "Modelo", etiquetas: ["EvAU", "Matemáticas II", "modelo", "2022"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2022-ordinaria", ano: 2022, convocatoria: "Ordinaria", etiquetas: ["EvAU", "Matemáticas II", "ordinaria", "2022"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-evau-2022-2023" },
+                    { id: "2022-extraordinaria", ano: 2022, convocatoria: "Extraordinaria", etiquetas: ["EvAU", "Matemáticas II", "extraordinaria", "2022"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-evau-2022-2023" },
+
+                    // --- 2021 ---
+                    { id: "2021-modelo", ano: 2021, convocatoria: "Modelo", etiquetas: ["EvAU", "Matemáticas II", "modelo", "2021"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2021-ordinaria", ano: 2021, convocatoria: "Ordinaria", etiquetas: ["EvAU", "Matemáticas II", "ordinaria", "2021"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2021-extraordinaria", ano: 2021, convocatoria: "Extraordinaria", etiquetas: ["EvAU", "Matemáticas II", "extraordinaria", "2021"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2020 ---
+                    { id: "2020-modelo", ano: 2020, convocatoria: "Modelo", etiquetas: ["EvAU", "Matemáticas II", "modelo", "2020"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2020-ordinaria", ano: 2020, convocatoria: "Ordinaria", etiquetas: ["EvAU", "Matemáticas II", "ordinaria", "2020"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2020-extraordinaria", ano: 2020, convocatoria: "Extraordinaria", etiquetas: ["EvAU", "Matemáticas II", "extraordinaria", "2020"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2019 ---
+                    { id: "2019-modelo", ano: 2019, convocatoria: "Modelo", etiquetas: ["EvAU", "Matemáticas II", "modelo", "2019"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2019-ordinaria", ano: 2019, convocatoria: "Ordinaria", etiquetas: ["EvAU", "Matemáticas II", "ordinaria", "2019"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2019-extraordinaria", ano: 2019, convocatoria: "Extraordinaria", etiquetas: ["EvAU", "Matemáticas II", "extraordinaria", "2019"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2018 ---
+                    { id: "2018-modelo", ano: 2018, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2018"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2018-ordinaria", ano: 2018, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2018"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2018-extraordinaria", ano: 2018, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2018"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2017 ---
+                    { id: "2017-modelo", ano: 2017, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2017"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2017-ordinaria", ano: 2017, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2017"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2017-extraordinaria", ano: 2017, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2017"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2016 ---
+                    { id: "2016-modelo", ano: 2016, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2016"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2016-ordinaria", ano: 2016, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2016"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2016-extraordinaria", ano: 2016, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2016"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2015 ---
+                    { id: "2015-modelo", ano: 2015, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2015"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2015-ordinaria", ano: 2015, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2015"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2015-extraordinaria", ano: 2015, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2015"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2014 ---
+                    { id: "2014-modelo", ano: 2014, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2014"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2014-ordinaria", ano: 2014, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2014"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2014-extraordinaria", ano: 2014, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2014"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2013 ---
+                    { id: "2013-modelo", ano: 2013, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2013"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2013-ordinaria", ano: 2013, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2013"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2013-extraordinaria", ano: 2013, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2013"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2012 ---
+                    { id: "2012-modelo", ano: 2012, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2012"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2012-ordinaria", ano: 2012, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2012"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2012-extraordinaria", ano: 2012, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2012"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2011 ---
+                    { id: "2011-modelo", ano: 2011, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2011"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2011-ordinaria", ano: 2011, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2011"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2011-extraordinaria", ano: 2011, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2011"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+
+                    // --- 2010 ---
+                    { id: "2010-modelo", ano: 2010, convocatoria: "Modelo", etiquetas: ["PAU", "Matemáticas II", "modelo", "2010"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2010-ordinaria", ano: 2010, convocatoria: "Ordinaria", etiquetas: ["PAU", "Matemáticas II", "ordinaria", "2010"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" },
+                    { id: "2010-extraordinaria", ano: 2010, convocatoria: "Extraordinaria", etiquetas: ["PAU", "Matemáticas II", "extraordinaria", "2010"], enlaceOficial: "https://www.comunidad.madrid/educacion/examenes-pau-estadisticas" }
+                ];
 
         const examGrid = document.getElementById('examGrid');
         const filterYear = document.getElementById('filterYear');
@@ -100,7 +181,7 @@
             const resultados = examenesMates.filter(examen => {
                 const textoBuscable = normalize([examen.id, examen.ano, examen.convocatoria, ...examen.etiquetas].join(' '));
                 return (year === 'all' || String(examen.ano) === year)
-                    && (convocatoria === 'all' || examen.convocatoria === convocatoria)
+                    && (convocatoria === 'all' || normalize(examen.convocatoria) === convocatoria)
                     && (!query || textoBuscable.includes(query));
             });
 
