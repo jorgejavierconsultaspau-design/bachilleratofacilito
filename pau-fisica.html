@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="css/estilos.css">
     <style>
         .pau-hero { margin: 18px 0 22px; }
-        .filters { display:grid; grid-template-columns:minmax(150px, 0.6fr) minmax(180px, 0.8fr) minmax(240px, 1.4fr); gap:12px; align-items:end; margin-bottom:18px; }
+        .filters { display:grid; grid-template-columns:minmax(240px, 0.8fr) minmax(280px, 1.2fr); gap:12px; align-items:end; margin-bottom:18px; }
         .filter-field { display:flex; flex-direction:column; gap:6px; color:#1f2937; font-weight:700; font-size:0.88rem; }
         .filters select, .filters input[type="text"] { width:100%; box-sizing:border-box; padding:11px 12px; border-radius:10px; border:1px solid #d8dee9; background:#fff; color:#1f2937; font:inherit; font-weight:400; }
         .filters select:focus, .filters input[type="text"]:focus { outline:3px solid rgba(37,99,235,0.16); border-color:#2563eb; }
@@ -38,28 +38,19 @@
 
         <div class="page-hero pau-hero">
             <h2>Exámenes PAU - Física</h2>
-            <p class="hero-copy">Consulta modelos y exámenes de convocatorias anteriores para preparar la PAU.</p>
+            <p class="hero-copy">Explora los bloques temáticos y practica los conceptos clave de Física para la PAU.</p>
         </div>
 
         <div class="filters" aria-label="Filtros de exámenes">
-            <label class="filter-field" for="filterYear">
-                Año
-                <select id="filterYear">
-                    <option value="all">Todos los años</option>
-                </select>
-            </label>
-            <label class="filter-field" for="filterType">
-                Convocatoria
-                <select id="filterType">
-                    <option value="all">Todas</option>
-                    <option value="modelo">Modelo</option>
-                    <option value="ordinaria">Ordinaria</option>
-                    <option value="extraordinaria">Extraordinaria</option>
+            <label class="filter-field" for="filterBlock">
+                Seleccionar Bloque Temático
+                <select id="filterBlock">
+                    <option value="all">Todos los bloques</option>
                 </select>
             </label>
             <label class="filter-field" for="filterSearch">
                 Buscar
-                <input type="text" id="filterSearch" placeholder="Buscar examen, año, etiqu" aria-label="Buscar exámenes">
+                <input type="text" id="filterSearch" placeholder="Buscar bloque, concepto o etiqueta" aria-label="Buscar bloques de Física">
             </label>
         </div>
 
@@ -69,15 +60,46 @@
     </main>
 
     <script>
-        const examenesFisica = Array.from({ length: 17 }, (_, index) => 2026 - index).flatMap(ano => [
-            { id: `pau-${ano}-modelo`, ano, convocatoria: 'modelo', etiquetas: ['PAU', 'Física', 'modelo', 'preparación'], enlaceOficial: `https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-fisica-${ano}-modelo.pdf` },
-            { id: `pau-${ano}-ordinaria`, ano, convocatoria: 'ordinaria', etiquetas: ['PAU', 'Física', 'ordinaria', 'convocatoria'], enlaceOficial: `https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-fisica-${ano}-ordinaria.pdf` },
-            { id: `pau-${ano}-extraordinaria`, ano, convocatoria: 'extraordinaria', etiquetas: ['PAU', 'Física', 'extraordinaria', 'convocatoria'], enlaceOficial: `https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-fisica-${ano}-extraordinaria.pdf` }
-        ]);
+        const bloquesFisica = [
+            {
+                id: 'campo-gravitatorio',
+                tituloBloque: 'Campo Gravitatorio',
+                descripcion: 'Estudia la interacción gravitatoria, el movimiento orbital y el potencial creado por masas.',
+                etiquetas: ['Leyes de Kepler', 'Newton', 'Fuerzas centrales', 'Potencial gravitatorio', 'Gauss'],
+                enlaceFiquipedia: 'https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-campo-gravitatorio.pdf'
+            },
+            {
+                id: 'campo-electromagnetico',
+                tituloBloque: 'Campo Electromagnético',
+                descripcion: 'Reúne el campo eléctrico, el campo magnético y sus efectos sobre cargas y corrientes.',
+                etiquetas: ['Coulomb', 'Gauss', 'Potencial eléctrico', 'Lorentz', 'Inducción electromagnética'],
+                enlaceFiquipedia: 'https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-campo-electromagnetico.pdf'
+            },
+            {
+                id: 'ondas',
+                tituloBloque: 'Ondas',
+                descripcion: 'Incluye la descripción matemática de las ondas, el sonido, la energía y los fenómenos ondulatorios.',
+                etiquetas: ['Movimiento armónico simple', 'Longitud de onda', 'Interferencias', 'Sonido', 'Energía'],
+                enlaceFiquipedia: 'https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-ondas.pdf'
+            },
+            {
+                id: 'optica-geometrica',
+                tituloBloque: 'Óptica Geométrica',
+                descripcion: 'Trabaja la formación de imágenes mediante espejos, lentes y sistemas ópticos.',
+                etiquetas: ['Espejos', 'Lentes', 'Refracción', 'Reflexión', 'Aumento'],
+                enlaceFiquipedia: 'https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-optica-geometrica.pdf'
+            },
+            {
+                id: 'fisica-siglo-xx',
+                tituloBloque: 'Física del Siglo XX',
+                descripcion: 'Presenta las bases de la relatividad, la física cuántica y la física nuclear.',
+                etiquetas: ['Relatividad', 'Efecto Fotoeléctrico', 'Dualidad onda-partícula', 'Física nuclear', 'Radiactividad'],
+                enlaceFiquipedia: 'https://www.fiquipedia.es/home/pruebas-acceso/fisica/pau-madrid-fisica-siglo-xx.pdf'
+            }
+        ];
 
         const examGrid = document.getElementById('examGrid');
-        const filterYear = document.getElementById('filterYear');
-        const filterType = document.getElementById('filterType');
+        const filterBlock = document.getElementById('filterBlock');
         const filterSearch = document.getElementById('filterSearch');
         const emptyMessage = document.getElementById('emptyMessage');
 
@@ -86,45 +108,42 @@
         }
 
         function populateFilters() {
-            for (let year = 2026; year >= 2010; year -= 1) {
-                filterYear.insertAdjacentHTML('beforeend', `<option value="${year}">${year}</option>`);
-            }
+            bloquesFisica.forEach(bloque => {
+                filterBlock.insertAdjacentHTML('beforeend', `<option value="${bloque.id}">${bloque.tituloBloque}</option>`);
+            });
         }
 
         function render() {
-            const year = filterYear.value;
-            const convocatoria = filterType.value;
+            const bloqueSeleccionado = filterBlock.value;
             const query = normalize(filterSearch.value.trim());
-            const resultados = examenesFisica.filter(examen => {
-                const textoBuscable = normalize([examen.id, examen.ano, examen.convocatoria, ...examen.etiquetas].join(' '));
-                return (year === 'all' || String(examen.ano) === year)
-                    && (convocatoria === 'all' || examen.convocatoria === convocatoria)
+            const resultados = bloquesFisica.filter(bloque => {
+                const textoBuscable = normalize([bloque.id, bloque.tituloBloque, bloque.descripcion, ...bloque.etiquetas].join(' '));
+                return (bloqueSeleccionado === 'all' || bloque.id === bloqueSeleccionado)
                     && (!query || textoBuscable.includes(query));
             });
 
             examGrid.innerHTML = '';
-            resultados.sort((a, b) => b.ano - a.ano).forEach(examen => {
+            resultados.forEach(bloque => {
                 const card = document.createElement('article');
                 card.className = 'exam-card';
                 card.innerHTML = `
                     <div>
-                        <h3>PAU ${examen.ano} - Física</h3>
-                        <p class="exam-meta">Convocatoria ${examen.convocatoria}</p>
+                        <h3>${bloque.tituloBloque}</h3>
+                        <p class="exam-meta">${bloque.descripcion}</p>
                     </div>
-                    <div class="exam-tags" aria-label="Etiquetas">${examen.etiquetas.map(etiqueta => `<span class="exam-tag">${etiqueta}</span>`).join('')}</div>
-                    <a class="card-btn" href="${examen.enlaceOficial}" target="_blank" rel="noopener noreferrer">Ver examen en Fiquipedia ➔</a>`;
+                    <div class="exam-tags" aria-label="Conceptos clave">${bloque.etiquetas.map(etiqueta => `<span class="exam-tag">${etiqueta}</span>`).join('')}</div>
+                    <a class="card-btn" href="${bloque.enlaceFiquipedia}" target="_blank" rel="noopener noreferrer">Ver bloque en Fiquipedia ➔</a>`;
                 examGrid.appendChild(card);
             });
 
             emptyMessage.style.display = resultados.length ? 'none' : 'block';
         }
 
-        filterYear.addEventListener('change', render);
-        filterType.addEventListener('change', render);
+        filterBlock.addEventListener('change', render);
         filterSearch.addEventListener('input', render);
         populateFilters();
         render();
-        window.pauFisica = { examenesFisica, render, populateFilters };
+        window.pauFisica = { bloquesFisica, render, populateFilters };
     </script>
 </body>
 </html>
