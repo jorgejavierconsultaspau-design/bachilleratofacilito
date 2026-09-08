@@ -791,25 +791,41 @@ h1, h2, h3 { color: var(--text-main); }
     stroke-width: 1;
 }
 
-.subject-philosophy-portrait__bust {
+.subject-philosophy-portrait__column {
     fill: rgba(37, 99, 235, 0.12);
     stroke: rgba(15, 23, 42, 0.46);
     stroke-linejoin: round;
     stroke-width: 1.4;
 }
 
-.subject-philosophy-portrait__hair {
-    fill: rgba(15, 23, 42, 0.16);
+.subject-philosophy-portrait__column-lines,
+.subject-philosophy-portrait__balance,
+.subject-philosophy-portrait__scale {
+    fill: none;
     stroke: rgba(15, 23, 42, 0.46);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.4;
+}
+
+.subject-philosophy-portrait__balance {
+    stroke: rgba(37, 99, 235, 0.7);
+    stroke-width: 1.8;
+}
+
+.subject-philosophy-portrait__scale {
+    stroke: rgba(250, 160, 75, 0.8);
+}
+
+.subject-philosophy-portrait__thought {
+    fill: rgba(250, 204, 21, 0.22);
+    stroke: rgba(109, 93, 72, 0.46);
     stroke-width: 1.2;
 }
 
-.subject-philosophy-portrait__face,
-.subject-philosophy-portrait__robe {
-    fill: none;
-    stroke: rgba(15, 23, 42, 0.5);
-    stroke-linecap: round;
-    stroke-width: 1.2;
+.subject-philosophy-portrait__dot {
+    fill: rgba(109, 93, 72, 0.62);
+    stroke: none;
 }
 
 .subject-philosophy-portrait text {
