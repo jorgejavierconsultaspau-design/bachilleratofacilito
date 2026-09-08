@@ -775,13 +775,11 @@ h1, h2, h3 { color: var(--text-main); }
 .subject-philosophy-portrait {
     display: grid;
     place-items: center;
-    min-height: 170px;
-    margin-bottom: 14px;
-    border-bottom: 1px solid rgba(37, 99, 235, 0.12);
+    min-height: 210px;
 }
 
 .subject-philosophy-portrait svg {
-    width: min(100%, 230px);
+    width: min(100%, 260px);
     height: auto;
 }
 
@@ -817,22 +815,12 @@ h1, h2, h3 { color: var(--text-main); }
     stroke: rgba(250, 160, 75, 0.8);
 }
 
-.subject-philosophy-portrait__thought {
-    fill: rgba(250, 204, 21, 0.22);
-    stroke: rgba(109, 93, 72, 0.46);
-    stroke-width: 1.2;
-}
-
-.subject-philosophy-portrait__dot {
-    fill: rgba(109, 93, 72, 0.62);
-    stroke: none;
-}
-
-.subject-philosophy-portrait text {
-    fill: rgba(109, 93, 72, 0.7);
-    font-family: Georgia, 'Times New Roman', serif;
-    font-size: 11px;
-    letter-spacing: 0.12em;
+.subject-philosophy-portrait__labyrinth {
+    fill: none;
+    stroke: rgba(109, 93, 72, 0.62);
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.6;
 }
 
 @media (max-width: 700px) {
@@ -850,7 +838,7 @@ h1, h2, h3 { color: var(--text-main); }
     }
 
     .subject-philosophy-portrait {
-        min-height: 145px;
+        min-height: 180px;
     }
 }
 
