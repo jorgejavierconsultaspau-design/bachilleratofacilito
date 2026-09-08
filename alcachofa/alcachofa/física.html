@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<title>Física | BachilleratoFacilito</title>
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<header>
+		<div class="logo">Bachillerato<span>Facilito</span></div>
+		<nav>
+			<a href="index.html">Inicio</a>
+			<a href="recursos.html" class="active">Recursos</a>
+		</nav>
+	</header>
+
+	<div class="container">
+		<a href="javascript:history.back()" class="btn-neon btn-back">← Volver</a>
+
+		<section class="subject-hero physics-hero">
+			<div class="subject-hero__content">
+				<div class="subject-hero__icon">⚛️</div>
+				<div>
+					<p class="subject-hero__eyebrow">Asignatura más destacada</p>
+					<h2>Física</h2>
+					<p>Si no entiendes algo, no te preocupes: a Newton le pasó lo mismo al principio</p>
+				</div>
+			</div>
+			<div class="physics-hero__composition" aria-hidden="true">
+				<svg viewBox="0 0 440 230" role="presentation">
+					<defs>
+						<marker id="physics-arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="5" markerHeight="5" orient="auto-start-reverse">
+							<path d="M 0 0 L 10 5 L 0 10 z" />
+						</marker>
+					</defs>
+					<g class="physics-hero__orbit">
+						<ellipse cx="273" cy="98" rx="103" ry="48" />
+						<circle cx="273" cy="98" r="11" />
+					</g>
+					<g class="physics-hero__axes">
+						<path d="M48 184H397M75 205V42" />
+						<path d="M145 180V188M215 180V188M285 180V188M355 180V188" />
+						<path d="M69 145H77M69 105H77M69 65H77" />
+					</g>
+					<path class="physics-hero__trajectory" d="M91 160 C 143 67, 206 54, 365 137" />
+					<path class="physics-hero__vector" d="M247 89L303 116" marker-end="url(#physics-arrow)" />
+					<circle class="physics-hero__particle" cx="247" cy="89" r="6" />
+					<g class="physics-hero__formulas">
+						<text x="91" y="56">F = ma</text>
+						<text x="324" y="71">v(t)</text>
+						<text x="321" y="168">E = mc2</text>
+						<text x="87" y="207">dt</text>
+					</g>
+				</svg>
+			</div>
+		</section>
+
+		<div class="subject-grid">
+			<article class="subject-block-card" id="campo-gravitatorio">
+				<div class="subject-block-card__number">01</div>
+				<div class="subject-block-card__header">
+					<span class="subject-block-card__icon">🌍</span>
+					<h3>BLOQUE I: Campo Gravitatorio</h3>
+				</div>
+				<ul class="bullet-list">
+					<li>Tema 0 (introducción)</li>
+					<li>Leyes de Kepler</li>
+					<li>Hipótesis de Newton (aplicaciones)</li>
+					<li>Fuerzas centrales</li>
+					<li>Trabajo de campo gravitatorio</li>
+					<li>Intensidad y potencial de campo gravitatorio</li>
+					<li>Principio de superposición</li>
+					<li>Teorema de Gauss</li>
+				</ul>
+				<div class="recursos-links">
+					<a href="docs/campo_gravitatorio_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					<a href="docs/bloquegravpractica.pdf" class="btn-neon btn-outline" target="_blank" rel="noopener">✏️ Práctica</a>
+				</div>
+			</article>
+
+			<article class="subject-block-card" id="campo-electromagnetico">
+				<div class="subject-block-card__number">02</div>
+				<div class="subject-block-card__header">
+					<span class="subject-block-card__icon">⚡</span>
+					<h3>BLOQUE II: Campo Electromagnético</h3>
+				</div>
+				<ul class="bullet-list">
+					<li>Campo eléctrico y ley de Coulomb</li>
+					<li>Péndulo eléctrico</li>
+					<li>Principio de superposición</li>
+					<li>Campo e intensidad de campo eléctrico</li>
+					<li>Energía y potencial eléctrico</li>
+					<li>Teorema de Gauss y distribución superficial de cargas</li>
+					<li>Campo magnético, Ley de Lorentz y fuerza entre corrientes paralelas</li>
+					<li>Inducción electromagnética</li>
+				</ul>
+				<div class="recursos-links">
+					<a href="docs/campo_electromagnetico_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					<a href="docs/bloqueelectromagnpractica.pdf" class="btn-neon btn-outline" target="_blank" rel="noopener">✏️ Práctica</a>
+				</div>
+			</article>
+
+			<article class="subject-block-card" id="vibraciones-y-ondas">
+				<div class="subject-block-card__number">03</div>
+				<div class="subject-block-card__header">
+					<span class="subject-block-card__icon">🌊</span>
+					<h3>BLOQUE III: Vibraciones y Ondas</h3>
+				</div>
+				<ul class="bullet-list">
+					<li>Movimiento armónico simple</li>
+					<li>Magnitudes y ecuaciones de una onda</li>
+					<li>Ondas sonoras</li>
+					<li>Óptica física</li>
+					<li>Óptica geométrica</li>
+				</ul>
+				<div class="recursos-links">
+					<a href="docs/vibraciones_y_ondas_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					<a href="docs/bloqueondaspractica.pdf" class="btn-neon btn-outline" target="_blank" rel="noopener">✏️ Práctica</a>
+				</div>
+			</article>
+
+			<article class="subject-block-card" id="fisica-moderna">
+				<div class="subject-block-card__number">04</div>
+				<div class="subject-block-card__header">
+					<span class="subject-block-card__icon">🚀</span>
+					<h3>BLOQUE IV: Física Moderna</h3>
+				</div>
+				<ul class="bullet-list">
+					<li>Física relativista</li>
+					<li>Física cuántica</li>
+					<li>Física nuclear</li>
+				</ul>
+				<div class="recursos-links">
+					<a href="docs/fisica_moderna_teoria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+					<a href="docs/bloquefisicamodernapractica.pdf" class="btn-neon btn-outline" target="_blank" rel="noopener">✏️ Práctica</a>
+				</div>
+			</article>
+		</div>
+
+		map("n", "<A-k>", ":m .-2<CR>==") 
+		<section class="subject-value-strip">
+			<div class="subject-value-item">
+				<strong>📄 Apuntes resumidos</strong>
+				<span>Material claro y actualizado</span>
+			</div>
+			<div class="subject-value-item">
+				<strong>📝 Ejercicios resueltos</strong>
+				<span>Soluciones paso a paso</span>
+			</div>
+			<div class="subject-value-item">
+				<strong>🎓 Exámenes PAU</strong>
+				<span>Años anteriores resueltos</span>
+			</div>
+			<div class="subject-value-item">
+				<strong>🔄 Actualización constante</strong>
+				<span>Nuevos recursos cada semana</span>
+			</div>
+		</section>
+	</div>
+</body>
+</html>

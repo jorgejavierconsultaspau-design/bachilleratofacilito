@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Matemáticas II | BachilleratoFacilito</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bachillerato<span>Facilito</span></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="recursos.html" class="active">Recursos</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="btn-neon btn-back">← Volver</a>
+
+        <section class="subject-hero">
+            <div class="subject-hero__content">
+                <div class="subject-hero__icon">📊</div>
+                <div>
+                    <p class="subject-hero__eyebrow">Asignatura más consultada</p>
+                    <h2>Matemáticas II</h2>
+                    <p>Apuntes, ejercicios resueltos, teoría y preparación PAU organizados por bloques.</p>
+                </div>
+            </div>
+            <div class="subject-math-visual" aria-hidden="true">
+                <svg viewBox="0 0 420 220" role="presentation">
+                    <defs>
+                        <linearGradient id="math-curve" x1="0" y1="0" x2="1" y2="0">
+                            <stop offset="0" stop-color="#2563EB" stop-opacity="0.35" />
+                            <stop offset="1" stop-color="#2563EB" stop-opacity="0.9" />
+                        </linearGradient>
+                    </defs>
+                    <g class="subject-math-visual__grid">
+                        <path d="M42 28V190M42 190H392" />
+                        <path d="M112 184V190M182 184V190M252 184V190M322 184V190" />
+                        <path d="M36 150H42M36 110H42M36 70H42" />
+                    </g>
+                    <path class="subject-math-visual__curve" d="M58 152 C 116 42, 190 40, 250 126 S 342 196, 384 82" />
+                    <g class="subject-math-visual__points">
+                        <circle cx="116" cy="80" r="4" />
+                        <circle cx="250" cy="126" r="4" />
+                        <circle cx="322" cy="164" r="4" />
+                    </g>
+                    <text x="66" y="45">f(x)</text>
+                    <text x="286" y="58">∫ x² dx</text>
+                    <text x="272" y="202">π · Σ</text>
+                </svg>
+            </div>
+        </section>
+
+        <div class="subject-grid">
+            <article class="subject-block-card" id="analisis">
+                <div class="subject-block-card__number">01</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">📈</span>
+                    <h3>BLOQUE I: Análisis</h3>
+                </div>
+                <ul class="bullet-list">
+                    <li>Dominio y límites</li>
+                    <li>Continuidad y derivabilidad</li>
+                    <li>Recta tangente y normal</li>
+                    <li>Monotonía y máximos/mínimos relativos</li>
+                    <li>Curvatura y puntos de inflexión</li>
+                    <li>Representación gráfica e integrales</li>
+                </ul>
+                <div class="recursos-links">
+                    <a href="docs/analisis.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+                    <a href="pau-matematicas.html" class="btn-neon btn-outline" target="_blank" rel="noopener">✎ Práctica</a>
+                </div>
+            </article>
+
+            <article class="subject-block-card" id="algebra">
+                <div class="subject-block-card__number">02</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">🔢</span>
+                    <h3>BLOQUE II: Álgebra</h3>
+                </div>
+                <ul class="bullet-list">
+                    <li>Matrices y operaciones con matrices</li>
+                    <li>Rango e inversa de una matriz</li>
+                    <li>Determinantes</li>
+                    <li>Sistemas de ecuaciones</li>
+                </ul>
+                <div class="recursos-links">
+                    <a href="docs/algebra.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+                    <a href="pau-matematicas.html" class="btn-neon btn-outline" target="_blank" rel="noopener">✎ Práctica</a>
+                </div>
+            </article>
+
+            <article class="subject-block-card" id="geometria">
+                <div class="subject-block-card__number">03</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">📐</span>
+                    <h3>BLOQUE III: Geometría</h3>
+                </div>
+                <ul class="bullet-list">
+                    <li>Vectores</li>
+                    <li>Rectas y planos</li>
+                    <li>Distancias y ángulos</li>
+                    <li>Áreas y volúmenes</li>
+                </ul>
+                <div class="recursos-links">
+                    <a href="docs/geometria.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+                    <a href="pau-matematicas.html" class="btn-neon btn-outline" target="_blank" rel="noopener">✎ Práctica</a>
+                </div>
+            </article>
+
+            <article class="subject-block-card" id="probabilidad">
+                <div class="subject-block-card__number">04</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">📊</span>
+                    <h3>BLOQUE IV: Probabilidad y Estadística</h3>
+                </div>
+                <ul class="bullet-list">
+                    <li>Operaciones con sucesos</li>
+                    <li>Axiomas</li>
+                    <li>Leyes y teoremas</li>
+                    <li>Fórmulas</li>
+                    <li>Diagramas de árbol</li>
+                    <li>Distribución binomial</li>
+                    <li>Distribución normal</li>
+                </ul>
+                <div class="recursos-links">
+                    <a href="docs/probabilidad.pdf" class="btn-neon btn-ghost" target="_blank" rel="noopener">📘 Teoría</a>
+                    <a href="pau-matematicas.html" class="btn-neon btn-outline" target="_blank" rel="noopener">✎ Práctica</a>
+                </div>
+            </article>
+        </div>
+
+        <section class="subject-value-strip">
+            <div class="subject-value-item">
+                <strong>📄 Apuntes y resúmenes</strong>
+                <span>Material claro y actualizado</span>
+            </div>
+            <div class="subject-value-item">
+                <strong>🎓 Ejercicios resueltos</strong>
+                <span>Soluciones paso a paso</span>
+            </div>
+            <div class="subject-value-item">
+                <strong>📝 Exámenes PAU</strong>
+                <span>Años anteriores resueltos</span>
+            </div>
+            <div class="subject-value-item">
+                <strong>🔄 Actualización constante</strong>
+                <span>Nuevos recursos periódicamente</span>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

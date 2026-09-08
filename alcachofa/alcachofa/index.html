@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>JJ | BachilleratoFacilito</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <meta name="google-site-verification" content="6sf69pVlHhqZ7CmdGYT5YVbsCh-VZWHowNLH3D3r_r4" />
+</head>
+<body>
+    <header>
+        <div class="logo">Bachillerato<span>Facilito</span></div>
+        <nav>
+            <a href="index.html" class="active">Inicio</a>
+            <a href="recursos.html">Recursos</a>
+        </nav>
+    </header>
+
+    <main class="page-container">
+        <section class="search-panel">
+            <div class="panel-inner">
+                <div class="intro-card">
+                    <span class="hero-eyebrow">Plataforma educativa 2026</span>
+                    <h2 class="hero-title">Todos los apuntes, resúmenes y ejercicios de 2º de Bachillerato en un solo lugar.</h2>
+                    <p class="hero-subtitle">Recursos claros, actualizados y pensados para estudiar con menos estrés y más seguridad.</p>
+                    <p class="hero-copy">En BachilleratoFacilito encontrarás resúmenes, ejercicios y otros recursos de las principales asignaturas del instituto, con enfoque en 2º de Bachillerato y la PAU.</p>
+                </div>
+                <form id="search-form" class="search-field">
+                    <input id="search-input" type="search" placeholder="Buscar asignatura, tema o recurso" aria-label="Buscar contenido">
+                    <button type="submit" aria-label="Buscar">🔍</button>
+                </form>
+                <div class="trust-strip" role="list" aria-label="Estadísticas de la plataforma">
+                    <div class="trust-item" role="listitem"><strong>+500</strong><span>recursos</span></div>
+                    <div class="trust-item" role="listitem"><strong>9</strong><span>asignaturas</span></div>
+                    <div class="trust-item" role="listitem"><strong>PAU</strong><span>Madrid</span></div>
+                    <div class="trust-item" role="listitem"><strong>∞</strong><span>actualización</span></div>
+                </div>
+                <div id="search-results" class="search-results" aria-live="polite" aria-label="Resultados de búsqueda"></div>
+            </div>
+        </section>
+
+        <section class="about-section">
+            <div class="about-text">
+                <h1>¿QUIÉNES SOMOS?</h1>
+                <p> Somos Jorge Pérez y Javier Martín, dos amigos y estudiantes que hemos cursado el año académico 25/26, en el que obtuvimos una media de bachillarato de 9 y 9,8 y una nota de admisión tras la PAU de 11,3 y 12,7. Nuestro objetivo con esta página web es facilitar a los estudiantes a llevar con menos estrés este curso y ayudarles a subir sus notas. </p>
+                <a href="recursos.html" class="btn-neon">Recursos</a>
+            </div>
+            <div class="about-card">
+                <div class="card-image">
+                    <a href="física.html" class="card-node subject-physics">Física</a>
+                    <a href="filosofía.html" class="card-node subject-philosophy">Filosofía</a>
+                    <a href="lengua.html" class="card-node subject-language">Lengua</a>
+                    <a href="Dibujo.html" class="card-node subject-drawing">Dibujo</a>
+                    <a href="matematicas.html" class="card-node center subject-maths">Matemáticas II</a>
+                    <a href="Historia de España.html" class="card-node subject-history">Historia de España</a>
+                    <a href="Inglés.html" class="card-node subject-english">Inglés</a>
+                    <a href="biología.html" class="card-node subject-biology">Biología</a>
+                    <a href="química.html" class="card-node subject-chemistry">Química</a>
+                    <div class="card-tag">MATERIAS</div>
+                </div>
+            </div>
+        </section>
+    </main>
+    <script>
+        const searchForm = document.getElementById('search-form');
+        const searchInput = document.getElementById('search-input');
+        const searchResults = document.getElementById('search-results');
+
+        const searchRoutes = [
+            { title: 'Matemáticas II', url: 'matematicas.html', terms: ['matematicas', 'matemáticas', 'mates', 'matematica', 'mate', 'matematicas ii', 'matematicas.html'] },
+            { title: 'Matemáticas II · Álgebra', url: 'matematicas.html#algebra', terms: ['algebra', 'matrices', 'determinantes', 'sistemas de ecuaciones', 'rango', 'inversa'] },
+            { title: 'Matemáticas II · Análisis', url: 'matematicas.html#analisis', terms: ['analisis', 'limites', 'derivadas', 'continuidad', 'integrales', 'monotonia', 'curvatura'] },
+            { title: 'Matemáticas II · Geometría', url: 'matematicas.html#geometria', terms: ['geometria', 'vectores', 'rectas', 'planos', 'distancias', 'angulos', 'volumenes'] },
+            { title: 'Matemáticas II · Probabilidad y Estadística', url: 'matematicas.html#probabilidad', terms: ['probabilidad', 'estadistica', 'sucesos', 'binomial', 'normal', 'diagramas de arbol'] },
+            { title: 'Física', url: 'física.html', terms: ['fisica', 'física', 'fisca', 'fizica', 'fisica.html'] },
+            { title: 'Física · Campo Gravitatorio', url: 'física.html#campo-gravitatorio', terms: ['campo gravitatorio', 'gravitatorio', 'kepler', 'newton', 'gauss', 'gravedad'] },
+            { title: 'Física · Campo Electromagnético', url: 'física.html#campo-electromagnetico', terms: ['campo electromagnetico', 'electromagnetico', 'coulomb', 'lorentz', 'induccion electromagnetica', 'electrico', 'magnetico'] },
+            { title: 'Física · Vibraciones y Ondas', url: 'física.html#vibraciones-y-ondas', terms: ['vibraciones y ondas', 'ondas', 'movimiento armonico simple', 'mas', 'optica', 'sonido'] },
+            { title: 'Física · Física Moderna', url: 'física.html#fisica-moderna', terms: ['fisica moderna', 'moderna', 'relatividad', 'cuantica', 'nuclear', 'cuantos'] },
+            { title: 'Historia de España', url: 'Historia de España.html', terms: ['historia', 'historia de españa', 'historia de espana', 'espana', 'españa', 'historia de españa.html'] },
+            { title: 'Temarios', url: 'recursos.html', terms: ['temarios', 'temario', 'temas', 'temarios de bachillerato', 'temarios.html'] },
+            { title: 'Filosofía', url: 'filosofía.html', terms: ['filosofia', 'filosofía', 'filsosofia', 'filosofia.html', 'historia de la filosofia', 'historia de la filosofía', 'apuntes de filosofia', 'apuntes de filosofía', 'temario de filosofia', 'temario de filosofía'] },
+            { title: 'Filosofía · Platón', url: 'filosofía-autores.html#platon', terms: ['platon', 'platon', 'platón', 'ideas de platon', 'platon teoria', 'platon filosofia'] },
+            { title: 'Filosofía · Aristóteles', url: 'filosofía-autores.html#aristoteles', terms: ['aristoteles', 'aristóteles', 'aristoteles filosofia', 'aristoteles teoria'] },
+            { title: 'Filosofía · San Agustín', url: 'filosofía-autores.html#san-agustin', terms: ['san agustin', 'san agustín', 'agustin de hipona', 'san agustin filosofia', 'san agustin teoria'] },
+            { title: 'Filosofía · Santo Tomás', url: 'filosofía-autores.html#santo-tomas', terms: ['santo tomas', 'santo tomas de aquino', 'santo tomas filosofia', 'santo tomas teoria'] },
+            { title: 'Filosofía · Descartes', url: 'filosofía-autores.html#descartes', terms: ['descartes', 'rene descartes', 'rené descartes', 'descartes filosofia', 'descartes teoria'] },
+            { title: 'Filosofía · Hume', url: 'filosofía-autores.html#hume', terms: ['hume', 'david hume', 'hume filosofia', 'hume teoria'] },
+            { title: 'Filosofía · Kant', url: 'filosofía-autores.html#kant', terms: ['kant', 'inmanuel kant', 'immanuel kant', 'kant filosofia', 'kant teoria'] },
+            { title: 'Filosofía · Rousseau', url: 'filosofía-autores.html#rousseau', terms: ['rousseau', 'jean-jacques rousseau', 'jean jacques rousseau', 'rousseau filosofia', 'rousseau teoria'] },
+            { title: 'Filosofía · Marx', url: 'filosofía-autores.html#marx', terms: ['marx', 'karl marx', 'marx filosofia', 'marx teoria'] },
+            { title: 'Filosofía · Nietzsche', url: 'filosofía-autores.html#nietzsche', terms: ['nietzsche', 'friedrich nietzsche', 'nietzsche filosofia', 'nietzsche teoria'] },
+            { title: 'Filosofía · Ortega y Gasset', url: 'filosofía-autores.html#ortega-y-gasset', terms: ['ortega y gasset', 'ortega gasset', 'ortega y gasset filosofia', 'ortega y gasset teoria'] },
+            { title: 'Filosofía · Hannah Arendt', url: 'filosofía-autores.html#arendt', terms: ['arendt', 'hannah arendt', 'arendt filosofia', 'arendt teoria'] },
+            { title: 'Inglés', url: 'Inglés.html', terms: ['ingles', 'inglés', 'ingels', 'ingles.html'] },
+            { title: 'Dibujo', url: 'Dibujo.html', terms: ['dibujo', 'dibujo artistico', 'dibujo.html'] },
+            { title: 'Recursos', url: 'recursos.html', terms: ['recursos', 'apuntes', 'ejercicios', 'esquemas', 'temas populares', 'destacados', 'guardados', 'recursos.html'] }
+        ];
+
+        const normalize = (text) => text
+            .toLowerCase()
+            .normalize('NFD')
+            .replace(/\p{Diacritic}/gu, '')
+            .trim();
+
+        const levenshteinDistance = (source, target) => {
+            if (source === target) {
+                return 0;
+            }
+
+            if (!source.length) {
+                return target.length;
+            }
+
+            if (!target.length) {
+                return source.length;
+            }
+
+            const previousRow = Array.from({ length: target.length + 1 }, (_, index) => index);
+
+            for (let sourceIndex = 1; sourceIndex <= source.length; sourceIndex += 1) {
+                const currentRow = [sourceIndex];
+
+                for (let targetIndex = 1; targetIndex <= target.length; targetIndex += 1) {
+                    const substitutionCost = source[sourceIndex - 1] === target[targetIndex - 1] ? 0 : 1;
+                    currentRow[targetIndex] = Math.min(
+                        currentRow[targetIndex - 1] + 1,
+                        previousRow[targetIndex] + 1,
+                        previousRow[targetIndex - 1] + substitutionCost
+                    );
+                }
+
+                previousRow.splice(0, previousRow.length, ...currentRow);
+            }
+
+            return previousRow[target.length];
+        };
+
+        const getRouteScore = (query, route) => {
+            const normalizedQuery = normalize(query);
+            if (!normalizedQuery) {
+                return 0;
+            }
+
+            let bestScore = 0;
+
+            for (const term of route.terms) {
+                const normalizedTerm = normalize(term);
+
+                if (normalizedQuery === normalizedTerm) {
+                    return 1;
+                }
+
+                if (normalizedTerm.includes(normalizedQuery) || normalizedQuery.includes(normalizedTerm)) {
+                    bestScore = Math.max(bestScore, 0.95);
+                }
+
+                const distance = levenshteinDistance(normalizedQuery, normalizedTerm);
+                const similarity = 1 - (distance / Math.max(normalizedQuery.length, normalizedTerm.length));
+                bestScore = Math.max(bestScore, similarity);
+
+                const queryTokens = normalizedQuery.split(/\s+/);
+                const termTokens = normalizedTerm.split(/\s+/);
+
+                for (const queryToken of queryTokens) {
+                    for (const termToken of termTokens) {
+                        if (!queryToken || !termToken) {
+                            continue;
+                        }
+
+                        const tokenDistance = levenshteinDistance(queryToken, termToken);
+                        const tokenSimilarity = 1 - (tokenDistance / Math.max(queryToken.length, termToken.length));
+                        bestScore = Math.max(bestScore, tokenSimilarity * 0.92);
+                    }
+                }
+            }
+
+            return bestScore;
+        };
+
+        const getMatches = (query) => searchRoutes
+            .map((route) => ({ ...route, score: getRouteScore(query, route) }))
+            .filter((route) => route.score >= 0.45)
+            .sort((left, right) => right.score - left.score || left.title.localeCompare(right.title))
+            .slice(0, 5);
+
+        const renderResults = (query) => {
+            const matches = getMatches(query);
+
+            if (!query.trim()) {
+                searchResults.innerHTML = '';
+                searchResults.classList.remove('is-visible');
+                return;
+            }
+
+            if (!matches.length) {
+                searchResults.innerHTML = '<p class="search-empty">No veo nada todavía. Prueba con Matemáticas, Física, Historia, Filosofía, Inglés, Dibujo o Recursos.</p>';
+                searchResults.classList.add('is-visible');
+                return;
+            }
+
+            searchResults.innerHTML = matches.map((route) => `
+                <button type="button" class="search-result-item" data-url="${route.url}">
+                    <span class="search-result-title">${route.title}</span>
+                </button>
+            `).join('');
+
+            searchResults.classList.add('is-visible');
+
+            searchResults.querySelectorAll('.search-result-item').forEach((item) => {
+                item.addEventListener('click', () => {
+                    window.location.href = item.dataset.url;
+                });
+            });
+        };
+
+        const navigateToBestMatch = (query) => {
+            const matches = getMatches(query);
+            if (matches.length) {
+                window.location.href = matches[0].url;
+                return true;
+            }
+
+            return false;
+        };
+
+        searchForm.addEventListener('submit', (event) => {
+            event.preventDefault();
+            const query = searchInput.value;
+            if (!normalize(query)) {
+                searchInput.focus();
+                return;
+            }
+
+            if (!navigateToBestMatch(query)) {
+                alert('No se encontró la asignatura o el tema. Prueba con Matemáticas, Física, Historia, Filosofía, Inglés, Dibujo o Recursos.');
+            }
+        });
+
+        searchInput.addEventListener('input', () => {
+            if (!searchInput.value.trim()) {
+                searchResults.innerHTML = '';
+                searchResults.classList.remove('is-visible');
+                return;
+            }
+
+            renderResults(searchInput.value);
+        });
+
+        searchInput.addEventListener('focus', () => {
+            renderResults(searchInput.value);
+        });
+
+        searchInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Escape') {
+                searchInput.value = '';
+                renderResults('');
+                searchInput.blur();
+            }
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!searchResults.contains(event.target) && event.target !== searchInput) {
+                searchResults.classList.remove('is-visible');
+            }
+        });
+
+        searchInput.addEventListener('blur', () => {
+            window.setTimeout(() => {
+                if (!searchResults.matches(':hover')) {
+                    searchResults.classList.remove('is-visible');
+                }
+            }, 120);
+        });
+        renderResults('');
+    </script>
+</body>
+</html>

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 60" role="img" aria-label="Bandera del Reino Unido">
+  <rect width="120" height="60" fill="#00247d"/>
+  <rect width="120" height="60" fill="#ffffff" opacity="0.08"/>
+  <path d="M0 0L120 60M120 0L0 60" stroke="#ffffff" stroke-width="8"/>
+  <path d="M0 0L120 60M120 0L0 60" stroke="#cf142b" stroke-width="4"/>
+  <path d="M60 0V60M0 30H120" stroke="#ffffff" stroke-width="12"/>
+  <path d="M60 0V60M0 30H120" stroke="#cf142b" stroke-width="6"/>
+</svg>

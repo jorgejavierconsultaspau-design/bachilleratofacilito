@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Exámenes PAU — Matemáticas II | BachilleratoFacilito</title>
+    <link rel="stylesheet" href="css/estilos.css">
+    <style>
+        /* Ajustes mínimos para integrar la UI de exámenes con el diseño existente */
+        .pau-hero { margin: 18px 0 22px; }
+        .breadcrumbs { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 12px; }
+        .filters { display:flex; gap:12px; flex-wrap:wrap; align-items:center; margin-bottom:18px; }
+        .filters select, .filters input[type="search"] { padding:10px 12px; border-radius:12px; border:1px solid rgba(15,23,42,0.06); background: #fff; }
+        .library-era-section { margin-top: 18px; }
+        .year-section { padding: 16px; border-radius: 16px; background: rgba(255,255,255,0.96); border:1px solid rgba(15,23,42,0.06); box-shadow: 0 12px 28px rgba(15,23,42,0.04); }
+        .category-title { margin: 8px 0 12px; font-weight:700; color: var(--text-main); }
+        .exam-card { display:flex; flex-direction:column; gap:8px; }
+        .exam-meta { color: var(--text-muted); font-size:0.92rem; }
+        .btn-disabled { opacity:0.6; pointer-events:none; }
+        @media (max-width:700px){ .filters { flex-direction:column; align-items:stretch; } }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Bachillerato<span>Facilito</span></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="recursos.html">Recursos</a>
+        </nav>
+    </header>
+
+    <main class="container">
+        <a href="matematicas.html" class="btn-neon btn-back">← Volver a Matemáticas II</a>
+
+        <div class="page-hero pau-hero">
+            <h2>Exámenes PAU — Matemáticas II</h2>
+            <p class="hero-copy">Practica con modelos y exámenes de convocatorias anteriores para preparar la PAU.</p>
+        </div>
+
+        <div class="filters">
+            <label>
+                Año
+                <select id="filterYear"><option value="all">Todos los años</option></select>
+            </label>
+            <label>
+                Convocatoria
+                <select id="filterType">
+                    <option value="all">Todas</option>
+                    <option value="models">Modelos</option>
+                    <option value="ordinaria">Convocatoria ordinaria</option>
+                    <option value="extraordinaria">Convocatoria extraordinaria</option>
+                </select>
+            </label>
+            <input type="search" id="filterSearch" placeholder="Buscar examen, año, etiqueta..." aria-label="Buscar exámenes">
+        </div>
+
+        <section id="yearList" aria-live="polite"></section>
+        <p id="emptyMessage" class="hero-copy" style="display:none; margin-top:18px;">No hay exámenes añadidos todavía. Edita la variable <code>examsData</code> en el script al final del archivo para añadirlos.</p>
+    </main>
+
+    <script>
+        /*
+         Estructura de datos editable por ti. No contiene URLs externas.
+
+         Ejemplo de uso (añadir dentro de examsData):
+         examsData['2026'] = {
+             models: [ { id: 'm1', title: 'Modelo 1', note: 'Modelo de examen PAU — 2026', officialUrl: '' } ],
+             ordinaria: [ { id: 'o1', title: 'PAU 2026 — Ordinaria', note: '', officialUrl: '' } ],
+             extraordinaria: [ /* ... */ ]
+         };
+
+         Cuando rellenes `officialUrl` con la URL oficial, el botón "Ver examen oficial" se activará automáticamente.
+         */
+
+        const examsData = {
+            // Añade aquí los años y exámenes tal como se especifica arriba.
+        };
+
+        // Utility
+        function yearsFromData() {
+            return Object.keys(examsData).map(Number).sort((a,b) => b - a);
+        }
+
+        const yearList = document.getElementById('yearList');
+        const filterYear = document.getElementById('filterYear');
+        const filterType = document.getElementById('filterType');
+        const filterSearch = document.getElementById('filterSearch');
+        const emptyMessage = document.getElementById('emptyMessage');
+
+        function render() {
+            const q = (filterSearch.value || '').toLowerCase().trim();
+            const yearSel = filterYear.value;
+            const typeSel = filterType.value;
+
+            const ys = yearsFromData();
+            yearList.innerHTML = '';
+
+            let anyShown = false;
+
+            ys.forEach(year => {
+                const yData = examsData[year];
+                if (!yData) return;
+
+                // build list of categories that have exams and match filters
+                const categories = [
+                    { key: 'models', label: 'Modelos' },
+                    { key: 'ordinaria', label: 'Convocatoria ordinaria' },
+                    { key: 'extraordinaria', label: 'Convocatoria extraordinaria' }
+                ];
+
+                // determine if any category has items matching search & type filters
+                const matchingCategories = categories.map(cat => {
+                    const items = (yData[cat.key] || []).filter(ex => {
+                        if (typeSel !== 'all' && ((typeSel === 'models' && cat.key !== 'models') || (typeSel === 'ordinaria' && cat.key !== 'ordinaria') || (typeSel === 'extraordinaria' && cat.key !== 'extraordinaria'))) return false;
+                        if (!q) return true;
+                        return (ex.title || '').toLowerCase().includes(q) || (ex.note || '').toLowerCase().includes(q) || String(year).includes(q);
+                    });
+                    return { cat, items };
+                }).filter(c => c.items.length > 0);
+
+                if (yearSel !== 'all' && String(yearSel) !== String(year)) return;
+                if (matchingCategories.length === 0) return;
+
+                anyShown = true;
+
+                const section = document.createElement('section');
+                section.className = 'library-era-section year-section';
+
+                const header = document.createElement('div');
+                header.className = 'library-era-header';
+                header.innerHTML = `<div class="library-era-title"><div class="era-badge">${year}</div><div style="margin-left:12px"><h3>${year}</h3><p class="hero-copy">Exámenes organizados por tipo</p></div></div>`;
+                section.appendChild(header);
+
+                matchingCategories.forEach(mc => {
+                    const catWrap = document.createElement('div');
+                    catWrap.style.marginTop = '12px';
+                    const catTitle = document.createElement('div');
+                    catTitle.className = 'category-title';
+                    catTitle.textContent = mc.cat.label;
+                    catWrap.appendChild(catTitle);
+
+                    const grid = document.createElement('div');
+                    grid.className = 'grid grid-2cols library-grid';
+
+                    mc.items.forEach(ex => {
+                        const card = document.createElement('article');
+                        card.className = 'card library-card exam-card';
+
+                        const top = document.createElement('div');
+                        top.innerHTML = `<h4 style="margin:0">${ex.title || ex.id || 'Examen'}</h4><div class="exam-meta">${ex.note || ''}</div>`;
+                        card.appendChild(top);
+
+                        const actions = document.createElement('div');
+                        actions.className = 'library-card__actions';
+
+                        // Botón para ver examen oficial — no añadimos URLs nosotros. Si officialUrl está vacío, el botón queda desactivado.
+                        const btn = document.createElement('a');
+                        btn.className = 'btn-library btn-library--primary card-btn';
+                        btn.textContent = 'Ver examen oficial →';
+                        if (ex.officialUrl && ex.officialUrl.trim()) {
+                            btn.href = ex.officialUrl;
+                            btn.target = '_blank';
+                            btn.rel = 'noopener';
+                        } else {
+                            btn.href = '#';
+                            btn.classList.add('btn-library--secondary','btn-disabled');
+                            btn.setAttribute('data-official-url', '');
+                        }
+
+                        actions.appendChild(btn);
+                        card.appendChild(actions);
+                        grid.appendChild(card);
+                    });
+
+                    catWrap.appendChild(grid);
+                    section.appendChild(catWrap);
+                });
+
+                yearList.appendChild(section);
+            });
+
+            emptyMessage.style.display = anyShown ? 'none' : 'block';
+        }
+
+        function populateFilters() {
+            const ys = yearsFromData();
+            filterYear.innerHTML = '<option value="all">Todos los años</option>' + ys.map(y => `<option value="${y}">${y}</option>`).join('');
+        }
+
+        // listeners
+        filterYear.addEventListener('change', render);
+        filterType.addEventListener('change', render);
+        filterSearch.addEventListener('input', () => { render(); });
+
+        // Inicialización
+        populateFilters();
+        render();
+
+        // Exponer para edición rápida desde consola si se desea
+        window.pau = { examsData, render, populateFilters };
+    </script>
+</body>
+</html>

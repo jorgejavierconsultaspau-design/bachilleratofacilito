@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Biblioteca Filosófica | BachilleratoFacilito</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bachillerato<span>Facilito</span></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="recursos.html">Recursos</a>
+        </nav>
+    </header>
+
+    <div class="container">
+        <a href="javascript:history.back()" class="btn-neon btn-back">← Volver</a>
+
+        <section class="library-hero">
+            <div class="library-hero__content">
+                <p class="library-hero__eyebrow">Biblioteca digital</p>
+                <h2>📚 Biblioteca Filosófica</h2>
+                <p>Autores fundamentales para Historia de la Filosofía PAU 2026.</p>
+            </div>
+            <div class="library-hero__stats">
+                <div class="library-stat">12 autores</div>
+                <div class="library-stat">Comparaciones disponibles</div>
+                <div class="library-stat">Textos comentados</div>
+                <div class="library-stat">Material actualizado</div>
+            </div>
+        </section>
+
+        <section class="library-search-shell">
+            <div class="search-field library-search-field">
+                <input id="authorSearch" type="text" placeholder="Buscar por autor, tema o época" aria-label="Buscar autores">
+                <button type="button" aria-label="Buscar">🔎</button>
+            </div>
+            <div class="filter-pills" role="tablist" aria-label="Filtrar por época">
+                <button class="filter-pill is-active" data-filter="todos">Todas las épocas</button>
+                <button class="filter-pill" data-filter="antigua">Filosofía Antigua y Medieval</button>
+                <button class="filter-pill" data-filter="moderna">Filosofía Moderna</button>
+                <button class="filter-pill" data-filter="contemporanea">Filosofía Contemporánea</button>
+            </div>
+        </section>
+
+        <section class="library-era-section" data-era-group="antigua">
+            <div class="library-era-header">
+                <div class="library-era-title">
+                    <span class="era-badge">🏛</span>
+                    <h3>Filosofía Antigua y Medieval</h3>
+                </div>
+                <p>Fundamentos, metafísica, Dios y ética.</p>
+            </div>
+            <div class="grid grid-horizontal library-grid">
+                <article class="card library-card" id="platon" data-era="antigua" data-title="platon" data-search="platon realidad conocimiento ser humano etica politica antigua idealismo">
+                    <div class="author-avatar">🏛️</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Antigua</span>
+                        <span class="author-chip">Idealismo</span>
+                    </div>
+                    <h3 class="bloque-header">Platón</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                        <li>Ser humano</li>
+                        <li>Ética y política</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/platon_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/platon_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="aristoteles" data-era="antigua" data-title="aristoteles" data-search="aristoteles realidad conocimiento ser humano etica politica antigua aristotelismo">
+                    <div class="author-avatar">🧠</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Antigua</span>
+                        <span class="author-chip">Aristotelismo</span>
+                    </div>
+                    <h3 class="bloque-header">Aristóteles</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                        <li>Ser humano</li>
+                        <li>Ética y política</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/aristoteles_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/aristoteles_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="san-agustin" data-era="antigua" data-title="san agustin" data-search="san agustin realidad conocimiento dios ser humano etica politica antigua agustinismo">
+                    <div class="author-avatar">⛪</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Antigua</span>
+                        <span class="author-chip">Cristianismo</span>
+                    </div>
+                    <h3 class="bloque-header">San Agustín de Hipona</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                        <li>Dios</li>
+                        <li>Ser humano</li>
+                        <li>Ética y política</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/san_agustin_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/san_agustin_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="santo-tomas" data-era="antigua" data-title="santo tomas" data-search="santo tomas dios antigua tomismo">
+                    <div class="author-avatar">✝️</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Antigua</span>
+                        <span class="author-chip">Tomismo</span>
+                    </div>
+                    <h3 class="bloque-header">Santo Tomás de Aquino</h3>
+                    <ul class="bullet-list">
+                        <li>Dios</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/santo_tomas_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/anto_tomas_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="library-era-section" data-era-group="moderna">
+            <div class="library-era-header">
+                <div class="library-era-title">
+                    <span class="era-badge">💡</span>
+                    <h3>Filosofía Moderna</h3>
+                </div>
+                <p>Razón, duda, sujeto y libertad.</p>
+            </div>
+            <div class="grid grid-horizontal library-grid">
+                <article class="card library-card" id="descartes" data-era="moderna" data-title="descartes" data-search="descartes realidad conocimiento dios ser humano moderna racionalismo">
+                    <div class="author-avatar">🧭</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Moderna</span>
+                        <span class="author-chip">Racionalismo</span>
+                    </div>
+                    <h3 class="bloque-header">René Descartes</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                        <li>Dios</li>
+                        <li>Ser humano</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/descartes_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/descartes_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="hume" data-era="moderna" data-title="hume" data-search="hume realidad conocimiento moderna empirismo">
+                    <div class="author-avatar">🌫️</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Moderna</span>
+                        <span class="author-chip">Empirismo</span>
+                    </div>
+                    <h3 class="bloque-header">David Hume</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/hume_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/hume_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="kant" data-era="moderna" data-title="kant" data-search="kant realidad conocimiento etica moderna criticismo">
+                    <div class="author-avatar">🧠</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Moderna</span>
+                        <span class="author-chip">Criticismo</span>
+                    </div>
+                    <h3 class="bloque-header">Inmanuel Kant</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                        <li>Ética</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/kant_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/kant_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="rousseau" data-era="moderna" data-title="rousseau" data-search="rousseau politica moderna contrato social">
+                    <div class="author-avatar">🌿</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Moderna</span>
+                        <span class="author-chip">Política</span>
+                    </div>
+                    <h3 class="bloque-header">Jean-Jacques Rousseau</h3>
+                    <ul class="bullet-list">
+                        <li>Política</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/rousseau_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/rousseau_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <section class="library-era-section" data-era-group="contemporanea">
+            <div class="library-era-header">
+                <div class="library-era-title">
+                    <span class="era-badge">🌍</span>
+                    <h3>Filosofía Contemporánea</h3>
+                </div>
+                <p>Crítica social, existencia y poder.</p>
+            </div>
+            <div class="grid grid-horizontal library-grid">
+                <article class="card library-card" id="marx" data-era="contemporanea" data-title="marx" data-search="marx politica ser humano contemporanea materialismo social">
+                    <div class="author-avatar">🏭</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Contemporánea</span>
+                        <span class="author-chip">Socialismo</span>
+                    </div>
+                    <h3 class="bloque-header">Karl Marx</h3>
+                    <ul class="bullet-list">
+                        <li>Política</li>
+                        <li>Ser humano</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/marx_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/marx_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="nietzsche" data-era="contemporanea" data-title="nietzsche" data-search="nietzsche realidad conocimiento dios etica contemporanea nihilismo">
+                    <div class="author-avatar">⚡</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Contemporánea</span>
+                        <span class="author-chip">Existencialismo</span>
+                    </div>
+                    <h3 class="bloque-header">Friedrich Nietzsche</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                        <li>Dios</li>
+                        <li>Ética</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/nietzsche_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/nietzsche_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="ortega-y-gasset" data-era="contemporanea" data-title="ortega y gasset" data-search="ortega y gasset realidad conocimiento contemporanea vitalismo">
+                    <div class="author-avatar">🌅</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Contemporánea</span>
+                        <span class="author-chip">Vitalismo</span>
+                    </div>
+                    <h3 class="bloque-header">Ortega y Gasset</h3>
+                    <ul class="bullet-list">
+                        <li>Realidad y conocimiento</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/ortega_y_gasset_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/ortega_y_gasset_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+
+                <article class="card library-card" id="arendt" data-era="contemporanea" data-title="arendt" data-search="arendt ser humano contemporanea politica libertad">
+                    <div class="author-avatar">🌐</div>
+                    <div class="author-topline">
+                        <span class="author-era-pill">Contemporánea</span>
+                        <span class="author-chip">Política</span>
+                    </div>
+                    <h3 class="bloque-header">Hannah Arendt</h3>
+                    <ul class="bullet-list">
+                        <li>Ser humano</li>
+                    </ul>
+                    <div class="library-card__actions">
+                        <a href="docs/arendt_teoria.pdf" class="btn-library btn-library--primary" target="_blank" rel="noopener">📖 Apuntes</a>
+                        <a href="docs/arendt_textos.pdf" class="btn-library btn-library--secondary" target="_blank" rel="noopener">📜 Textos</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </div>
+
+    <script>
+        // Función para normalizar texto (eliminar tildes)
+        function normalizeText(text) {
+            return text
+                .toLowerCase()
+                .normalize('NFD')
+                .replace(/[\u0300-\u036f]/g, '');
+        }
+
+        const searchInput = document.getElementById('authorSearch');
+        const filterButtons = document.querySelectorAll('.filter-pill');
+        const cards = Array.from(document.querySelectorAll('.library-card'));
+        const sections = Array.from(document.querySelectorAll('.library-era-section'));
+
+        function applyFilters() {
+            const query = (searchInput.value || '').trim();
+            const normalizedQuery = normalizeText(query);
+            const activeFilter = document.querySelector('.filter-pill.is-active')?.dataset.filter || 'todos';
+
+            let visibleCount = 0;
+
+            cards.forEach(card => {
+                let matchesQuery = !query; // Si no hay query, coincide
+                
+                if (query && !matchesQuery) {
+                    // Buscar en datos
+                    const searchData = normalizeText((card.dataset.search || '') + ' ' + (card.dataset.title || ''));
+                    const queryWords = normalizedQuery.split(/\s+/);
+                    
+                    // Coincide si cualquier palabra clave del query está en el texto
+                    matchesQuery = queryWords.some(word => word && searchData.includes(word));
+                }
+
+                const matchesEra = activeFilter === 'todos' || card.dataset.era === activeFilter;
+                const isVisible = matchesQuery && matchesEra;
+                
+                card.classList.toggle('is-hidden', !isVisible);
+                if (isVisible) visibleCount++;
+            });
+
+            sections.forEach(section => {
+                const visibleCards = section.querySelectorAll('.library-card:not(.is-hidden)').length;
+                section.classList.toggle('is-empty', visibleCards === 0);
+            });
+
+            // Mostrar mensaje si no hay resultados
+            let noResultsMsg = document.getElementById('no-results-message');
+            if (visibleCount === 0 && query) {
+                if (!noResultsMsg) {
+                    noResultsMsg = document.createElement('div');
+                    noResultsMsg.id = 'no-results-message';
+                    noResultsMsg.style.cssText = `
+                        text-align: center;
+                        padding: 40px 20px;
+                        color: #334155;
+                        font-size: 1.1rem;
+                        margin: 20px 0;
+                    `;
+                    const container = document.querySelector('.container');
+                    container.appendChild(noResultsMsg);
+                }
+                noResultsMsg.textContent = `No se encontraron autores para "${query}"`;
+                noResultsMsg.style.display = 'block';
+            } else if (noResultsMsg) {
+                noResultsMsg.style.display = 'none';
+            }
+        }
+
+        searchInput.addEventListener('input', applyFilters);
+        searchInput.addEventListener('change', applyFilters);
+
+        filterButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                filterButtons.forEach(item => item.classList.remove('is-active'));
+                button.classList.add('is-active');
+                applyFilters();
+            });
+        });
+
+        // Inicializar
+        applyFilters();
+    </script>
+</body>
+</html>
