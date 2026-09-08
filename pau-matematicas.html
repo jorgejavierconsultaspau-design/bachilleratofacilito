@@ -5,19 +5,22 @@
     <title>Exámenes PAU — Matemáticas II | BachilleratoFacilito</title>
     <link rel="stylesheet" href="css/estilos.css">
     <style>
-        /* Ajustes de la biblioteca de exámenes */
+        /* Biblioteca de exámenes: estructura ligera y legible en cualquier pantalla. */
         .pau-hero { margin: 18px 0 22px; }
         .filters { display:grid; grid-template-columns: minmax(150px, 0.6fr) minmax(180px, 0.8fr) minmax(240px, 1.4fr); gap:12px; align-items:end; margin-bottom:18px; }
-        .filter-field { display:flex; flex-direction:column; gap:6px; color:var(--text-main); font-weight:700; font-size:0.88rem; }
-        .filters select, .filters input[type="text"] { width:100%; box-sizing:border-box; padding:11px 12px; border-radius:12px; border:1px solid rgba(15,23,42,0.12); background:#fff; color:var(--text-main); font:inherit; font-weight:400; }
-        .exam-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:18px; margin-top:18px; }
-        .exam-card { display:flex; flex-direction:column; gap:12px; min-height:180px; }
-        .exam-card h3 { margin:0; font-size:1.05rem; }
-        .exam-meta { color:var(--text-muted); font-size:0.92rem; }
-        .exam-tags { display:flex; flex-wrap:wrap; gap:6px; margin:0; padding:0; list-style:none; }
-        .exam-tag { padding:5px 8px; border-radius:999px; background:rgba(37,99,235,0.08); color:var(--primary); font-size:0.78rem; }
-        .exam-card .card-btn { margin-top:auto; align-self:flex-start; }
-        .legal-notice { margin:22px 0 0; padding:14px 16px; border-left:3px solid var(--primary); color:var(--text-muted); background:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.55; }
+        .filter-field { display:flex; flex-direction:column; gap:6px; color:#1f2937; font-weight:700; font-size:0.88rem; }
+        .filters select, .filters input[type="text"] { width:100%; box-sizing:border-box; padding:11px 12px; border-radius:10px; border:1px solid #d8dee9; background:#fff; color:#1f2937; font:inherit; font-weight:400; }
+        .filters select:focus, .filters input[type="text"]:focus { outline:3px solid rgba(37,99,235,0.16); border-color:#2563eb; }
+        .exam-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px, 1fr)); gap:18px; margin-top:18px; }
+        .exam-card { display:flex; flex-direction:column; gap:14px; min-height:210px; padding:22px; background:#fff; border:1px solid #e7ebf1; border-radius:12px; box-shadow:0 6px 18px rgba(15,23,42,0.07); transition:all 0.3s ease; }
+        .exam-card:hover { transform:translateY(-4px); border-color:#cbd8ee; box-shadow:0 14px 28px rgba(15,23,42,0.12); }
+        .exam-card h3 { margin:0; color:#172033; font-size:1.08rem; font-weight:800; }
+        .exam-meta { margin:6px 0 0; color:#666; font-size:0.92rem; }
+        .exam-tags { display:flex; flex-wrap:wrap; gap:8px; }
+        .exam-tag { padding:5px 9px; border-radius:999px; background:#eaf2ff; color:#174ea6; font-size:0.77rem; line-height:1.2; }
+        .exam-card .card-btn { width:100%; box-sizing:border-box; margin-top:auto; padding:11px 14px; border:0; border-radius:9px; background:#2563eb; color:#fff; text-align:center; text-decoration:none; transition:all 0.3s ease; }
+        .exam-card .card-btn:hover { background:#1d4ed8; box-shadow:0 8px 16px rgba(37,99,235,0.22); }
+        .legal-notice { margin:22px 0 0; padding:14px 16px; border-left:3px solid #2563eb; color:#666; background:rgba(255,255,255,0.7); font-size:0.88rem; line-height:1.55; }
         @media (max-width:700px){ .filters { grid-template-columns:1fr; } }
     </style>
 </head>
@@ -49,6 +52,7 @@
                 Convocatoria
                 <select id="filterType">
                     <option value="all">Todas</option>
+                    <option value="modelo">Modelo</option>
                     <option value="ordinaria">Ordinaria</option>
                     <option value="extraordinaria">Extraordinaria</option>
                 </select>
@@ -65,13 +69,11 @@
     </main>
 
     <script>
-        const examenesMates = [
-            { id: 'pau-2026-ordinaria', ano: 2026, convocatoria: 'ordinaria', etiquetas: ['PAU', 'Matemáticas II', 'análisis', 'ordinaria'], enlaceOficial: 'https://www.ucm.es/acceso/selectividad' },
-            { id: 'pau-2025-extraordinaria', ano: 2025, convocatoria: 'extraordinaria', etiquetas: ['PAU', 'Matemáticas II', 'extraordinaria', 'EvAU'], enlaceOficial: 'https://www.ucm.es/acceso/selectividad' },
-            { id: 'pau-2024-ordinaria', ano: 2024, convocatoria: 'ordinaria', etiquetas: ['PAU', 'Matemáticas II', 'álgebra', 'ordinaria'], enlaceOficial: 'https://www.ucm.es/acceso/selectividad' },
-            { id: 'pau-2023-extraordinaria', ano: 2023, convocatoria: 'extraordinaria', etiquetas: ['PAU', 'Matemáticas II', 'geometría', 'extraordinaria'], enlaceOficial: 'https://www.ucm.es/acceso/selectividad' },
-            { id: 'pau-2010-ordinaria', ano: 2010, convocatoria: 'ordinaria', etiquetas: ['PAU', 'Matemáticas II', 'probabilidad', 'ordinaria'], enlaceOficial: 'https://www.ucm.es/acceso/selectividad' }
-        ];
+        const examenesMates = Array.from({ length: 17 }, (_, index) => 2026 - index).flatMap(ano => [
+            { id: `pau-${ano}-modelo`, ano, convocatoria: 'modelo', etiquetas: ['PAU', 'Matemáticas II', 'modelo', 'preparación'], enlaceOficial: `https://www.uc3m.es/pruebas-acceso/pau/matematicas-ii/${ano}-modelo.pdf` },
+            { id: `pau-${ano}-ordinaria`, ano, convocatoria: 'ordinaria', etiquetas: ['PAU', 'Matemáticas II', 'ordinaria', 'convocatoria'], enlaceOficial: `https://www.uc3m.es/pruebas-acceso/pau/matematicas-ii/${ano}-ordinaria.pdf` },
+            { id: `pau-${ano}-extraordinaria`, ano, convocatoria: 'extraordinaria', etiquetas: ['PAU', 'Matemáticas II', 'extraordinaria', 'convocatoria'], enlaceOficial: `https://www.uc3m.es/pruebas-acceso/pau/matematicas-ii/${ano}-extraordinaria.pdf` }
+        ]);
 
         const examGrid = document.getElementById('examGrid');
         const filterYear = document.getElementById('filterYear');
@@ -109,7 +111,7 @@
                         <h3>PAU ${examen.ano} — Matemáticas II</h3>
                         <p class="exam-meta">Convocatoria ${examen.convocatoria}</p>
                     </div>
-                    <ul class="exam-tags">${examen.etiquetas.map(etiqueta => `<li class="exam-tag">${etiqueta}</li>`).join('')}</ul>
+                    <div class="exam-tags" aria-label="Etiquetas">${examen.etiquetas.map(etiqueta => `<span class="exam-tag">${etiqueta}</span>`).join('')}</div>
                     <a class="btn-library btn-library--primary card-btn" href="${examen.enlaceOficial}" target="_blank" rel="noopener noreferrer">Ver examen oficial →</a>`;
                 examGrid.appendChild(card);
             });
