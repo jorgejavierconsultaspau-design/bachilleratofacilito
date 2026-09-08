@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contacto | BachilleratoFacilito</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Bachillerato<span>Facilito</span></div>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="recursos.html">Recursos</a>
+            <a href="quienes-somos.html">Quiénes somos</a>
+            <a href="contacto.html" class="active">Contacto</a>
+        </nav>
+    </header>
+
+    <main class="info-page">
+        <section class="info-hero info-hero--contact">
+            <p class="info-eyebrow">Estamos al otro lado</p>
+            <h1>Contacto</h1>
+            <p>¿Tienes una duda, una sugerencia o eres profesor y quieres colaborar? Escríbenos y te responderemos lo antes posible.</p>
+        </section>
+
+        <section class="contact-layout" aria-label="Canales de contacto">
+            <div class="contact-details">
+                <div class="section-heading">
+                    <p class="info-eyebrow">Hablemos</p>
+                    <h2>Elige tu canal</h2>
+                </div>
+                <a class="contact-card" href="mailto:contacto@bachilleratofacilito.es">
+                    <span class="contact-card__icon" aria-hidden="true">✉</span>
+                    <span><strong>Correo electrónico</strong><small>contacto@bachilleratofacilito.es</small></span>
+                </a>
+                <a class="contact-card" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">
+                    <span class="contact-card__icon" aria-hidden="true">◎</span>
+                    <span><strong>Instagram</strong><small>@bachilleratofacilito</small></span>
+                </a>
+                <div class="contact-note">
+                    <strong>¿Eres profesor?</strong>
+                    <p>Nos encantará conocer tus ideas para mejorar el portal y hacerlo todavía más útil para el aula.</p>
+                </div>
+            </div>
+
+            <form class="contact-form" action="mailto:contacto@bachilleratofacilito.es" method="post" enctype="text/plain">
+                <h2>Escríbenos</h2>
+                <label for="contact-name">Nombre</label>
+                <input id="contact-name" name="Nombre" type="text" autocomplete="name" required>
+                <label for="contact-email">Correo electrónico</label>
+                <input id="contact-email" name="Correo" type="email" autocomplete="email" required>
+                <label for="contact-message">Mensaje</label>
+                <textarea id="contact-message" name="Mensaje" rows="6" required></textarea>
+                <button type="submit" class="btn-neon">Enviar mensaje</button>
+                <p class="form-hint">Se abrirá tu aplicación de correo para completar el envío.</p>
+            </form>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2026 BachilleratoFacilito · <a href="quienes-somos.html">Quiénes somos</a> · <a href="contacto.html">Contacto</a> · <a href="legal.html">Información legal</a></p>
+    </footer>
+</body>
+</html>
