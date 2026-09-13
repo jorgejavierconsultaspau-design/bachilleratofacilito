@@ -1,1 +1,19 @@
 @import url('css/estilos.css');
+
+.bf-subject {
+	border: 1px solid var(--bf-line);
+	border-radius: 8px;
+}
+
+.bf-subject::after {
+	display: none;
+}
+
+.bf-subjects--resources > .bf-section-heading {
+	justify-content: center;
+	text-align: center;
+}
+
+.bf-subjects--resources > .bf-section-heading p {
+	max-width: none;
+}
