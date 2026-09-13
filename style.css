@@ -122,6 +122,15 @@
 	padding-bottom: 120px;
 }
 
+.bf-explore {
+	padding-top: 24px;
+	align-items: start;
+}
+
+.bf-explore > .bf-section-label {
+	margin-top: 0;
+}
+
 .bf-section-label {
 	margin-bottom: 22px;
 	font-size: 0.7rem;
@@ -144,6 +153,17 @@
 	font-family: inherit;
 	font-weight: 600;
 	letter-spacing: -0.045em;
+}
+
+.bf-explore__links {
+	display: grid;
+	grid-template-columns: repeat(3, minmax(0, 1fr));
+	gap: 12px;
+}
+
+.bf-explore__links a {
+	margin: 0;
+	text-align: center;
 }
 
 .bf-subjects__grid {
@@ -190,4 +210,10 @@
 
 .bf-button span {
 	color: #171717;
+}
+
+@media (max-width: 680px) {
+	.bf-explore__links {
+		grid-template-columns: 1fr;
+	}
 }
