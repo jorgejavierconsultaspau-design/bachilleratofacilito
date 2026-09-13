@@ -2,361 +2,84 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>JJ | BachilleratoFacilito</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Apuntes, ejercicios, resúmenes y recursos para 2º de Bachillerato y la PAU.">
+    <title>BachilleratoFacilito | 2º de Bachillerato y PAU</title>
     <link rel="stylesheet" href="style.css">
-    <meta name="google-site-verification" content="6sf69pVlHhqZ7CmdGYT5YVbsCh-VZWHowNLH3D3r_r4" />
+    <meta name="google-site-verification" content="6sf69pVlHhqZ7CmdGYT5YVbsCh-VZWHowNLH3D3r_r4">
 </head>
-<body>
-    <header>
-        <div class="logo">Bachillerato<span>Facilito</span></div>
-        <nav>
-            <a href="index.html" class="active">Inicio</a>
+<body class="bf-home">
+    <header class="bf-header">
+        <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
+        <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
+        <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
+            <a class="is-current" href="index.html">Inicio</a>
             <a href="recursos.html">Recursos</a>
+            <a href="pau-matematicas.html">PAU</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a href="contacto.html">Contacto</a>
+            <a class="bf-nav__action" href="#sugerencias">Sugerencias</a>
         </nav>
     </header>
 
-    <main class="home-page">
-        <section class="home-hero">
-            <div class="home-hero__copy">
-                <p class="home-kicker">Tu espacio de estudio para la PAU</p>
-                <h1>Todo 2º de Bachillerato en un solo lugar.</h1>
-                <p class="home-hero__lead">Apuntes, ejercicios y recursos gratuitos para estudiar con claridad y llegar a la PAU con más confianza.</p>
-                <div class="home-hero__actions">
-                    <a href="recursos.html" class="home-button home-button--primary">Explorar asignaturas</a>
-                    <a href="#home-search" class="home-button home-button--quiet">Buscar un tema</a>
-                </div>
+    <main>
+        <section class="bf-hero" aria-labelledby="hero-title">
+            <div class="bf-hero__copy">
+                <p class="bf-eyebrow">BachilleratoFacilito · Madrid</p>
+                <h1 id="hero-title">Todo Bachillerato.<br><em>En un solo lugar.</em></h1>
+                <p class="bf-hero__summary">Apuntes, ejercicios, resúmenes y recursos para 2º de Bachillerato y la PAU.</p>
+                <div class="bf-hero__meta"><span>Recursos claros</span><span>Acceso gratuito</span><span>Hecho para estudiar</span></div>
             </div>
-            <div class="home-hero__art" aria-label="Ilustración de apuntes y libros de estudio" role="img">
-                <div class="study-orbit study-orbit--one"></div>
-                <div class="study-orbit study-orbit--two"></div>
-                <div class="study-note study-note--back"><span></span><span></span><span></span></div>
-                <div class="study-book"><span></span><span></span><span></span></div>
-                <div class="study-note study-note--front"><b>PAU</b><span></span><span></span></div>
-                <div class="study-spark study-spark--one"></div>
-                <div class="study-spark study-spark--two"></div>
+            <div class="bf-hero__search" id="buscador">
+                <div class="bf-search-heading"><span class="bf-search-kicker">Biblioteca de estudio</span><h2>¿Qué necesitas estudiar?</h2></div>
+                <form id="search-form" class="bf-search" role="search" autocomplete="off">
+                    <span class="bf-search__icon" aria-hidden="true">⌕</span>
+                    <input id="search-input" type="search" placeholder="Asignatura, tema, ejercicio o recurso..." aria-label="Buscar en BachilleratoFacilito" aria-controls="search-results" aria-autocomplete="list">
+                    <kbd>Enter</kbd>
+                    <button type="button" id="search-clear" aria-label="Limpiar búsqueda" hidden>Esc</button>
+                </form>
+                <div class="bf-quick-search" aria-label="Búsquedas rápidas"><span>Prueba con</span><button type="button" data-search="Matemáticas II">Matemáticas II</button><button type="button" data-search="Física">Física</button><button type="button" data-search="Platón">Platón</button><button type="button" data-search="PAU">PAU</button></div>
+                <div id="search-results" class="bf-search-results" role="status" aria-live="polite"></div>
+            </div>
+            <div class="bf-hero__figure" aria-hidden="true"><span class="bf-figure__label">2º</span><span class="bf-figure__line bf-figure__line--one"></span><span class="bf-figure__line bf-figure__line--two"></span><span class="bf-figure__axis bf-figure__axis--x"></span><span class="bf-figure__axis bf-figure__axis--y"></span><span class="bf-figure__dot"></span><span class="bf-figure__caption">aprender · practicar · avanzar</span></div>
+        </section>
+
+        <section class="bf-explore" aria-labelledby="explore-title">
+            <div class="bf-section-label"><span>01</span><span>Explora</span></div>
+            <div class="bf-explore__content"><h2 id="explore-title">Empieza por donde lo necesitas.</h2><div class="bf-explore__links"><a href="matematicas.html">Matemáticas II <span>↗</span></a><a href="física.html">Física <span>↗</span></a><a href="filosofía-apuntes.html">Filosofía <span>↗</span></a><a href="lengua.html">Lengua <span>↗</span></a><a href="Dibujo.html">Dibujo Técnico II <span>↗</span></a><a href="Historia de España.html">Historia de España <span>↗</span></a><a href="Inglés.html">Inglés <span>↗</span></a><a href="biología.html">Biología <span>↗</span></a><a href="química.html">Química <span>↗</span></a></div></div>
+        </section>
+
+        <section class="bf-subjects" aria-labelledby="subjects-title">
+            <div class="bf-section-heading"><div><div class="bf-section-label"><span>02</span><span>Asignaturas</span></div><h2 id="subjects-title">Una ruta clara para cada materia.</h2></div><a href="recursos.html" class="bf-text-link">Ver todas <span>→</span></a></div>
+            <div class="bf-subjects__grid">
+                <a href="matematicas.html" class="bf-subject bf-subject--math"><span class="bf-subject__number">01</span><span class="bf-subject__symbol">∑</span><strong>Matemáticas II</strong><small>Análisis · Álgebra · Geometría</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="física.html" class="bf-subject bf-subject--physics"><span class="bf-subject__number">02</span><span class="bf-subject__symbol">v²</span><strong>Física</strong><small>Campos · Ondas · Moderna</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="filosofía-apuntes.html" class="bf-subject bf-subject--philosophy"><span class="bf-subject__number">03</span><span class="bf-subject__symbol">Φ</span><strong>Filosofía</strong><small>Autores · Textos · Comparaciones</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="lengua.html" class="bf-subject bf-subject--language"><span class="bf-subject__number">04</span><span class="bf-subject__symbol">A·Z</span><strong>Lengua</strong><small>Lengua · Literatura · Textos</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="Dibujo.html" class="bf-subject bf-subject--drawing"><span class="bf-subject__number">05</span><span class="bf-subject__symbol">△</span><strong>Dibujo Técnico II</strong><small>Geometría · Sistemas · Normalización</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="Historia de España.html" class="bf-subject bf-subject--history"><span class="bf-subject__number">06</span><span class="bf-subject__symbol">↔</span><strong>Historia de España</strong><small>Siglos XIX y XX · Democracia</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="Inglés.html" class="bf-subject bf-subject--english"><span class="bf-subject__number">07</span><span class="bf-subject__symbol">EN</span><strong>Inglés</strong><small>Grammar · Vocabulary · Writing</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="biología.html" class="bf-subject bf-subject--biology"><span class="bf-subject__number">08</span><span class="bf-subject__symbol">DNA</span><strong>Biología</strong><small>Célula · Genética · Fisiología</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="química.html" class="bf-subject bf-subject--chemistry"><span class="bf-subject__number">09</span><span class="bf-subject__symbol">H₂O</span><strong>Química</strong><small>Enlace · Reacciones · Orgánica</small><span class="bf-subject__arrow">↗</span></a>
             </div>
         </section>
 
-        <section class="home-stats" aria-label="Datos de BachilleratoFacilito">
-            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">+</span><strong>500</strong><span>Recursos</span></div>
-            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">9</span><strong>9</strong><span>Asignaturas</span></div>
-            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">PAU</span><strong>Madrid</strong><span>Preparación local</span></div>
-            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">↻</span><strong>2026</strong><span>Contenido actualizado</span></div>
+        <section class="bf-editorial" aria-labelledby="resources-title">
+            <div class="bf-section-label"><span>03</span><span>Selección editorial</span></div>
+            <div class="bf-editorial__body"><div><h2 id="resources-title">Recursos para empezar.</h2><p>Una pequeña selección de materiales que ya están disponibles en la biblioteca.</p></div><div class="bf-resource-list"><a href="docs/analisis.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Matemáticas II</span><strong>Análisis</strong><span class="bf-resource-list__arrow">Abrir ↗</span></a><a href="docs/campo_gravitatorio_teoria.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Física</span><strong>Campo gravitatorio</strong><span class="bf-resource-list__arrow">Abrir ↗</span></a><a href="filosofía-autores.html"><span class="bf-resource-list__type">Página · Filosofía</span><strong>Autores y teorías</strong><span class="bf-resource-list__arrow">Explorar ↗</span></a><a href="pau-matematicas.html"><span class="bf-resource-list__type">Biblioteca · PAU</span><strong>Exámenes de Matemáticas II</strong><span class="bf-resource-list__arrow">Explorar ↗</span></a></div></div>
         </section>
 
-        <section class="home-search-section" id="home-search">
-            <div class="section-intro">
-                <p class="home-kicker">Encuentra tu próximo paso</p>
-                <h2>¿Qué necesitas estudiar hoy?</h2>
-                <p>Busca por asignatura, tema o tipo de recurso.</p>
-            </div>
-            <form id="search-form" class="search-field">
-                <input id="search-input" type="search" placeholder="Buscar asignatura, tema o recurso" aria-label="Buscar contenido">
-                <button type="submit" aria-label="Buscar"><span aria-hidden="true">⌕</span></button>
-            </form>
-            <div class="search-filters" aria-label="Filtros de búsqueda">
-                <label>Asignatura
-                    <select id="search-subject">
-                        <option value="">Todas</option><option>Matemáticas II</option><option>Física</option><option>Filosofía</option><option>Lengua</option><option>Dibujo Técnico II</option><option>Historia de España</option><option>Inglés</option><option>Biología</option><option>Química</option>
-                    </select>
-                </label>
-                <label>Tipo de recurso
-                    <select id="search-type">
-                        <option value="">Todos</option><option>Apuntes</option><option>Teoría</option><option>Exámenes</option>
-                    </select>
-                </label>
-            </div>
-            <div id="search-results" class="search-results" aria-live="polite" aria-label="Resultados de búsqueda"></div>
-        </section>
+        <section class="bf-pau" aria-labelledby="pau-title"><div class="bf-pau__index">PAU<br><span>Madrid</span></div><div><div class="bf-section-label"><span>04</span><span>Preparación</span></div><h2 id="pau-title">Prepárate para la PAU<br><em>con tiempo y criterio.</em></h2><p>Consulta modelos y exámenes de convocatorias anteriores para practicar con el formato real.</p><a href="pau-matematicas.html" class="bf-button">Explorar recursos PAU <span>→</span></a></div><div class="bf-pau__years" aria-hidden="true"><span>2026</span><span>2024</span><span>2022</span><span>2020</span><span>2018</span></div></section>
 
-        <section class="home-toolkit">
-            <div class="section-intro section-intro--centered">
-                <p class="home-kicker">Una forma más fácil de avanzar</p>
-                <h2>Todo lo que necesitas para la PAU</h2>
-            </div>
-            <div class="toolkit-grid">
-                <a href="recursos.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">▤</span><h3>Apuntes</h3><p>Ideas claras para entender cada bloque.</p><span class="toolkit-card__arrow">Ver recursos →</span></a>
-                <a href="recursos.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">✎</span><h3>Ejercicios</h3><p>Practica con problemas que ponen a prueba lo aprendido.</p><span class="toolkit-card__arrow">Practicar →</span></a>
-                <a href="pau-matematicas.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">□</span><h3>Exámenes</h3><p>Acércate al formato real de la prueba.</p><span class="toolkit-card__arrow">Preparar la PAU →</span></a>
-                <a href="recursos.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">⌁</span><h3>Recursos</h3><p>Encuentra materiales para tu forma de estudiar.</p><span class="toolkit-card__arrow">Explorar →</span></a>
-            </div>
-        </section>
+        <section class="bf-suggestions" id="sugerencias" aria-labelledby="suggestions-title"><div><div class="bf-section-label"><span>05</span><span>Participa</span></div><h2 id="suggestions-title">¿Qué deberíamos añadir?</h2><p>Tú estudias con BachilleratoFacilito. Tú decides qué mejoramos.</p></div><div class="bf-suggestions__actions"><a href="contacto.html" class="bf-suggestion-choice"><span>01</span><strong>Falta un tema</strong><small>Cuéntanos cuál</small><span>→</span></a><a href="contacto.html" class="bf-suggestion-choice"><span>02</span><strong>Quiero más ejercicios</strong><small>Indica la asignatura</small><span>→</span></a><a href="contacto.html" class="bf-suggestion-choice"><span>03</span><strong>Tengo una idea</strong><small>Nos interesa escucharte</small><span>→</span></a></div><a href="contacto.html" class="bf-text-link">Enviar sugerencia <span>→</span></a></section>
 
-        <section class="home-subjects">
-            <div class="section-intro">
-                <p class="home-kicker">Nueve caminos, un mismo objetivo</p>
-                <h2>Elige tu asignatura</h2>
-            </div>
-            <div class="subject-links-grid">
-                <a href="matematicas.html" class="subject-link"><span class="subject-link__mark subject-link__mark--math">∑</span><span><strong>Matemáticas II</strong><small>Análisis · Álgebra · Geometría</small></span><span aria-hidden="true">→</span></a>
-                <a href="física.html" class="subject-link"><span class="subject-link__mark subject-link__mark--physics">◌</span><span><strong>Física</strong><small>Campos · Ondas · Moderna</small></span><span aria-hidden="true">→</span></a>
-                <a href="filosofía-apuntes.html" class="subject-link"><span class="subject-link__mark subject-link__mark--philosophy">Φ</span><span><strong>Filosofía</strong><small>Autores · Textos · Comparaciones</small></span><span aria-hidden="true">→</span></a>
-                <a href="lengua.html" class="subject-link"><span class="subject-link__mark subject-link__mark--language">A</span><span><strong>Lengua</strong><small>Lengua · Literatura · Textos</small></span><span aria-hidden="true">→</span></a>
-                <a href="Dibujo.html" class="subject-link"><span class="subject-link__mark subject-link__mark--drawing">△</span><span><strong>Dibujo Técnico II</strong><small>Geometría · Sistemas · Normalización</small></span><span aria-hidden="true">→</span></a>
-                <a href="Historia de España.html" class="subject-link"><span class="subject-link__mark subject-link__mark--history">H</span><span><strong>Historia de España</strong><small>Siglos XIX y XX · Democracia</small></span><span aria-hidden="true">→</span></a>
-                <a href="Inglés.html" class="subject-link"><span class="subject-link__mark subject-link__mark--english">EN</span><span><strong>Inglés</strong><small>Grammar · Vocabulary · Writing</small></span><span aria-hidden="true">→</span></a>
-                <a href="biología.html" class="subject-link"><span class="subject-link__mark subject-link__mark--biology">+</span><span><strong>Biología</strong><small>Célula · Genética · Fisiología</small></span><span aria-hidden="true">→</span></a>
-                <a href="química.html" class="subject-link"><span class="subject-link__mark subject-link__mark--chemistry">Q</span><span><strong>Química</strong><small>Enlace · Reacciones · Orgánica</small></span><span aria-hidden="true">→</span></a>
-            </div>
-        </section>
-
-        <section class="home-about">
-            <div class="home-about__copy">
-                <p class="home-kicker">Hecho por estudiantes, para estudiantes</p>
-                <h2>Estudiar acompañado cambia el camino.</h2>
-                <p>Somos Jorge y Javier. Creamos BachilleratoFacilito para que estudiar 2º de Bachillerato sea un poco más fácil: menos ruido, más claridad y recursos a mano cuando los necesitas.</p>
-                <a href="quienes-somos.html" class="home-button home-button--quiet">Conócenos</a>
-            </div>
-            <div class="people-grid">
-                <article class="person-card"><div class="person-avatar person-avatar--jorge">J</div><h3>Jorge</h3><p>9,0 Bachillerato <span>·</span> 11,3 PAU</p></article>
-                <article class="person-card"><div class="person-avatar person-avatar--javier">J</div><h3>Javier</h3><p>9,8 Bachillerato <span>·</span> 12,7 PAU</p></article>
-            </div>
-        </section>
-
-        <section class="home-feedback" id="feedback-forms">
-            <div class="section-intro section-intro--centered"><p class="home-kicker">Ayúdanos a mejorar</p><h2>Tu opinión hace crecer la plataforma.</h2></div>
-            <div class="feedback-grid">
-                <div class="feedback-panel">
-                    <h3>Sugerencias</h3><p>¿Qué te ayudaría a estudiar mejor?</p>
-                    <div class="suggestion-links"><a href="#suggestion-form" class="suggestion-link">Falta un tema</a><a href="#suggestion-form" class="suggestion-link">Necesito un ejercicio</a><a href="#suggestion-form" class="suggestion-link">Tengo una idea</a></div>
-                    <form id="suggestion-form" class="feedback-form" action="https://formsubmit.co/ajax/jorgejavierconsultaspau@gmail.com" method="POST">
-                        <input type="hidden" name="_subject" value="Sugerencia para BachilleratoFacilito"><input type="hidden" name="Tipo" value="Sugerencia">
-                        <label for="suggestion-email">Tu correo</label><input id="suggestion-email" name="Correo" type="email" autocomplete="email" required>
-                        <label for="suggestion-message">Cuéntanos</label><textarea id="suggestion-message" name="Mensaje" rows="4" required></textarea><button type="submit" class="home-button home-button--primary">Enviar sugerencia</button>
-                    </form>
-                </div>
-                <div class="feedback-panel feedback-panel--review">
-                    <h3>¿Te está ayudando BachilleratoFacilito?</h3><div class="review-stars" aria-label="Cinco estrellas">★★★★★</div><blockquote>“Los resúmenes de Historia me salvaron para el examen.”</blockquote><p class="review-author">Estudiante de 2º de Bachillerato</p>
-                    <form class="feedback-form" action="https://formsubmit.co/ajax/jorgejavierconsultaspau@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nueva reseña de BachilleratoFacilito"><input type="hidden" name="Tipo" value="Reseña"><label for="review-message">Deja la tuya</label><textarea id="review-message" name="Mensaje" rows="3" required></textarea><button type="submit" class="home-button home-button--quiet">Compartir reseña</button></form>
-                </div>
-            </div>
-        </section>
+        <section class="bf-about" aria-labelledby="about-title"><div class="bf-about__mark">BF</div><div><div class="bf-section-label"><span>06</span><span>El proyecto</span></div><h2 id="about-title">Detrás de BachilleratoFacilito.</h2><p>Un proyecto creado para hacer más sencillo estudiar Bachillerato y preparar la PAU, con recursos claros y una navegación que respeta tu tiempo.</p><a href="quienes-somos.html" class="bf-text-link">Conócenos <span>→</span></a></div></section>
     </main>
-    <footer class="site-footer site-footer--wide">
-        <div class="footer-grid">
-            <div class="footer-brand"><div class="logo">Bachillerato<span>Facilito</span></div><p>Recursos claros y gratuitos para preparar 2º de Bachillerato y la PAU.</p></div>
-            <div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Asignaturas</a><a href="recursos.html">Recursos</a><a href="pau-matematicas.html">PAU</a></div>
-            <div><h2>Información</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a></div>
-            <div><h2>Redes</h2><a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><p class="footer-note">También puedes escribirnos para compartir una idea o recurso.</p></div>
-        </div>
-        <div class="footer-bottom"><span>© 2026 BachilleratoFacilito</span><a href="legal.html">Información legal</a></div>
-    </footer>
-    <script type="text/plain" id="legacy-search-code">
-        const searchForm = document.getElementById('search-form');
-        const searchInput = document.getElementById('search-input');
-        const searchResults = document.getElementById('search-results');
 
-        const searchRoutes = [
-            { title: 'Matemáticas II', url: 'matematicas.html', terms: ['matematicas', 'matemáticas', 'mates', 'matematica', 'mate', 'matematicas ii', 'matematicas.html'] },
-            { title: 'Matemáticas II · Álgebra', url: 'matematicas.html#algebra', terms: ['algebra', 'matrices', 'determinantes', 'sistemas de ecuaciones', 'rango', 'inversa'] },
-            { title: 'Matemáticas II · Análisis', url: 'matematicas.html#analisis', terms: ['analisis', 'limites', 'derivadas', 'continuidad', 'integrales', 'monotonia', 'curvatura'] },
-            { title: 'Matemáticas II · Geometría', url: 'matematicas.html#geometria', terms: ['geometria', 'vectores', 'rectas', 'planos', 'distancias', 'angulos', 'volumenes'] },
-            { title: 'Matemáticas II · Probabilidad y Estadística', url: 'matematicas.html#probabilidad', terms: ['probabilidad', 'estadistica', 'sucesos', 'binomial', 'normal', 'diagramas de arbol'] },
-            { title: 'Física', url: 'física.html', terms: ['fisica', 'física', 'fisca', 'fizica', 'fisica.html'] },
-            { title: 'Física · Campo Gravitatorio', url: 'física.html#campo-gravitatorio', terms: ['campo gravitatorio', 'gravitatorio', 'kepler', 'newton', 'gauss', 'gravedad'] },
-            { title: 'Física · Campo Electromagnético', url: 'física.html#campo-electromagnetico', terms: ['campo electromagnetico', 'electromagnetico', 'coulomb', 'lorentz', 'induccion electromagnetica', 'electrico', 'magnetico'] },
-            { title: 'Física · Vibraciones y Ondas', url: 'física.html#vibraciones-y-ondas', terms: ['vibraciones y ondas', 'ondas', 'movimiento armonico simple', 'mas', 'optica', 'sonido'] },
-            { title: 'Física · Física Moderna', url: 'física.html#fisica-moderna', terms: ['fisica moderna', 'moderna', 'relatividad', 'cuantica', 'nuclear', 'cuantos'] },
-            { title: 'Historia de España', url: 'Historia de España.html', terms: ['historia', 'historia de españa', 'historia de espana', 'espana', 'españa', 'historia de españa.html'] },
-            { title: 'Temarios', url: 'recursos.html', terms: ['temarios', 'temario', 'temas', 'temarios de bachillerato', 'temarios.html'] },
-            { title: 'Filosofía', url: 'filosofía-apuntes.html', terms: ['filosofia', 'filosofía', 'filsosofia', 'filosofia.html', 'historia de la filosofia', 'historia de la filosofía', 'apuntes de filosofia', 'apuntes de filosofía', 'temario de filosofia', 'temario de filosofía'] },
-            { title: 'Filosofía · Platón', url: 'filosofía-autores.html#platon', terms: ['platon', 'platon', 'platón', 'ideas de platon', 'platon teoria', 'platon filosofia'] },
-            { title: 'Filosofía · Aristóteles', url: 'filosofía-autores.html#aristoteles', terms: ['aristoteles', 'aristóteles', 'aristoteles filosofia', 'aristoteles teoria'] },
-            { title: 'Filosofía · San Agustín', url: 'filosofía-autores.html#san-agustin', terms: ['san agustin', 'san agustín', 'agustin de hipona', 'san agustin filosofia', 'san agustin teoria'] },
-            { title: 'Filosofía · Santo Tomás', url: 'filosofía-autores.html#santo-tomas', terms: ['santo tomas', 'santo tomas de aquino', 'santo tomas filosofia', 'santo tomas teoria'] },
-            { title: 'Filosofía · Descartes', url: 'filosofía-autores.html#descartes', terms: ['descartes', 'rene descartes', 'rené descartes', 'descartes filosofia', 'descartes teoria'] },
-            { title: 'Filosofía · Hume', url: 'filosofía-autores.html#hume', terms: ['hume', 'david hume', 'hume filosofia', 'hume teoria'] },
-            { title: 'Filosofía · Kant', url: 'filosofía-autores.html#kant', terms: ['kant', 'inmanuel kant', 'immanuel kant', 'kant filosofia', 'kant teoria'] },
-            { title: 'Filosofía · Rousseau', url: 'filosofía-autores.html#rousseau', terms: ['rousseau', 'jean-jacques rousseau', 'jean jacques rousseau', 'rousseau filosofia', 'rousseau teoria'] },
-            { title: 'Filosofía · Marx', url: 'filosofía-autores.html#marx', terms: ['marx', 'karl marx', 'marx filosofia', 'marx teoria'] },
-            { title: 'Filosofía · Nietzsche', url: 'filosofía-autores.html#nietzsche', terms: ['nietzsche', 'friedrich nietzsche', 'nietzsche filosofia', 'nietzsche teoria'] },
-            { title: 'Filosofía · Ortega y Gasset', url: 'filosofía-autores.html#ortega-y-gasset', terms: ['ortega y gasset', 'ortega gasset', 'ortega y gasset filosofia', 'ortega y gasset teoria'] },
-            { title: 'Filosofía · Hannah Arendt', url: 'filosofía-autores.html#arendt', terms: ['arendt', 'hannah arendt', 'arendt filosofia', 'arendt teoria'] },
-            { title: 'Inglés', url: 'Inglés.html', terms: ['ingles', 'inglés', 'ingels', 'ingles.html'] },
-            { title: 'Dibujo', url: 'Dibujo.html', terms: ['dibujo', 'dibujo artistico', 'dibujo.html'] },
-            { title: 'Recursos', url: 'recursos.html', terms: ['recursos', 'apuntes', 'ejercicios', 'esquemas', 'temas populares', 'destacados', 'guardados', 'recursos.html'] }
-        ];
+    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Recursos claros para 2º de Bachillerato y la PAU.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="pau-matematicas.html">PAU</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="#sugerencias">Sugerencias</a></div><div><h2>Legal</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span><span>Hecho para estudiar mejor.</span></div></footer>
 
-        const normalize = (text) => text
-            .toLowerCase()
-            .normalize('NFD')
-            .replace(/\p{Diacritic}/gu, '')
-            .trim();
-
-        const levenshteinDistance = (source, target) => {
-            if (source === target) {
-                return 0;
-            }
-
-            if (!source.length) {
-                return target.length;
-            }
-
-            if (!target.length) {
-                return source.length;
-            }
-
-            const previousRow = Array.from({ length: target.length + 1 }, (_, index) => index);
-
-            for (let sourceIndex = 1; sourceIndex <= source.length; sourceIndex += 1) {
-                const currentRow = [sourceIndex];
-
-                for (let targetIndex = 1; targetIndex <= target.length; targetIndex += 1) {
-                    const substitutionCost = source[sourceIndex - 1] === target[targetIndex - 1] ? 0 : 1;
-                    currentRow[targetIndex] = Math.min(
-                        currentRow[targetIndex - 1] + 1,
-                        previousRow[targetIndex] + 1,
-                        previousRow[targetIndex - 1] + substitutionCost
-                    );
-                }
-
-                previousRow.splice(0, previousRow.length, ...currentRow);
-            }
-
-            return previousRow[target.length];
-        };
-
-        const getRouteScore = (query, route) => {
-            const normalizedQuery = normalize(query);
-            if (!normalizedQuery) {
-                return 0;
-            }
-
-            let bestScore = 0;
-
-            for (const term of route.terms) {
-                const normalizedTerm = normalize(term);
-
-                if (normalizedQuery === normalizedTerm) {
-                    return 1;
-                }
-
-                if (normalizedTerm.includes(normalizedQuery) || normalizedQuery.includes(normalizedTerm)) {
-                    bestScore = Math.max(bestScore, 0.95);
-                }
-
-                const distance = levenshteinDistance(normalizedQuery, normalizedTerm);
-                const similarity = 1 - (distance / Math.max(normalizedQuery.length, normalizedTerm.length));
-                bestScore = Math.max(bestScore, similarity);
-
-                const queryTokens = normalizedQuery.split(/\s+/);
-                const termTokens = normalizedTerm.split(/\s+/);
-
-                for (const queryToken of queryTokens) {
-                    for (const termToken of termTokens) {
-                        if (!queryToken || !termToken) {
-                            continue;
-                        }
-
-                        const tokenDistance = levenshteinDistance(queryToken, termToken);
-                        const tokenSimilarity = 1 - (tokenDistance / Math.max(queryToken.length, termToken.length));
-                        bestScore = Math.max(bestScore, tokenSimilarity * 0.92);
-                    }
-                }
-            }
-
-            return bestScore;
-        };
-
-        const getMatches = (query) => searchRoutes
-            .map((route) => ({ ...route, score: getRouteScore(query, route) }))
-            .filter((route) => route.score >= 0.45)
-            .sort((left, right) => right.score - left.score || left.title.localeCompare(right.title))
-            .slice(0, 5);
-
-        const renderResults = (query) => {
-            const matches = getMatches(query);
-
-            if (!query.trim()) {
-                searchResults.innerHTML = '';
-                searchResults.classList.remove('is-visible');
-                return;
-            }
-
-            if (!matches.length) {
-                searchResults.innerHTML = '<p class="search-empty">No veo nada todavía. Prueba con Matemáticas, Física, Historia, Filosofía, Inglés, Dibujo o Recursos.</p>';
-                searchResults.classList.add('is-visible');
-                return;
-            }
-
-            searchResults.innerHTML = matches.map((route) => `
-                <button type="button" class="search-result-item" data-url="${route.url}">
-                    <span class="search-result-title">${route.title}</span>
-                </button>
-            `).join('');
-
-            searchResults.classList.add('is-visible');
-
-            searchResults.querySelectorAll('.search-result-item').forEach((item) => {
-                item.addEventListener('click', () => {
-                    window.location.href = item.dataset.url;
-                });
-            });
-        };
-
-        const navigateToBestMatch = (query) => {
-            const matches = getMatches(query);
-            if (matches.length) {
-                window.location.href = matches[0].url;
-                return true;
-            }
-
-            return false;
-        };
-
-        searchForm.addEventListener('submit', (event) => {
-            event.preventDefault();
-            const query = searchInput.value;
-            if (!normalize(query)) {
-                searchInput.focus();
-                return;
-            }
-
-            if (!navigateToBestMatch(query)) {
-                alert('No se encontró la asignatura o el tema. Prueba con Matemáticas, Física, Historia, Filosofía, Inglés, Dibujo o Recursos.');
-            }
-        });
-
-        searchInput.addEventListener('input', () => {
-            if (!searchInput.value.trim()) {
-                searchResults.innerHTML = '';
-                searchResults.classList.remove('is-visible');
-                return;
-            }
-
-            renderResults(searchInput.value);
-        });
-
-        searchInput.addEventListener('focus', () => {
-            renderResults(searchInput.value);
-        });
-
-        searchInput.addEventListener('keydown', (event) => {
-            if (event.key === 'Escape') {
-                searchInput.value = '';
-                renderResults('');
-                searchInput.blur();
-            }
-        });
-
-        document.addEventListener('click', (event) => {
-            if (!searchResults.contains(event.target) && event.target !== searchInput) {
-                searchResults.classList.remove('is-visible');
-            }
-        });
-
-        searchInput.addEventListener('blur', () => {
-            window.setTimeout(() => {
-                if (!searchResults.matches(':hover')) {
-                    searchResults.classList.remove('is-visible');
-                }
-            }, 120);
-        });
-        renderResults('');
-    </script>
     <script src="js/home-search.js"></script>
+    <script src="js/home-nav.js"></script>
     <script src="js/cookie-consent.js"></script>
 </body>
 </html>
