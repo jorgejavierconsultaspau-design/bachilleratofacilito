@@ -17,77 +17,131 @@
         </nav>
     </header>
 
-    <main class="page-container">
-        <section class="search-panel">
-            <div class="panel-inner">
-                <div class="intro-card">
-                    <span class="hero-eyebrow">Plataforma educativa 2026</span>
-                    <h2 class="hero-title">Todos los apuntes, resúmenes y ejercicios de 2º de Bachillerato en un solo lugar.</h2>
-                    <p class="hero-subtitle">Recursos claros, actualizados y pensados para estudiar con menos estrés y más seguridad.</p>
-                    <p class="hero-copy">En BachilleratoFacilito encontrarás resúmenes, ejercicios y otros recursos de las principales asignaturas del instituto, con enfoque en 2º de Bachillerato y la PAU.</p>
+    <main class="home-page">
+        <section class="home-hero">
+            <div class="home-hero__copy">
+                <p class="home-kicker">Tu espacio de estudio para la PAU</p>
+                <h1>Todo 2º de Bachillerato en un solo lugar.</h1>
+                <p class="home-hero__lead">Apuntes, ejercicios y recursos gratuitos para estudiar con claridad y llegar a la PAU con más confianza.</p>
+                <div class="home-hero__actions">
+                    <a href="recursos.html" class="home-button home-button--primary">Explorar asignaturas</a>
+                    <a href="#home-search" class="home-button home-button--quiet">Buscar un tema</a>
                 </div>
-                <form id="search-form" class="search-field">
-                    <input id="search-input" type="search" placeholder="Buscar asignatura, tema o recurso" aria-label="Buscar contenido">
-                    <button type="submit" aria-label="Buscar">🔍</button>
-                </form>
-                <div class="search-filters" aria-label="Filtros de búsqueda">
-                    <label>Asignatura
-                        <select id="search-subject">
-                            <option value="">Todas</option>
-                            <option>Matemáticas II</option>
-                            <option>Física</option>
-                            <option>Filosofía</option>
-                            <option>Lengua</option>
-                            <option>Dibujo Técnico II</option>
-                            <option>Historia de España</option>
-                            <option>Inglés</option>
-                            <option>Biología</option>
-                            <option>Química</option>
-                        </select>
-                    </label>
-                    <label>Tipo de recurso
-                        <select id="search-type">
-                            <option value="">Todos</option>
-                            <option>Apuntes</option>
-                            <option>Teoría</option>
-                            <option>Exámenes</option>
-                        </select>
-                    </label>
-                </div>
-                <div class="trust-strip" role="list" aria-label="Estadísticas de la plataforma">
-                    <div class="trust-item" role="listitem"><strong>+500</strong><span>recursos</span></div>
-                    <div class="trust-item" role="listitem"><strong>9</strong><span>asignaturas</span></div>
-                    <div class="trust-item" role="listitem"><strong>PAU</strong><span>Madrid</span></div>
-                    <div class="trust-item" role="listitem"><strong>∞</strong><span>actualización</span></div>
-                </div>
-                <div id="search-results" class="search-results" aria-live="polite" aria-label="Resultados de búsqueda"></div>
+            </div>
+            <div class="home-hero__art" aria-label="Ilustración de apuntes y libros de estudio" role="img">
+                <div class="study-orbit study-orbit--one"></div>
+                <div class="study-orbit study-orbit--two"></div>
+                <div class="study-note study-note--back"><span></span><span></span><span></span></div>
+                <div class="study-book"><span></span><span></span><span></span></div>
+                <div class="study-note study-note--front"><b>PAU</b><span></span><span></span></div>
+                <div class="study-spark study-spark--one"></div>
+                <div class="study-spark study-spark--two"></div>
             </div>
         </section>
 
-        <section class="about-section">
-            <div class="about-text">
-                <h1>¿QUIÉNES SOMOS?</h1>
-                <p> Somos Jorge Pérez y Javier Martín, dos amigos y estudiantes que hemos cursado el año académico 25/26, en el que obtuvimos una media de bachillarato de 9 y 9,8 y una nota de admisión tras la PAU de 11,3 y 12,7. Nuestro objetivo con esta página web es facilitar a los estudiantes a llevar con menos estrés este curso y ayudarles a subir sus notas. </p>
-                <a href="recursos.html" class="btn-neon">Recursos</a>
+        <section class="home-stats" aria-label="Datos de BachilleratoFacilito">
+            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">+</span><strong>500</strong><span>Recursos</span></div>
+            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">9</span><strong>9</strong><span>Asignaturas</span></div>
+            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">PAU</span><strong>Madrid</strong><span>Preparación local</span></div>
+            <div class="home-stat"><span class="home-stat__icon" aria-hidden="true">↻</span><strong>2026</strong><span>Contenido actualizado</span></div>
+        </section>
+
+        <section class="home-search-section" id="home-search">
+            <div class="section-intro">
+                <p class="home-kicker">Encuentra tu próximo paso</p>
+                <h2>¿Qué necesitas estudiar hoy?</h2>
+                <p>Busca por asignatura, tema o tipo de recurso.</p>
             </div>
-            <div class="about-card">
-                <div class="card-image">
-                    <a href="física.html" class="card-node subject-physics">Física</a>
-                    <a href="filosofía-apuntes.html" class="card-node subject-philosophy">Filosofía</a>
-                    <a href="lengua.html" class="card-node subject-language">Lengua</a>
-                    <a href="Dibujo.html" class="card-node subject-drawing">Dibujo Técnico II</a>
-                    <a href="matematicas.html" class="card-node center subject-maths">Matemáticas II</a>
-                    <a href="Historia de España.html" class="card-node subject-history">Historia de España</a>
-                    <a href="Inglés.html" class="card-node subject-english">Inglés</a>
-                    <a href="biología.html" class="card-node subject-biology">Biología</a>
-                    <a href="química.html" class="card-node subject-chemistry">Química</a>
-                    <div class="card-tag">MATERIAS</div>
+            <form id="search-form" class="search-field">
+                <input id="search-input" type="search" placeholder="Buscar asignatura, tema o recurso" aria-label="Buscar contenido">
+                <button type="submit" aria-label="Buscar"><span aria-hidden="true">⌕</span></button>
+            </form>
+            <div class="search-filters" aria-label="Filtros de búsqueda">
+                <label>Asignatura
+                    <select id="search-subject">
+                        <option value="">Todas</option><option>Matemáticas II</option><option>Física</option><option>Filosofía</option><option>Lengua</option><option>Dibujo Técnico II</option><option>Historia de España</option><option>Inglés</option><option>Biología</option><option>Química</option>
+                    </select>
+                </label>
+                <label>Tipo de recurso
+                    <select id="search-type">
+                        <option value="">Todos</option><option>Apuntes</option><option>Teoría</option><option>Exámenes</option>
+                    </select>
+                </label>
+            </div>
+            <div id="search-results" class="search-results" aria-live="polite" aria-label="Resultados de búsqueda"></div>
+        </section>
+
+        <section class="home-toolkit">
+            <div class="section-intro section-intro--centered">
+                <p class="home-kicker">Una forma más fácil de avanzar</p>
+                <h2>Todo lo que necesitas para la PAU</h2>
+            </div>
+            <div class="toolkit-grid">
+                <a href="recursos.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">▤</span><h3>Apuntes</h3><p>Ideas claras para entender cada bloque.</p><span class="toolkit-card__arrow">Ver recursos →</span></a>
+                <a href="recursos.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">✎</span><h3>Ejercicios</h3><p>Practica con problemas que ponen a prueba lo aprendido.</p><span class="toolkit-card__arrow">Practicar →</span></a>
+                <a href="pau-matematicas.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">□</span><h3>Exámenes</h3><p>Acércate al formato real de la prueba.</p><span class="toolkit-card__arrow">Preparar la PAU →</span></a>
+                <a href="recursos.html" class="toolkit-card"><span class="line-icon" aria-hidden="true">⌁</span><h3>Recursos</h3><p>Encuentra materiales para tu forma de estudiar.</p><span class="toolkit-card__arrow">Explorar →</span></a>
+            </div>
+        </section>
+
+        <section class="home-subjects">
+            <div class="section-intro">
+                <p class="home-kicker">Nueve caminos, un mismo objetivo</p>
+                <h2>Elige tu asignatura</h2>
+            </div>
+            <div class="subject-links-grid">
+                <a href="matematicas.html" class="subject-link"><span class="subject-link__mark subject-link__mark--math">∑</span><span><strong>Matemáticas II</strong><small>Análisis · Álgebra · Geometría</small></span><span aria-hidden="true">→</span></a>
+                <a href="física.html" class="subject-link"><span class="subject-link__mark subject-link__mark--physics">◌</span><span><strong>Física</strong><small>Campos · Ondas · Moderna</small></span><span aria-hidden="true">→</span></a>
+                <a href="filosofía-apuntes.html" class="subject-link"><span class="subject-link__mark subject-link__mark--philosophy">Φ</span><span><strong>Filosofía</strong><small>Autores · Textos · Comparaciones</small></span><span aria-hidden="true">→</span></a>
+                <a href="lengua.html" class="subject-link"><span class="subject-link__mark subject-link__mark--language">A</span><span><strong>Lengua</strong><small>Lengua · Literatura · Textos</small></span><span aria-hidden="true">→</span></a>
+                <a href="Dibujo.html" class="subject-link"><span class="subject-link__mark subject-link__mark--drawing">△</span><span><strong>Dibujo Técnico II</strong><small>Geometría · Sistemas · Normalización</small></span><span aria-hidden="true">→</span></a>
+                <a href="Historia de España.html" class="subject-link"><span class="subject-link__mark subject-link__mark--history">H</span><span><strong>Historia de España</strong><small>Siglos XIX y XX · Democracia</small></span><span aria-hidden="true">→</span></a>
+                <a href="Inglés.html" class="subject-link"><span class="subject-link__mark subject-link__mark--english">EN</span><span><strong>Inglés</strong><small>Grammar · Vocabulary · Writing</small></span><span aria-hidden="true">→</span></a>
+                <a href="biología.html" class="subject-link"><span class="subject-link__mark subject-link__mark--biology">+</span><span><strong>Biología</strong><small>Célula · Genética · Fisiología</small></span><span aria-hidden="true">→</span></a>
+                <a href="química.html" class="subject-link"><span class="subject-link__mark subject-link__mark--chemistry">Q</span><span><strong>Química</strong><small>Enlace · Reacciones · Orgánica</small></span><span aria-hidden="true">→</span></a>
+            </div>
+        </section>
+
+        <section class="home-about">
+            <div class="home-about__copy">
+                <p class="home-kicker">Hecho por estudiantes, para estudiantes</p>
+                <h2>Estudiar acompañado cambia el camino.</h2>
+                <p>Somos Jorge y Javier. Creamos BachilleratoFacilito para que estudiar 2º de Bachillerato sea un poco más fácil: menos ruido, más claridad y recursos a mano cuando los necesitas.</p>
+                <a href="quienes-somos.html" class="home-button home-button--quiet">Conócenos</a>
+            </div>
+            <div class="people-grid">
+                <article class="person-card"><div class="person-avatar person-avatar--jorge">J</div><h3>Jorge</h3><p>9,0 Bachillerato <span>·</span> 11,3 PAU</p></article>
+                <article class="person-card"><div class="person-avatar person-avatar--javier">J</div><h3>Javier</h3><p>9,8 Bachillerato <span>·</span> 12,7 PAU</p></article>
+            </div>
+        </section>
+
+        <section class="home-feedback" id="feedback-forms">
+            <div class="section-intro section-intro--centered"><p class="home-kicker">Ayúdanos a mejorar</p><h2>Tu opinión hace crecer la plataforma.</h2></div>
+            <div class="feedback-grid">
+                <div class="feedback-panel">
+                    <h3>Sugerencias</h3><p>¿Qué te ayudaría a estudiar mejor?</p>
+                    <div class="suggestion-links"><a href="#suggestion-form" class="suggestion-link">Falta un tema</a><a href="#suggestion-form" class="suggestion-link">Necesito un ejercicio</a><a href="#suggestion-form" class="suggestion-link">Tengo una idea</a></div>
+                    <form id="suggestion-form" class="feedback-form" action="https://formsubmit.co/ajax/jorgejavierconsultaspau@gmail.com" method="POST">
+                        <input type="hidden" name="_subject" value="Sugerencia para BachilleratoFacilito"><input type="hidden" name="Tipo" value="Sugerencia">
+                        <label for="suggestion-email">Tu correo</label><input id="suggestion-email" name="Correo" type="email" autocomplete="email" required>
+                        <label for="suggestion-message">Cuéntanos</label><textarea id="suggestion-message" name="Mensaje" rows="4" required></textarea><button type="submit" class="home-button home-button--primary">Enviar sugerencia</button>
+                    </form>
+                </div>
+                <div class="feedback-panel feedback-panel--review">
+                    <h3>¿Te está ayudando BachilleratoFacilito?</h3><div class="review-stars" aria-label="Cinco estrellas">★★★★★</div><blockquote>“Los resúmenes de Historia me salvaron para el examen.”</blockquote><p class="review-author">Estudiante de 2º de Bachillerato</p>
+                    <form class="feedback-form" action="https://formsubmit.co/ajax/jorgejavierconsultaspau@gmail.com" method="POST"><input type="hidden" name="_subject" value="Nueva reseña de BachilleratoFacilito"><input type="hidden" name="Tipo" value="Reseña"><label for="review-message">Deja la tuya</label><textarea id="review-message" name="Mensaje" rows="3" required></textarea><button type="submit" class="home-button home-button--quiet">Compartir reseña</button></form>
                 </div>
             </div>
         </section>
     </main>
-    <footer class="site-footer">
-        <p>© 2026 BachilleratoFacilito · <a href="legal.html">Información legal</a></p>
+    <footer class="site-footer site-footer--wide">
+        <div class="footer-grid">
+            <div class="footer-brand"><div class="logo">Bachillerato<span>Facilito</span></div><p>Recursos claros y gratuitos para preparar 2º de Bachillerato y la PAU.</p></div>
+            <div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Asignaturas</a><a href="recursos.html">Recursos</a><a href="pau-matematicas.html">PAU</a></div>
+            <div><h2>Información</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a></div>
+            <div><h2>Redes</h2><a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram <span aria-hidden="true">↗</span></a><p class="footer-note">También puedes escribirnos para compartir una idea o recurso.</p></div>
+        </div>
+        <div class="footer-bottom"><span>© 2026 BachilleratoFacilito</span><a href="legal.html">Información legal</a></div>
     </footer>
     <script type="text/plain" id="legacy-search-code">
         const searchForm = document.getElementById('search-form');
