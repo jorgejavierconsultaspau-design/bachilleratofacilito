@@ -10,21 +10,21 @@
     }
 
     const resources = [
-        ['Matemáticas II', 'Análisis', 'Teoría', 'Límites, derivadas, continuidad, integrales y representación de funciones.', 'asignatura.html?materia=matematicas'],
-        ['Matemáticas II', 'Álgebra', 'Teoría', 'Matrices, determinantes, rango, inversa y sistemas de ecuaciones.', 'asignatura.html?materia=matematicas'],
-        ['Matemáticas II', 'Geometría', 'Teoría', 'Vectores, rectas, planos, distancias, ángulos, áreas y volúmenes.', 'asignatura.html?materia=matematicas'],
-        ['Matemáticas II', 'Probabilidad y Estadística', 'Teoría', 'Sucesos, binomial, normal, diagramas de árbol y estadística.', 'asignatura.html?materia=matematicas'],
+        ['Matemáticas II', 'Análisis', 'Teoría', 'Límites, derivadas, continuidad, integrales y representación de funciones.', 'matematicas.html'],
+        ['Matemáticas II', 'Álgebra', 'Teoría', 'Matrices, determinantes, rango, inversa y sistemas de ecuaciones.', 'matematicas.html'],
+        ['Matemáticas II', 'Geometría', 'Teoría', 'Vectores, rectas, planos, distancias, ángulos, áreas y volúmenes.', 'matematicas.html'],
+        ['Matemáticas II', 'Probabilidad y Estadística', 'Teoría', 'Sucesos, binomial, normal, diagramas de árbol y estadística.', 'matematicas.html'],
         ['Matemáticas II', 'Práctica PAU', 'Exámenes', 'Ejercicios y preparación para el examen de Matemáticas II de la PAU.', 'pau-matematicas.html'],
-        ['Física', 'Campo gravitatorio', 'Teoría', 'Gravitación, leyes de Kepler, Newton y ley de Gauss.', 'asignatura.html?materia=fisica'],
-        ['Física', 'Campo electromagnético', 'Teoría', 'Coulomb, campo eléctrico, magnetismo, Lorentz e inducción.', 'asignatura.html?materia=fisica'],
-        ['Física', 'Vibraciones y ondas', 'Teoría', 'Movimiento armónico simple, ondas, sonido y óptica.', 'asignatura.html?materia=fisica'],
-        ['Filosofía', 'Autores y teorías', 'Apuntes', 'Platón, Aristóteles, Descartes, Kant, Nietzsche y Ortega y Gasset.', 'asignatura.html?materia=filosofia'],
-        ['Lengua', 'Comentario de texto', 'Teoría', 'Adecuación, coherencia, cohesión y textos argumentativos.', 'asignatura.html?materia=lengua'],
-        ['Dibujo Técnico II', 'Geometría y sistemas', 'Teoría', 'Fundamentos de dibujo técnico, geometría y representación.', 'asignatura.html?materia=dibujo'],
-        ['Historia de España', 'Historia contemporánea', 'Apuntes', 'Del Antiguo Régimen a la democracia española.', 'asignatura.html?materia=historia'],
-        ['Inglés', 'Grammar and vocabulary', 'Teoría', 'Tiempos verbales, estructura, expresiones y phrasal verbs.', 'asignatura.html?materia=ingles'],
-        ['Biología', 'Genética y fisiología', 'Apuntes', 'Genética, evolución, célula y fisiología de los seres vivos.', 'asignatura.html?materia=biologia'],
-        ['Química', 'Reacciones y orgánica', 'Teoría', 'Estequiometría, enlaces, reacciones y química orgánica.', 'asignatura.html?materia=quimica']
+        ['Física', 'Campo gravitatorio', 'Teoría', 'Gravitación, leyes de Kepler, Newton y ley de Gauss.', 'física.html'],
+        ['Física', 'Campo electromagnético', 'Teoría', 'Coulomb, campo eléctrico, magnetismo, Lorentz e inducción.', 'física.html'],
+        ['Física', 'Vibraciones y ondas', 'Teoría', 'Movimiento armónico simple, ondas, sonido y óptica.', 'física.html'],
+        ['Filosofía', 'Autores y teorías', 'Apuntes', 'Platón, Aristóteles, Descartes, Kant, Nietzsche y Ortega y Gasset.', 'filosofía-apuntes.html'],
+        ['Lengua', 'Comentario de texto', 'Teoría', 'Adecuación, coherencia, cohesión y textos argumentativos.', 'lengua.html'],
+        ['Dibujo Técnico II', 'Geometría y sistemas', 'Teoría', 'Fundamentos de dibujo técnico, geometría y representación.', 'Dibujo.html'],
+        ['Historia de España', 'Historia contemporánea', 'Apuntes', 'Del Antiguo Régimen a la democracia española.', 'Historia de España.html'],
+        ['Inglés', 'Grammar and vocabulary', 'Teoría', 'Tiempos verbales, estructura, expresiones y phrasal verbs.', 'Inglés.html'],
+        ['Biología', 'Genética y fisiología', 'Apuntes', 'Genética, evolución, célula y fisiología de los seres vivos.', 'biología.html'],
+        ['Química', 'Reacciones y orgánica', 'Teoría', 'Estequiometría, enlaces, reacciones y química orgánica.', 'química.html']
     ].map(([subject, title, type, description, url]) => ({ subject, title, type, description, url }));
 
     const normalize = (value) => value.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
