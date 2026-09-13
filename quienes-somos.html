@@ -3,63 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Conoce el proyecto BachilleratoFacilito y a sus creadores.">
     <title>Quiénes somos | BachilleratoFacilito</title>
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="style.css">
 </head>
-<body>
-    <header>
-        <div class="logo">Bachillerato<span>Facilito</span></div>
-        <nav>
-            <a href="index.html">Inicio</a>
-            <a href="recursos.html">Recursos</a>
-            <a href="quienes-somos.html" class="active">Quiénes somos</a>
-            <a href="contacto.html">Contacto</a>
+<body class="bf-home">
+    <header class="bf-header">
+        <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
+        <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
+        <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="pau-matematicas.html">PAU</a><a class="is-current" href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a class="bf-nav__action" href="index.html#sugerencias">Sugerencias</a>
         </nav>
     </header>
 
-    <main class="info-page">
-        <section class="info-hero">
-            <p class="info-eyebrow">Detrás de BachilleratoFacilito</p>
-            <h1>Quiénes somos</h1>
-            <p>Un proyecto hecho por estudiantes para que preparar la PAU/EvAU en la Comunidad de Madrid sea más accesible, gratuito y organizado.</p>
+    <main>
+        <section class="bf-editorial" aria-labelledby="about-title">
+            <div class="bf-section-label"><span>01</span><span>Detrás de BachilleratoFacilito</span></div>
+            <div class="bf-editorial__body"><div><h1 id="about-title">Quiénes somos</h1><p>Un proyecto hecho por estudiantes para que preparar la PAU/EvAU en la Comunidad de Madrid sea más accesible, gratuito y organizado.</p></div><div class="bf-about__mark">BF</div></div>
         </section>
 
-        <section class="team-section" aria-labelledby="team-title">
-            <div class="section-heading">
-                <p class="info-eyebrow">El equipo</p>
-                <h2 id="team-title">Dos estudiantes, una idea clara</h2>
-            </div>
-            <div class="team-grid">
-                <article class="team-card">
-                    <div class="avatar" aria-hidden="true">JP</div>
-                    <div>
-                        <h3>Jorge Pérez Caballero</h3>
-                        <p>Co-creador de BachilleratoFacilito y estudiante apasionado por compartir recursos que hagan el estudio más claro.</p>
-                    </div>
-                </article>
-                <article class="team-card">
-                    <div class="avatar avatar--gold" aria-hidden="true">JM</div>
-                    <div>
-                        <h3>Javier Martín Montoro</h3>
-                        <p>Co-creador de la plataforma y convencido de que una buena organización puede cambiar la forma de preparar los exámenes.</p>
-                    </div>
-                </article>
+        <section class="bf-suggestions" aria-labelledby="team-title">
+            <div><div class="bf-section-label"><span>02</span><span>El equipo</span></div><h2 id="team-title">Dos estudiantes, una idea clara</h2></div>
+            <div class="bf-suggestions__actions">
+                <article class="bf-suggestion-choice"><span>JP</span><strong>Jorge Pérez Caballero</strong><small>Co-creador de BachilleratoFacilito y estudiante apasionado por compartir recursos que hagan el estudio más claro.</small></article>
+                <article class="bf-suggestion-choice"><span>JM</span><strong>Javier Martín Montoro</strong><small>Co-creador de la plataforma y convencido de que una buena organización puede cambiar la forma de preparar los exámenes.</small></article>
             </div>
         </section>
 
-        <section class="mission-section">
-            <div class="mission-icon" aria-hidden="true">✦</div>
-            <div>
-                <h2>Estudiar acompañado importa</h2>
-                <p>Hemos creado este portal para ayudar a otros compañeros a encontrar apuntes, resúmenes y ejercicios en un mismo lugar. Queremos que cada estudiante pueda avanzar con menos estrés y más seguridad, sin pagar por acceder a materiales útiles.</p>
-                <a href="recursos.html" class="btn-neon">Explorar recursos</a>
-            </div>
-        </section>
+        <section class="bf-pau" aria-labelledby="mission-title"><div class="bf-pau__index">✦<br><span>El proyecto</span></div><div><div class="bf-section-label"><span>03</span><span>Nuestra misión</span></div><h2 id="mission-title">Estudiar acompañado importa</h2><p>Hemos creado este portal para ayudar a otros compañeros a encontrar apuntes, resúmenes y ejercicios en un mismo lugar. Queremos que cada estudiante pueda avanzar con menos estrés y más seguridad, sin pagar por acceder a materiales útiles.</p><a href="recursos.html" class="bf-button">Explorar recursos <span>→</span></a></div></section>
     </main>
 
-    <footer class="site-footer">
-        <p>© 2026 BachilleratoFacilito · <a href="quienes-somos.html">Quiénes somos</a> · <a href="contacto.html">Contacto</a> · <a href="legal.html">Información legal</a></p>
-    </footer>
-    <script src="js/cookie-consent.js"></script>
+    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Recursos claros para 2º de Bachillerato y la PAU.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="pau-matematicas.html">PAU</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="index.html#sugerencias">Sugerencias</a></div><div><h2>Legal</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span><span>Hecho para estudiar mejor.</span></div></footer>
+    <script src="js/home-nav.js"></script><script src="js/cookie-consent.js"></script>
 </body>
 </html>
