@@ -30,6 +30,30 @@
                     <input id="search-input" type="search" placeholder="Buscar asignatura, tema o recurso" aria-label="Buscar contenido">
                     <button type="submit" aria-label="Buscar">🔍</button>
                 </form>
+                <div class="search-filters" aria-label="Filtros de búsqueda">
+                    <label>Asignatura
+                        <select id="search-subject">
+                            <option value="">Todas</option>
+                            <option>Matemáticas II</option>
+                            <option>Física</option>
+                            <option>Filosofía</option>
+                            <option>Lengua</option>
+                            <option>Dibujo Técnico II</option>
+                            <option>Historia de España</option>
+                            <option>Inglés</option>
+                            <option>Biología</option>
+                            <option>Química</option>
+                        </select>
+                    </label>
+                    <label>Tipo de recurso
+                        <select id="search-type">
+                            <option value="">Todos</option>
+                            <option>Apuntes</option>
+                            <option>Teoría</option>
+                            <option>Exámenes</option>
+                        </select>
+                    </label>
+                </div>
                 <div class="trust-strip" role="list" aria-label="Estadísticas de la plataforma">
                     <div class="trust-item" role="listitem"><strong>+500</strong><span>recursos</span></div>
                     <div class="trust-item" role="listitem"><strong>9</strong><span>asignaturas</span></div>
@@ -48,15 +72,15 @@
             </div>
             <div class="about-card">
                 <div class="card-image">
-                    <a href="física.html" class="card-node subject-physics">Física</a>
-                    <a href="filosofía-apuntes.html" class="card-node subject-philosophy">Filosofía</a>
-                    <a href="lengua.html" class="card-node subject-language">Lengua</a>
-                    <a href="Dibujo.html" class="card-node subject-drawing">Dibujo</a>
-                    <a href="matematicas.html" class="card-node center subject-maths">Matemáticas II</a>
-                    <a href="Historia de España.html" class="card-node subject-history">Historia de España</a>
-                    <a href="Inglés.html" class="card-node subject-english">Inglés</a>
-                    <a href="biología.html" class="card-node subject-biology">Biología</a>
-                    <a href="química.html" class="card-node subject-chemistry">Química</a>
+                    <a href="asignatura.html?materia=fisica" class="card-node subject-physics">Física</a>
+                    <a href="asignatura.html?materia=filosofia" class="card-node subject-philosophy">Filosofía</a>
+                    <a href="asignatura.html?materia=lengua" class="card-node subject-language">Lengua</a>
+                    <a href="asignatura.html?materia=dibujo" class="card-node subject-drawing">Dibujo Técnico II</a>
+                    <a href="asignatura.html?materia=matematicas" class="card-node center subject-maths">Matemáticas II</a>
+                    <a href="asignatura.html?materia=historia" class="card-node subject-history">Historia de España</a>
+                    <a href="asignatura.html?materia=ingles" class="card-node subject-english">Inglés</a>
+                    <a href="asignatura.html?materia=biologia" class="card-node subject-biology">Biología</a>
+                    <a href="asignatura.html?materia=quimica" class="card-node subject-chemistry">Química</a>
                     <div class="card-tag">MATERIAS</div>
                 </div>
             </div>
@@ -65,7 +89,7 @@
     <footer class="site-footer">
         <p>© 2026 BachilleratoFacilito · <a href="legal.html">Información legal</a></p>
     </footer>
-    <script>
+    <script type="text/plain" id="legacy-search-code">
         const searchForm = document.getElementById('search-form');
         const searchInput = document.getElementById('search-input');
         const searchResults = document.getElementById('search-results');
@@ -278,6 +302,7 @@
         });
         renderResults('');
     </script>
+    <script src="js/home-search.js"></script>
     <script src="js/cookie-consent.js"></script>
 </body>
 </html>
