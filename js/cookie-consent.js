@@ -1,51 +1,89 @@
 (function () {
     const storageKey = 'bachilleratoFacilitoCookieConsent';
-    const savedConsent = window.localStorage.getItem(storageKey);
+    let savedConsent = null;
+    let banner;
+    let manageButton = null;
+    let isOpen = false;
+
+    try {
+        savedConsent = window.localStorage.getItem(storageKey);
+    } catch (error) {
+        savedConsent = null;
+    }
 
     const createElement = (tagName, className, text) => {
         const element = document.createElement(tagName);
-        if (className) {
-            element.className = className;
-        }
-        if (text) {
-            element.textContent = text;
-        }
+        if (className) element.className = className;
+        if (text) element.textContent = text;
         return element;
     };
 
     const saveConsent = (value) => {
-        window.localStorage.setItem(storageKey, value);
+        try {
+            window.localStorage.setItem(storageKey, value);
+            savedConsent = value;
+        } catch (error) {
+            savedConsent = value;
+        }
         window.dispatchEvent(new CustomEvent('cookieConsentChanged', { detail: value }));
     };
 
-    const createManageButton = () => {
-        const button = createElement('button', 'cookie-settings-button', 'Cookies');
-        button.type = 'button';
-        button.setAttribute('aria-label', 'Abrir configuración de cookies');
-        button.addEventListener('click', () => {
-            const banner = document.querySelector('.cookie-banner');
-            if (banner) {
-                banner.classList.remove('cookie-banner--hidden');
-                banner.removeAttribute('aria-hidden');
+    const setBackgroundInert = (inert) => {
+        [...document.body.children].forEach((element) => {
+            if (element !== banner && element !== manageButton && element.tagName !== 'SCRIPT') {
+                element.inert = inert;
             }
-            button.remove();
         });
-        document.body.appendChild(button);
+    };
+
+    const createManageButton = () => {
+        if (manageButton?.isConnected) return manageButton;
+
+        manageButton = createElement('button', 'cookie-settings-button', 'Cookies');
+        manageButton.type = 'button';
+        manageButton.setAttribute('aria-label', 'Abrir configuración de cookies');
+        manageButton.addEventListener('click', () => openBanner(manageButton));
+        document.body.appendChild(manageButton);
+        return manageButton;
+    };
+
+    const closeBanner = (consent) => {
+        if (consent) saveConsent(consent);
+        isOpen = false;
+        banner.classList.add('cookie-banner--hidden');
+        banner.setAttribute('aria-hidden', 'true');
+        setBackgroundInert(false);
+        createManageButton().focus({ preventScroll: true });
+    };
+
+    const openBanner = (trigger) => {
+        if (trigger && trigger === manageButton) {
+            trigger.remove();
+            manageButton = null;
+        }
+        isOpen = true;
+        banner.classList.remove('cookie-banner--hidden');
+        banner.removeAttribute('aria-hidden');
+        setBackgroundInert(true);
+        banner.querySelector('.cookie-button--secondary').focus({ preventScroll: true });
     };
 
     const createBanner = () => {
-        const banner = createElement('aside', 'cookie-banner');
-        banner.setAttribute('aria-label', 'Consentimiento de cookies');
+        banner = createElement('aside', 'cookie-banner');
         banner.setAttribute('role', 'dialog');
+        banner.setAttribute('aria-modal', 'true');
+        banner.setAttribute('aria-labelledby', 'cookie-banner-title');
+        banner.setAttribute('aria-describedby', 'cookie-banner-description');
 
         const content = createElement('div', 'cookie-banner__content');
         const eyebrow = createElement('p', 'cookie-banner__eyebrow', 'Tu privacidad importa');
         const title = createElement('h2', null, 'Valoramos tu privacidad');
+        title.id = 'cookie-banner-title';
         const description = createElement('p', 'cookie-banner__description', 'Usamos cookies propias y de terceros para analizar el uso de la web y mostrar anuncios personalizados. Puedes aceptar todas o rechazar las que no sean necesarias.');
+        description.id = 'cookie-banner-description';
         const legalLink = createElement('a', 'cookie-banner__link', 'Más información');
         legalLink.href = 'legal.html#cookies';
         description.append(' ', legalLink);
-
         content.append(eyebrow, title, description);
 
         const actions = createElement('div', 'cookie-banner__actions');
@@ -56,23 +94,40 @@
         actions.append(acceptButton, rejectButton);
         banner.append(content, actions);
 
-        const closeBanner = (consent) => {
-            saveConsent(consent);
-            banner.classList.add('cookie-banner--hidden');
-            banner.setAttribute('aria-hidden', 'true');
-            window.setTimeout(createManageButton, 350);
-        };
-
         acceptButton.addEventListener('click', () => closeBanner('all'));
         rejectButton.addEventListener('click', () => closeBanner('essential'));
         document.body.appendChild(banner);
-        return banner;
     };
 
-    const banner = createBanner();
+    document.addEventListener('keydown', (event) => {
+        if (!isOpen) return;
+
+        if (event.key === 'Escape') {
+            event.preventDefault();
+            closeBanner(null);
+            return;
+        }
+
+        if (event.key !== 'Tab') return;
+        const focusableElements = [...banner.querySelectorAll('a[href], button:not([disabled])')];
+        const firstElement = focusableElements[0];
+        const lastElement = focusableElements[focusableElements.length - 1];
+
+        if (!banner.contains(document.activeElement) || (event.shiftKey && document.activeElement === firstElement)) {
+            event.preventDefault();
+            (event.shiftKey ? lastElement : firstElement).focus();
+        } else if (!event.shiftKey && document.activeElement === lastElement) {
+            event.preventDefault();
+            firstElement.focus();
+        }
+    });
+
+    createBanner();
     if (savedConsent) {
         banner.classList.add('cookie-banner--hidden');
         banner.setAttribute('aria-hidden', 'true');
         createManageButton();
+    } else {
+        openBanner(null);
     }
 }());

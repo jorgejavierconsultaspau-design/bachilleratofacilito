@@ -34,12 +34,21 @@
                 <div class="bf-search-heading"><span class="bf-search-kicker">Biblioteca de estudio</span><h2>¿Qué necesitas estudiar?</h2></div>
                 <form id="search-form" class="bf-search" role="search" autocomplete="off">
                     <span class="bf-search__icon" aria-hidden="true">⌕</span>
-                    <input id="search-input" type="search" placeholder="Asignatura, tema, ejercicio o recurso..." aria-label="Buscar en BachilleratoFacilito" aria-controls="search-results" aria-autocomplete="list">
-                    <kbd>Enter</kbd>
+                    <input id="search-input" type="search" placeholder="Asignatura, tema, ejercicio o recurso..." aria-label="Buscar en BachilleratoFacilito" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="search-results">
+                    <kbd aria-hidden="true">Enter</kbd>
                     <button type="button" id="search-clear" aria-label="Limpiar búsqueda" hidden>Esc</button>
                 </form>
-                <div class="bf-quick-search" aria-label="Búsquedas rápidas"><span>Prueba con</span><button type="button" data-search="Matemáticas II">Matemáticas II</button><button type="button" data-search="Física">Física</button><button type="button" data-search="Platón">Platón</button><button type="button" data-search="PAU">PAU</button></div>
-                <div id="search-results" class="bf-search-results" role="status" aria-live="polite"></div>
+                <div class="bf-search-controls">
+                    <label for="search-subject">Materia
+                        <select id="search-subject"><option value="">Todas las materias</option></select>
+                    </label>
+                    <label for="search-type">Tipo de recurso
+                        <select id="search-type"><option value="">Todos los tipos</option></select>
+                    </label>
+                </div>
+                <div class="bf-quick-search" role="group" aria-label="Búsquedas rápidas"><span>Prueba con</span><button type="button" data-search="Matemáticas II">Matemáticas II</button><button type="button" data-search="Física">Física</button><button type="button" data-search="Platón">Platón</button><button type="button" data-search="PAU">PAU</button></div>
+                <p id="search-status" class="bf-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+                <ul id="search-results" class="bf-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></ul>
             </div>
         </section>
 

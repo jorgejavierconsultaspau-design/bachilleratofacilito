@@ -22,6 +22,29 @@
     </header>
 
     <main>
+        <section class="bf-library-search" aria-labelledby="library-search-title">
+            <div class="bf-search-heading">
+                <span class="bf-search-kicker">Biblioteca de estudio</span>
+                <h2 id="library-search-title">Busca apuntes y exámenes</h2>
+            </div>
+            <form id="search-form" class="bf-search" role="search" autocomplete="off">
+                <span class="bf-search__icon" aria-hidden="true">⌕</span>
+                <input id="search-input" type="search" placeholder="Materia, tema o recurso..." aria-label="Buscar en BachilleratoFacilito" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="search-results">
+                <button type="button" id="search-clear" aria-label="Limpiar búsqueda" hidden>Esc</button>
+            </form>
+            <div class="bf-search-controls">
+                <label for="search-subject">Materia
+                    <select id="search-subject"><option value="">Todas las materias</option></select>
+                </label>
+                <label for="search-type">Tipo de recurso
+                    <select id="search-type"><option value="">Todos los tipos</option></select>
+                </label>
+            </div>
+            <div class="bf-quick-search" role="group" aria-label="Búsquedas rápidas"><span>Prueba con</span><button type="button" data-search="Matemáticas II">Matemáticas II</button><button type="button" data-search="Física">Física</button><button type="button" data-search="Filosofía">Filosofía</button><button type="button" data-search="PAU">PAU</button></div>
+            <p id="search-status" class="bf-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
+            <ul id="search-results" class="bf-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></ul>
+        </section>
+
         <section class="bf-subjects bf-subjects--resources" aria-labelledby="resources-title">
             <div class="bf-section-heading">
                 <div>
@@ -46,11 +69,57 @@
         <section class="bf-subjects" aria-labelledby="extra-resources-title">
             <div class="bf-section-label"><span>02</span><span>Biblioteca</span></div>
             <h2 id="extra-resources-title">Recursos extra</h2>
+            <p class="bf-extra-resources__intro">Materiales de consulta rápida, práctica y repaso.</p>
+            <div class="bf-subjects__grid bf-extra-resources__grid">
+                <a href="pau-matematicas.html" class="bf-subject bf-subject--math">
+                    <span class="bf-subject__number">Exámenes PAU</span>
+                    <span class="bf-subject__symbol" aria-hidden="true">PAU</span>
+                    <strong>Modelos de Matemáticas II</strong>
+                    <small>Filtra exámenes por año y convocatoria.</small>
+                    <span class="bf-subject__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="docs/analisis.pdf" class="bf-subject bf-subject--physics" target="_blank" rel="noopener">
+                    <span class="bf-subject__number">PDF · Matemáticas II</span>
+                    <span class="bf-subject__symbol" aria-hidden="true">∫</span>
+                    <strong>Teoría de análisis</strong>
+                    <small>Límites, derivadas e integrales.</small>
+                    <span class="bf-subject__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="filosofia-autores.html" class="bf-subject bf-subject--philosophy">
+                    <span class="bf-subject__number">Repaso · Filosofía</span>
+                    <span class="bf-subject__symbol" aria-hidden="true">Φ</span>
+                    <strong>Autores y teorías</strong>
+                    <small>Biblioteca de autores y conceptos clave.</small>
+                    <span class="bf-subject__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="filosofia-comparaciones.html" class="bf-subject bf-subject--history">
+                    <span class="bf-subject__number">Repaso · Filosofía</span>
+                    <span class="bf-subject__symbol" aria-hidden="true">⇄</span>
+                    <strong>Comparaciones filosóficas</strong>
+                    <small>Relaciona autores por problemas y conceptos.</small>
+                    <span class="bf-subject__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="temasliteratura.html" class="bf-subject bf-subject--language">
+                    <span class="bf-subject__number">Guía · Literatura</span>
+                    <span class="bf-subject__symbol" aria-hidden="true">Aa</span>
+                    <strong>Temas de literatura</strong>
+                    <small>Corrientes y autores de la literatura española.</small>
+                    <span class="bf-subject__arrow" aria-hidden="true">↗</span>
+                </a>
+                <a href="valoraciones.html" class="bf-subject bf-subject--drawing">
+                    <span class="bf-subject__number">Lecturas</span>
+                    <span class="bf-subject__symbol" aria-hidden="true">¶</span>
+                    <strong>Lecturas y valoraciones</strong>
+                    <small>Obras del curso y materiales de lectura.</small>
+                    <span class="bf-subject__arrow" aria-hidden="true">↗</span>
+                </a>
+            </div>
         </section>
     </main>
 
     <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Recursos claros para 2º de Bachillerato y la PAU.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="pau-matematicas.html">PAU</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="index.html#sugerencias">Sugerencias</a></div><div><h2>Legal</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span><span>Hecho para estudiar mejor.</span></div></footer>
 
+    <script src="js/home-search.js"></script>
     <script src="js/home-nav.js"></script>
     <script src="js/cookie-consent.js"></script>
 </body>
