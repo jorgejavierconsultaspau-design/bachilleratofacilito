@@ -255,8 +255,10 @@ nav a:focus-visible,
     }
 
     .cookie-settings-button {
-        right: 12px;
-        bottom: 12px;
+        position: static;
+        display: block;
+        width: fit-content;
+        margin: 12px 12px 20px auto;
     }
 }
 
@@ -3529,13 +3531,98 @@ textarea {
     display: none;
 }
 
-.bf-extra-resources__intro {
-    margin: 12px 0 0;
-    color: var(--bf-muted);
-}
-
 .bf-extra-resources__grid {
     margin-top: 22px;
+}
+
+.bf-contact-section {
+    grid-template-columns: minmax(120px, 0.2fr) minmax(0, 1fr);
+    align-items: start;
+}
+
+.bf-contact-form {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 8px;
+    width: min(100%, 640px);
+    margin-top: 22px;
+}
+
+.bf-contact-form label {
+    margin-top: 8px;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.84rem;
+    font-weight: 700;
+}
+
+.bf-contact-form input:not([type="hidden"]):not(.form-honeypot),
+.bf-contact-form textarea {
+    width: 100%;
+    min-width: 0;
+    box-sizing: border-box;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 6px;
+    background: #fff;
+    color: var(--bf-ink);
+    font: inherit;
+}
+
+.bf-contact-form input:not([type="hidden"]):not(.form-honeypot) {
+    min-height: 46px;
+}
+
+.bf-contact-form textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.bf-contact-form input:focus-visible,
+.bf-contact-form textarea:focus-visible {
+    outline-color: var(--bf-lime) !important;
+    outline-offset: 2px;
+}
+
+.bf-contact-form .bf-button {
+    justify-self: start;
+    min-height: 46px;
+    margin-top: 12px;
+    border-color: var(--bf-lime);
+    background: var(--bf-lime);
+    color: var(--bf-ink);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+}
+
+.bf-contact-form .bf-button span {
+    color: var(--bf-green);
+}
+
+.bf-contact-form .bf-button:hover,
+.bf-contact-form .bf-button:focus-visible {
+    border-color: #edf4dc;
+    background: #edf4dc;
+    color: var(--bf-ink);
+}
+
+.bf-contact-form .contact-status {
+    color: #fff;
+}
+
+.bf-contact-form .contact-status--error {
+    color: #ffe1dc;
+}
+
+@media (max-width: 680px) {
+    .bf-contact-section {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 20px;
+    }
+
+    .bf-contact-form {
+        margin-top: 16px;
+    }
 }
 
 @media (max-width: 680px) {
