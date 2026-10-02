@@ -14,13 +14,13 @@
         fisica: {
             name: 'Física',
             description: 'Conceptos, fórmulas y bloques esenciales de Física para 2º de Bachillerato.',
-            legacyUrl: 'física.html',
+            legacyUrl: 'fisica.html',
             blocks: [['Campo gravitatorio', 'Gravitación, Kepler, Newton y Gauss.'], ['Campo electromagnético', 'Coulomb, Lorentz, inducción y campos eléctrico y magnético.'], ['Vibraciones y ondas', 'Movimiento armónico simple, ondas, sonido y óptica.'], ['Física moderna', 'Relatividad, física cuántica y física nuclear.']]
         },
         filosofia: {
             name: 'Filosofía',
             description: 'Autores, teorías y comparaciones para comprender y preparar Filosofía.',
-            legacyUrl: 'filosofía-apuntes.html',
+            legacyUrl: 'filosofia-apuntes.html',
             blocks: [['Autores', 'Platón, Aristóteles, San Agustín, Santo Tomás, Descartes, Hume, Kant, Rousseau, Marx, Nietzsche y Ortega.'], ['Comparaciones', 'Relaciones entre autores y conceptos clave del temario.'], ['Textos', 'Apuntes y recursos para trabajar textos filosóficos.']]
         },
         lengua: {
@@ -32,31 +32,31 @@
         dibujo: {
             name: 'Dibujo Técnico II',
             description: 'Geometría, sistemas de representación y fundamentos de Dibujo Técnico II.',
-            legacyUrl: 'Dibujo.html',
+            legacyUrl: 'dibujo-tecnico.html',
             blocks: [['Geometría', 'Construcciones geométricas y resolución de problemas gráficos.'], ['Sistemas de representación', 'Proyecciones, diédrico y representación espacial.'], ['Normalización', 'Escalas, acotación y criterios de representación técnica.']]
         },
         historia: {
             name: 'Historia de España',
             description: 'Recorrido organizado por los procesos históricos de España.',
-            legacyUrl: 'Historia de España.html',
+            legacyUrl: 'historia-de-espana.html',
             blocks: [['Antiguo Régimen y liberalismo', 'Crisis del Antiguo Régimen, Estado liberal y Restauración.'], ['Siglo XX', 'Alfonso XIII, Segunda República, Guerra Civil y franquismo.'], ['Democracia', 'Transición y consolidación de la democracia.']]
         },
         ingles: {
             name: 'Inglés',
             description: 'Gramática, vocabulario y comunicación escrita para 2º de Bachillerato.',
-            legacyUrl: 'Inglés.html',
+            legacyUrl: 'ingles.html',
             blocks: [['Gramática', 'Tiempos verbales, estructura de oraciones, preposiciones y concordancia.'], ['Vocabulario', 'Palabras frecuentes, expresiones, campos semánticos y phrasal verbs.'], ['Writing', 'Estructuras y estrategias para mejorar la expresión escrita.']]
         },
         biologia: {
             name: 'Biología',
             description: 'Célula, genética, evolución y fisiología de los seres vivos.',
-            legacyUrl: 'biología.html',
+            legacyUrl: 'biologia.html',
             blocks: [['Biología molecular', 'Biomoléculas, célula y procesos metabólicos.'], ['Genética y evolución', 'Herencia, genética molecular y evolución.'], ['Fisiología', 'Organización y funcionamiento de los seres vivos.']]
         },
         quimica: {
             name: 'Química',
             description: 'Estequiometría, enlaces, reacciones y química orgánica.',
-            legacyUrl: 'química.html',
+            legacyUrl: 'quimica.html',
             blocks: [['Estructura y enlace', 'Modelo atómico, tabla periódica y enlace químico.'], ['Reacciones', 'Estequiometría, equilibrio, ácido-base y redox.'], ['Química orgánica', 'Formulación, nomenclatura y reactividad orgánica.']]
         }
     };
