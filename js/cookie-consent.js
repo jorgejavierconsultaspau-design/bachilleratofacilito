@@ -1,12 +1,15 @@
 (function () {
+    // La preferencia es necesaria para respetar la elección; los servicios no esenciales deben esperar a "all".
     const storageKey = 'bachilleratoFacilitoCookieConsent';
+    const validConsentValues = new Set(['all', 'essential']);
     let savedConsent = null;
     let banner;
     let manageButton = null;
     let isOpen = false;
 
     try {
-        savedConsent = window.localStorage.getItem(storageKey);
+        const storedConsent = window.localStorage.getItem(storageKey);
+        savedConsent = validConsentValues.has(storedConsent) ? storedConsent : null;
     } catch (error) {
         savedConsent = null;
     }
@@ -79,7 +82,7 @@
         const eyebrow = createElement('p', 'cookie-banner__eyebrow', 'Tu privacidad importa');
         const title = createElement('h2', null, 'Valoramos tu privacidad');
         title.id = 'cookie-banner-title';
-        const description = createElement('p', 'cookie-banner__description', 'Usamos cookies propias y de terceros para analizar el uso de la web y mostrar anuncios personalizados. Puedes aceptar todas o rechazar las que no sean necesarias.');
+        const description = createElement('p', 'cookie-banner__description', 'Guardamos en el almacenamiento local de tu navegador la decisión que elijas. Actualmente no se cargan herramientas de analítica ni publicidad personalizada. Puedes cambiar tu decisión en cualquier momento con el botón «Cookies».');
         description.id = 'cookie-banner-description';
         const legalLink = createElement('a', 'cookie-banner__link', 'Más información');
         legalLink.href = 'legal.html#cookies';
@@ -104,7 +107,7 @@
 
         if (event.key === 'Escape') {
             event.preventDefault();
-            closeBanner(null);
+            if (savedConsent) closeBanner(null);
             return;
         }
 
