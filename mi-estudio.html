@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Organiza tus listas de estudio, guarda recursos favoritos y prepara exámenes PAU.">
+    <meta name="bf-api-base" content="/api">
+    <title>Mi estudio | BachilleratoFacilito</title>
+    <link rel="stylesheet" href="css/estilos.css">
+</head>
+<body class="bf-home">
+    <header class="bf-header">
+        <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
+        <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
+        <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
+            <a href="index.html">Inicio</a>
+            <a href="recursos.html">Recursos</a>
+            <a href="quienes-somos.html">Quiénes somos</a>
+            <a href="contacto.html">Contacto</a>
+            <a class="bf-nav__action" href="contacto.html">Sugerencias</a>
+            <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
+        </nav>
+    </header>
+
+    <main class="bf-study-page">
+        <section class="bf-study-hero" aria-labelledby="study-title">
+            <div class="bf-section-label"><span>Espacio personal</span></div>
+            <h1 id="study-title">Mi estudio,<br><em>a mi manera.</em></h1>
+            <p>Guarda materiales, organiza repasos y prepara ejercicios PAU desde un solo lugar.</p>
+            <p class="bf-api-notice" role="status">Interfaz preparada para una API propia. Las cuentas y los datos personales no se guardan en este sitio hasta conectar el backend.</p>
+        </section>
+
+        <div class="bf-study-grid">
+            <section class="bf-study-card bf-study-card--wide" aria-labelledby="account-title">
+                <div class="bf-section-label"><span>01</span><span>Cuenta</span></div>
+                <h2 id="account-title">Accede a tu espacio</h2>
+                <div class="bf-auth__mode" role="group" aria-label="Tipo de acceso">
+                    <button type="button" data-auth-mode="login" aria-pressed="true">Iniciar sesión</button>
+                    <button type="button" data-auth-mode="register" aria-pressed="false">Crear cuenta</button>
+                </div>
+                <form id="account-form" class="bf-study-form">
+                    <label id="account-name-field" for="account-name" hidden>Nombre</label>
+                    <input id="account-name" name="name" autocomplete="name" placeholder="Tu nombre" hidden>
+                    <label for="account-email">Correo electrónico</label>
+                    <input id="account-email" name="email" type="email" autocomplete="email" required>
+                    <label for="account-password">Contraseña</label>
+                    <input id="account-password" name="password" type="password" autocomplete="current-password" minlength="8" required>
+                    <label id="account-terms-field" class="bf-study-consent" for="account-terms" hidden><input id="account-terms" name="termsAccepted" type="checkbox"><span>Acepto la <a href="legal.html#privacidad">política de privacidad</a>.</span></label>
+                    <button class="bf-button bf-button--primary" type="submit">Iniciar sesión <span>→</span></button>
+                </form>
+                <button id="account-logout" class="bf-study-secondary" type="button" hidden>Cerrar sesión</button>
+                <p id="account-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="favorites-title">
+                <div class="bf-section-label"><span>02</span><span>Biblioteca</span></div>
+                <h2 id="favorites-title">Recursos favoritos</h2>
+                <form id="favorite-form" class="bf-study-form">
+                    <label for="favorite-resource-id">Identificador del recurso</label>
+                    <input id="favorite-resource-id" name="resourceId" placeholder="matematicas-analisis" required>
+                    <button class="bf-button bf-button--primary" type="submit">Guardar favorito <span>+</span></button>
+                </form>
+                <button id="favorites-load" class="bf-study-secondary" type="button">Cargar mis favoritos</button>
+                <ul id="favorite-list" class="bf-study-list"></ul>
+                <p id="favorite-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="progress-sync-title">
+                <div class="bf-section-label"><span>03</span><span>Sincronización</span></div>
+                <h2 id="progress-sync-title">Tu progreso, en todos tus dispositivos</h2>
+                <p class="bf-study-copy">El avance de la portada se guarda localmente. Con una sesión iniciada, podrás sincronizarlo con tu cuenta.</p>
+                <div class="bf-study-actions">
+                    <button id="progress-sync-upload" class="bf-study-secondary" type="button">Guardar progreso en mi cuenta</button>
+                    <button id="progress-sync-download" class="bf-study-secondary" type="button">Recuperar progreso de mi cuenta</button>
+                </div>
+                <p id="progress-sync-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="lists-title">
+                <div class="bf-section-label"><span>04</span><span>Planificación</span></div>
+                <h2 id="lists-title">Listas de estudio</h2>
+                <form id="study-list-form" class="bf-study-form">
+                    <label for="study-list-name">Nombre de la lista</label>
+                    <input id="study-list-name" name="name" placeholder="Repaso de esta semana" required>
+                    <button class="bf-button bf-button--primary" type="submit">Crear lista <span>+</span></button>
+                </form>
+                <button id="study-lists-load" class="bf-study-secondary" type="button">Cargar mis listas</button>
+                <form id="study-list-item-form" class="bf-study-form">
+                    <label for="study-list-select">Añadir recurso a una lista</label>
+                    <select id="study-list-select" name="listId" required>
+                        <option value="">Primero carga o crea una lista</option>
+                    </select>
+                    <label for="study-list-resource">Identificador del recurso</label>
+                    <input id="study-list-resource" name="resourceId" placeholder="fisica-campo-gravitatorio" required>
+                    <button class="bf-study-secondary" type="submit">Añadir recurso</button>
+                </form>
+                <p id="study-list-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="download-title">
+                <div class="bf-section-label"><span>05</span><span>Materiales</span></div>
+                <h2 id="download-title">Descargar o imprimir</h2>
+                <form id="export-form" class="bf-study-form">
+                    <label for="export-resource">Recurso</label>
+                    <select id="export-resource" name="resourceId">
+                        <option value="matematicas-analisis">Análisis · Matemáticas II</option>
+                        <option value="fisica-campo-gravitatorio">Campo gravitatorio · Física</option>
+                    </select>
+                    <label for="export-format">Formato</label>
+                    <select id="export-format" name="format">
+                        <option value="pdf">PDF</option>
+                        <option value="md">Markdown</option>
+                        <option value="png">PNG</option>
+                    </select>
+                    <button class="bf-button bf-button--primary" type="submit">Descargar <span>↓</span></button>
+                </form>
+                <button id="print-page" class="bf-study-secondary" type="button">Imprimir esta página / Guardar como PDF</button>
+                <p id="export-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="exam-title">
+                <div class="bf-section-label"><span>06</span><span>Generador PAU</span></div>
+                <h2 id="exam-title">Crea un examen a medida</h2>
+                <form id="exam-form" class="bf-study-form">
+                    <label for="exam-topics">Selecciona los temas</label>
+                    <select id="exam-topics" name="topics" multiple required size="7">
+                        <option value="matematicas-analisis">Matemáticas II · Análisis</option>
+                        <option value="matematicas-algebra">Matemáticas II · Álgebra</option>
+                        <option value="matematicas-geometria">Matemáticas II · Geometría</option>
+                        <option value="fisica-campo-gravitatorio">Física · Campo gravitatorio</option>
+                        <option value="fisica-electromagnetismo">Física · Campo electromagnético</option>
+                        <option value="fisica-ondas">Física · Vibraciones y ondas</option>
+                        <option value="filosofia-autores">Filosofía · Autores</option>
+                    </select>
+                    <button class="bf-button bf-button--primary" type="submit">Generar examen PDF <span>↗</span></button>
+                </form>
+                <p id="exam-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="community-title">
+                <div class="bf-section-label"><span>07</span><span>Comunidad</span></div>
+                <h2 id="community-title">Dudas sobre un tema</h2>
+                <form id="comments-load-form" class="bf-study-form">
+                    <label for="comments-resource">Identificador del recurso</label>
+                    <input id="comments-resource" name="resourceId" placeholder="matematicas-analisis" required>
+                    <button class="bf-study-secondary" type="submit">Ver conversación</button>
+                </form>
+                <ul id="comment-list" class="bf-study-list"></ul>
+                <form id="comment-form" class="bf-study-form">
+                    <label for="comment-resource">Recurso</label>
+                    <input id="comment-resource" name="resourceId" placeholder="matematicas-analisis" required>
+                    <label for="comment-content">Tu pregunta</label>
+                    <textarea id="comment-content" name="content" rows="4" maxlength="2000" required></textarea>
+                    <button class="bf-button bf-button--primary" type="submit">Publicar duda <span>→</span></button>
+                </form>
+                <p id="community-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="analytics-title">
+                <div class="bf-section-label"><span>08</span><span>Actividad</span></div>
+                <h2 id="analytics-title">Analíticas del recurso</h2>
+                <form id="analytics-form" class="bf-study-form">
+                    <label for="analytics-resource">Identificador del recurso</label>
+                    <input id="analytics-resource" name="resourceId" placeholder="matematicas-analisis" required>
+                    <button class="bf-study-secondary" type="submit">Consultar últimos 7 días</button>
+                </form>
+                <p id="analytics-result" class="bf-study-metric">Las visitas se mostrarán cuando el backend de analíticas esté conectado.</p>
+                <p id="analytics-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="newsletter-title">
+                <div class="bf-section-label"><span>09</span><span>Newsletter</span></div>
+                <h2 id="newsletter-title">Recursos semanales en tu correo</h2>
+                <form id="newsletter-form" class="bf-study-form">
+                    <label for="newsletter-email">Correo electrónico</label>
+                    <input id="newsletter-email" name="email" type="email" autocomplete="email" required>
+                    <label class="bf-study-consent" for="newsletter-consent"><input id="newsletter-consent" name="consent" type="checkbox" required><span>Acepto recibir comunicaciones y he leído la <a href="legal.html#privacidad">política de privacidad</a>.</span></label>
+                    <button class="bf-button bf-button--primary" type="submit">Suscribirme <span>→</span></button>
+                </form>
+                <p id="newsletter-status" class="bf-study-status" role="status" aria-live="polite"></p>
+            </section>
+
+            <section class="bf-study-card" aria-labelledby="share-title">
+                <div class="bf-section-label"><span>10</span><span>Comparte y planifica</span></div>
+                <h2 id="share-title">Lleva el estudio contigo</h2>
+                <label class="bf-study-form" for="share-resource">
+                    Recurso para compartir
+                    <select id="share-resource">
+                        <option value="matematicas.html">Matemáticas II</option>
+                        <option value="fisica.html">Física</option>
+                        <option value="filosofia-autores.html">Autores de Filosofía</option>
+                        <option value="pau-matematicas.html">Exámenes PAU</option>
+                    </select>
+                </label>
+                <div class="bf-study-share">
+                    <a id="share-whatsapp" href="https://wa.me/" target="_blank" rel="noopener noreferrer">Compartir por WhatsApp ↗</a>
+                    <a id="share-telegram" href="https://t.me/share/url" target="_blank" rel="noopener noreferrer">Compartir por Telegram ↗</a>
+                </div>
+                <form id="calendar-form" class="bf-study-form">
+                    <label for="calendar-date">Fecha de repaso</label>
+                    <input id="calendar-date" name="date" type="date" required>
+                    <a id="calendar-link" class="bf-button bf-button--primary" href="https://calendar.google.com/calendar/render" target="_blank" rel="noopener noreferrer">Añadir a Google Calendar <span>↗</span></a>
+                </form>
+            </section>
+        </div>
+
+        <details class="bf-api-contract">
+            <summary>Contratos REST que debe implementar el backend</summary>
+            <p>Las llamadas usan cookies de sesión same-origin (Secure, HttpOnly, SameSite), sin guardar tokens en el navegador. El backend debe proteger formularios contra CSRF, almacenar contraseñas con hash y limitar intentos de acceso. El generador y las exportaciones devuelven archivos binarios.</p>
+            <ul>
+                <li><code>POST /api/auth/register</code> recibe <code>{name,email,password,termsAccepted}</code>; <code>POST /api/auth/login</code> recibe <code>{email,password}</code>. Ambos devuelven <code>{user:{id,name,email}}</code> y una cookie de sesión; también <code>GET /api/auth/me</code> y <code>POST /api/auth/logout</code>.</li>
+                <li><code>GET|POST /api/me/favorites</code>; POST recibe <code>{resourceId}</code> y GET devuelve <code>{items:[{id,title,url}]}</code>. <code>DELETE /api/me/favorites/{resourceId}</code>.</li>
+                <li><code>GET|POST /api/me/study-lists</code>; POST recibe <code>{name}</code>, GET devuelve <code>{items:[{id,name}]}</code>. Añadir recursos con <code>POST /api/me/study-lists/{listId}/items</code> y <code>{resourceId}</code>.</li>
+                <li><code>GET|PUT /api/me/progress</code> con <code>{completedTopicIds:[...]}</code>.</li>
+                <li><code>GET|POST /api/resources/{resourceId}/comments</code>; POST recibe <code>{content}</code> y GET devuelve <code>{items:[{author,content,createdAt}]}</code>.</li>
+                <li><code>POST /api/newsletter/subscriptions</code> recibe <code>{email,consent:true}</code>.</li>
+                <li><code>GET /api/resources/{resourceId}/analytics?period=7d</code> devuelve <code>{views,uniqueStudents,period}</code>.</li>
+                <li><code>POST /api/exams</code> con <code>{topicIds:[...]}</code>; respuesta <code>application/pdf</code>.</li>
+                <li><code>POST /api/resources/{resourceId}/exports</code> con <code>{format:"md"|"png"}</code>; respuesta <code>text/markdown</code> o <code>image/png</code>.</li>
+            </ul>
+        </details>
+    </main>
+
+    <footer class="bf-footer">
+        <div class="bf-footer__main">
+            <div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div>
+            <div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div>
+            <div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div>
+            <div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div>
+        </div>
+        <div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div>
+    </footer>
+    <script src="js/api-client.js"></script>
+    <script src="js/study-dashboard.js"></script>
+    <script src="js/home-nav.js"></script>
+    <script src="js/cookie-consent.js"></script>
+</body>
+</html>

@@ -87,7 +87,6 @@
             subject: 'Historia de España',
             resources: [
                 { title: 'Temas 1, 2 y 3: epígrafes', topic: 'Temario', type: 'Teoría', url: 'docs/historia-temas-1-2-3-epigrafe.pdf', terms: 'cronología conceptos' },
-                { title: 'Tema 4: crisis del Antiguo Régimen', topic: 'Tema 4', type: 'Teoría', url: 'docs/historia-tema-4-crisis-antiguo-regimen.pdf', terms: 'economía sociedad liberalismo' },
                 { title: 'Tema 5: construcción del Estado liberal', topic: 'Tema 5', type: 'Teoría', url: 'docs/historia-tema-5-estado-liberal.pdf', terms: 'constituciones reformas' },
                 { title: 'Tema 6: régimen de la Restauración', topic: 'Tema 6', type: 'Teoría', url: 'docs/tema6.pdf', terms: 'restauración turno de partidos' },
                 { title: 'Historia de España: temario', topic: 'Temario', type: 'Apuntes', url: 'historia-de-espana.html', terms: 'historia españa siglo xix xx democracia' }
@@ -131,9 +130,155 @@
     ];
 
     const catalog = catalogBySubject.flatMap(({ subject, resources }) => resources.map((resource) => ({ ...resource, subject })));
+    const subjectCards = [...document.querySelectorAll('.bf-subject[data-subject]')];
 
     const normalize = (value) => String(value).toLocaleLowerCase('es').normalize('NFD').replace(/[\u0300-\u036f]/g, '').trim();
     const searchable = (item) => normalize([item.title, item.subject, item.topic, item.type, item.terms].join(' '));
+
+    const topicsBySubject = new Map();
+    catalog.forEach((item) => {
+        if (!topicsBySubject.has(item.subject)) topicsBySubject.set(item.subject, new Set());
+        topicsBySubject.get(item.subject).add(item.topic);
+    });
+
+    const stats = {
+        resources: catalog.length,
+        topics: [...topicsBySubject.values()].reduce((total, topics) => total + topics.size, 0),
+        subjects: topicsBySubject.size
+    };
+    document.querySelectorAll('[data-bf-stat]').forEach((stat) => {
+        const value = stats[stat.dataset.bfStat];
+        if (value !== undefined) stat.textContent = new Intl.NumberFormat('es-ES').format(value);
+    });
+
+    const progressRoot = document.getElementById('study-progress-topics');
+    if (progressRoot) {
+        const meter = document.getElementById('study-progress-meter');
+        const progressLabel = document.getElementById('study-progress-label');
+        const badges = document.getElementById('study-badges');
+        const emptyBadges = document.getElementById('study-badges-empty');
+        const progressGroups = new Map();
+
+        catalog.forEach((item) => {
+            if (!progressGroups.has(item.subject)) progressGroups.set(item.subject, new Set());
+            progressGroups.get(item.subject).add(item.topic);
+        });
+
+        const topicKeys = new Set();
+        const badgeBySubject = new Map();
+        let completedTopics = new Set();
+
+        try {
+            const savedProgress = localStorage.getItem('bf-study-progress-v1');
+            const parsedProgress = savedProgress ? JSON.parse(savedProgress) : [];
+            if (Array.isArray(parsedProgress)) {
+                completedTopics = new Set(parsedProgress.filter((key) => typeof key === 'string'));
+            }
+        } catch (error) {
+            console.error('No se pudo recuperar el progreso guardado.', error);
+        }
+
+        progressGroups.forEach((topics, subject) => {
+            const group = document.createElement('details');
+            group.className = 'bf-progress__group';
+
+            const summary = document.createElement('summary');
+            summary.className = 'bf-progress__summary';
+            const title = document.createElement('strong');
+            title.textContent = subject;
+            const badge = document.createElement('span');
+            badge.className = 'bf-progress__group-badge';
+            badge.textContent = 'Insignia conseguida';
+            badge.hidden = true;
+            summary.append(title, badge);
+            group.append(summary);
+
+            const topicList = document.createElement('div');
+            topicList.className = 'bf-progress__topic-list';
+            [...topics].sort((left, right) => left.localeCompare(right, 'es')).forEach((topic) => {
+                const key = `${subject}::${topic}`;
+                topicKeys.add(key);
+                const button = document.createElement('button');
+                button.type = 'button';
+                button.className = 'bf-progress__topic';
+                button.dataset.progressKey = key;
+                button.setAttribute('aria-label', `${topic}, ${subject}`);
+                button.textContent = topic;
+                button.addEventListener('click', () => {
+                    if (completedTopics.has(key)) completedTopics.delete(key);
+                    else completedTopics.add(key);
+                    updateProgress();
+                    try {
+                        localStorage.setItem('bf-study-progress-v1', JSON.stringify([...completedTopics]));
+                    } catch (error) {
+                        console.error('No se pudo guardar el progreso.', error);
+                    }
+                });
+                topicList.append(button);
+            });
+
+            group.append(topicList);
+            progressRoot.append(group);
+            badgeBySubject.set(subject, { badge, topics });
+        });
+
+        completedTopics = new Set([...completedTopics].filter((key) => topicKeys.has(key)));
+
+        const updateProgress = () => {
+            const total = topicKeys.size;
+            const completed = completedTopics.size;
+            const percentage = total ? Math.round((completed / total) * 100) : 0;
+            meter.max = total || 1;
+            meter.value = completed;
+            progressLabel.textContent = `${completed} de ${total} temas completados · ${percentage}%`;
+            progressRoot.querySelectorAll('[data-progress-key]').forEach((button) => {
+                const isComplete = completedTopics.has(button.dataset.progressKey);
+                button.setAttribute('aria-pressed', String(isComplete));
+                button.classList.toggle('is-complete', isComplete);
+            });
+
+            badges.replaceChildren();
+            let earned = 0;
+            badgeBySubject.forEach(({ badge, topics }, subject) => {
+                const isComplete = [...topics].every((topic) => completedTopics.has(`${subject}::${topic}`));
+                badge.hidden = !isComplete;
+                if (isComplete) {
+                    earned += 1;
+                    const item = document.createElement('span');
+                    item.className = 'bf-progress__badge';
+                    item.textContent = `${subject} · Insignia conseguida`;
+                    badges.append(item);
+                }
+            });
+            emptyBadges.hidden = earned > 0;
+        };
+
+        updateProgress();
+    }
+
+    const countdown = document.getElementById('pau-countdown');
+    const timeline = countdown?.closest('[data-pau-deadline]');
+    if (countdown && timeline) {
+        const deadline = Date.parse(timeline.dataset.pauDeadline);
+        if (Number.isNaN(deadline)) {
+            console.error('La fecha de la convocatoria PAU no es válida.');
+            countdown.textContent = 'No se pudo calcular la cuenta atrás. Consulta el calendario oficial.';
+        } else {
+            const updateCountdown = () => {
+                const remaining = deadline - Date.now();
+                if (remaining <= 0) {
+                    countdown.textContent = 'La convocatoria ordinaria de la PAU 2026 ya se ha celebrado.';
+                    return false;
+                }
+                const days = Math.floor(remaining / 86_400_000);
+                const hours = Math.floor((remaining % 86_400_000) / 3_600_000);
+                countdown.textContent = `Quedan ${days} días y ${hours} horas para la PAU 2026.`;
+                return true;
+            };
+
+            if (updateCountdown()) window.setInterval(updateCountdown, 60_000);
+        }
+    }
 
     const addFilterOptions = (select, values) => {
         [...new Set(values)].sort((left, right) => left.localeCompare(right, 'es')).forEach((value) => {
@@ -194,6 +339,25 @@
         .sort((left, right) => right.relevance - left.relevance)
         .slice(0, 7);
 
+    const filterSubjectCards = (subject, type) => {
+        subjectCards.forEach((card) => {
+            const cardSubject = card.dataset.subject;
+            const cardType = card.dataset.type;
+            const typeMatches = !type || (cardType
+                ? cardType === type
+                : catalog.some((item) => item.subject === cardSubject && item.type === type));
+            card.hidden = Boolean((subject && cardSubject !== subject) || !typeMatches);
+        });
+    };
+
+    const openResource = (url) => {
+        if (/\.pdf(?:[?#]|$)/i.test(url)) {
+            window.open(url, '_blank', 'noopener,noreferrer');
+            return;
+        }
+        window.location.href = url;
+    };
+
     const closeResults = () => {
         activeIndex = -1;
         results.hidden = true;
@@ -208,6 +372,7 @@
         const selectedType = typeFilter.value;
         const hasFilter = Boolean(selectedSubject || selectedType);
         const matches = getMatches(query, selectedSubject, selectedType);
+        filterSubjectCards(selectedSubject, selectedType);
         closeResults();
         results.replaceChildren();
         clearButton.hidden = !query;
@@ -237,7 +402,7 @@
 
             const action = document.createElement('span');
             action.className = 'bf-search-result__action';
-            action.textContent = 'Abrir recurso ↗';
+            action.textContent = /\.pdf(?:[?#]|$)/i.test(item.url) ? 'Abrir PDF ↗' : 'Explorar página ↗';
 
             option.append(metadata, title, action);
             results.append(option);
@@ -272,7 +437,7 @@
         if (event.key === 'ArrowUp' && items.length) { event.preventDefault(); setActive(activeIndex - 1); }
         if (event.key === 'Enter' && activeIndex >= 0 && items[activeIndex]) {
             event.preventDefault();
-            window.location.href = items[activeIndex].dataset.url;
+            openResource(items[activeIndex].dataset.url);
         }
         if (event.key === 'Escape') {
             event.preventDefault();
@@ -282,7 +447,7 @@
     form.addEventListener('submit', (event) => {
         event.preventDefault();
         const first = results.querySelector('[role="option"]');
-        if (first) window.location.href = first.dataset.url;
+        if (first) openResource(first.dataset.url);
     });
     clearButton.addEventListener('click', () => {
         input.value = '';
@@ -292,7 +457,7 @@
     [subjectFilter, typeFilter].forEach((filter) => filter.addEventListener('change', render));
     results.addEventListener('click', (event) => {
         const option = event.target.closest('[role="option"]');
-        if (option) window.location.href = option.dataset.url;
+        if (option) openResource(option.dataset.url);
     });
     results.addEventListener('pointerover', (event) => {
         const option = event.target.closest('[role="option"]');

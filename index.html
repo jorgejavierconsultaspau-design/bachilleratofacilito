@@ -24,9 +24,11 @@
         <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
             <a class="is-current" href="index.html">Inicio</a>
             <a href="recursos.html">Recursos</a>
+            <a href="mi-estudio.html">Mi estudio</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a href="contacto.html">Contacto</a>
             <a class="bf-nav__action" href="#sugerencias">Sugerencias</a>
+            <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
         </nav>
     </header>
 
@@ -36,6 +38,7 @@
                 <p class="bf-eyebrow">BachilleratoFacilito · Madrid</p>
                 <h1 id="hero-title">Todo Bachillerato.<br><em>En un solo lugar.</em></h1>
                 <p class="bf-hero__summary">Apuntes, ejercicios, resúmenes y recursos para 2º de Bachillerato y la PAU.</p>
+                <a class="bf-button bf-button--primary bf-hero__cta" href="recursos.html">Empezar a estudiar gratis <span>→</span></a>
                 <div class="bf-hero__meta"><span>Apuntes y ejercicios</span><span>Acceso gratuito</span><span>Preparación PAU</span></div>
             </div>
             <div class="bf-hero__search" id="buscador">
@@ -55,6 +58,7 @@
                     </label>
                 </div>
                 <div class="bf-quick-search" role="group" aria-label="Búsquedas rápidas"><span>Prueba con</span><button type="button" data-search="Matemáticas II">Matemáticas II</button><button type="button" data-search="Física">Física</button><button type="button" data-search="Platón">Platón</button><button type="button" data-search="PAU">PAU</button></div>
+                <div class="bf-popular-search" role="group" aria-label="Temas populares"><span>Temas populares</span><button type="button" data-search="Análisis">#Análisis</button><button type="button" data-search="Química">#Química</button><button type="button" data-search="PAU">#PAU2026</button></div>
                 <p id="search-status" class="bf-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
                 <ul id="search-results" class="bf-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></ul>
             </div>
@@ -65,24 +69,81 @@
             <div class="bf-explore__content"><h2 id="explore-title">Empieza por donde lo necesitas.</h2><div class="bf-explore__links"><a href="matematicas.html">Matemáticas II <span>↗</span></a><a href="fisica.html">Física <span>↗</span></a><a href="filosofia-apuntes.html">Filosofía <span>↗</span></a><a href="lengua.html">Lengua <span>↗</span></a><a href="dibujo-tecnico.html">Dibujo Técnico II <span>↗</span></a><a href="historia-de-espana.html">Historia de España <span>↗</span></a><a href="ingles.html">Inglés <span>↗</span></a><a href="biologia.html">Biología <span>↗</span></a><a href="quimica.html">Química <span>↗</span></a></div></div>
         </section>
 
-        <section class="bf-subjects" aria-labelledby="subjects-title">
-            <div class="bf-section-heading"><div><div class="bf-section-label"><span>Asignaturas</span></div><h2 id="subjects-title">Una ruta clara para cada materia.</h2></div><a href="recursos.html" class="bf-text-link">Ver todas <span>→</span></a></div>
-            <div class="bf-subjects__grid">
-                <a href="matematicas.html" class="bf-subject bf-subject--math"><strong>Matemáticas II</strong><small>Análisis · Álgebra · Geometría</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="fisica.html" class="bf-subject bf-subject--physics"><strong>Física</strong><small>Campos · Ondas · Moderna</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="filosofia-apuntes.html" class="bf-subject bf-subject--philosophy"><strong>Filosofía</strong><small>Autores · Textos · Comparaciones</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="lengua.html" class="bf-subject bf-subject--language"><strong>Lengua</strong><small>Lengua · Literatura · Textos</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="dibujo-tecnico.html" class="bf-subject bf-subject--drawing"><strong>Dibujo Técnico II</strong><small>Geometría · Sistemas · Normalización</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="historia-de-espana.html" class="bf-subject bf-subject--history"><strong>Historia de España</strong><small>Siglos XIX y XX · Democracia</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="ingles.html" class="bf-subject bf-subject--english"><strong>Inglés</strong><small>Grammar · Vocabulary · Writing</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="biologia.html" class="bf-subject bf-subject--biology"><strong>Biología</strong><small>Célula · Genética · Fisiología</small><span class="bf-subject__arrow">↗</span></a>
-                <a href="quimica.html" class="bf-subject bf-subject--chemistry"><strong>Química</strong><small>Enlace · Reacciones · Orgánica</small><span class="bf-subject__arrow">↗</span></a>
+        <section class="bf-stats" aria-labelledby="stats-title">
+            <div class="bf-section-label"><span>La biblioteca</span></div>
+            <h2 id="stats-title">Recursos para avanzar a tu ritmo.</h2>
+            <div class="bf-stats__grid">
+                <article><strong data-bf-stat="resources">0</strong><span>recursos indexados</span></article>
+                <article><strong data-bf-stat="topics">0</strong><span>temas organizados</span></article>
+                <article><strong data-bf-stat="subjects">0</strong><span>asignaturas</span></article>
             </div>
+        </section>
+
+        <section class="bf-testimonials" aria-labelledby="testimonials-title">
+            <div class="bf-section-label"><span>Experiencias</span></div>
+            <h2 id="testimonials-title">Estudiar con un plan claro ayuda.</h2>
+            <p class="bf-testimonials__notice">Ejemplos de contenido para la maqueta; sustituir por opiniones verificadas antes de publicarlos como testimonios.</p>
+            <div class="bf-testimonials__grid">
+                <figure><blockquote>“Tener los temas por asignaturas me ayudó a organizar mejor el repaso.”</blockquote><figcaption><span>Opinión de ejemplo</span>Estudiante de Bachillerato</figcaption></figure>
+                <figure><blockquote>“Poder alternar teoría y ejercicios me vino bien para preparar los exámenes.”</blockquote><figcaption><span>Opinión de ejemplo</span>Estudiante de la PAU</figcaption></figure>
+                <figure><blockquote>“Encontré los bloques que necesitaba sin perder tiempo buscando.”</blockquote><figcaption><span>Opinión de ejemplo</span>Estudiante de Madrid</figcaption></figure>
+            </div>
+        </section>
+
+        <section class="bf-subjects" aria-labelledby="subjects-title">
+            <div class="bf-section-heading"><div><div class="bf-section-label"><span>Asignaturas</span></div><h2 id="subjects-title">Una ruta clara para cada materia.</h2></div><a href="recursos.html" class="bf-button bf-button--light">Ver todas <span>→</span></a></div>
+            <div class="bf-subjects__grid">
+                <a href="matematicas.html" class="bf-subject bf-subject--math" data-subject="Matemáticas II"><span class="bf-subject__symbol" aria-hidden="true">∑</span><strong>Matemáticas II</strong><small>Análisis · Álgebra · Geometría</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="fisica.html" class="bf-subject bf-subject--physics" data-subject="Física"><span class="bf-subject__symbol" aria-hidden="true">v²</span><strong>Física</strong><small>Campos · Ondas · Moderna</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="filosofia-apuntes.html" class="bf-subject bf-subject--philosophy" data-subject="Filosofía"><span class="bf-subject__symbol" aria-hidden="true">Φ</span><strong>Filosofía</strong><small>Autores · Textos · Comparaciones</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="lengua.html" class="bf-subject bf-subject--language" data-subject="Lengua"><span class="bf-subject__symbol" aria-hidden="true">A·Z</span><strong>Lengua</strong><small>Lengua · Literatura · Textos</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="dibujo-tecnico.html" class="bf-subject bf-subject--drawing" data-subject="Dibujo Técnico II"><span class="bf-subject__symbol" aria-hidden="true">△</span><strong>Dibujo Técnico II</strong><small>Geometría · Sistemas · Normalización</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="historia-de-espana.html" class="bf-subject bf-subject--history" data-subject="Historia de España"><span class="bf-subject__symbol" aria-hidden="true">↔</span><strong>Historia de España</strong><small>Siglos XIX y XX · Democracia</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="ingles.html" class="bf-subject bf-subject--english" data-subject="Inglés"><span class="bf-subject__symbol" aria-hidden="true">EN</span><strong>Inglés</strong><small>Grammar · Vocabulary · Writing</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="biologia.html" class="bf-subject bf-subject--biology" data-subject="Biología"><span class="bf-subject__symbol" aria-hidden="true">DNA</span><strong>Biología</strong><small>Célula · Genética · Fisiología</small><span class="bf-subject__arrow">↗</span></a>
+                <a href="quimica.html" class="bf-subject bf-subject--chemistry" data-subject="Química"><span class="bf-subject__symbol" aria-hidden="true">H₂O</span><strong>Química</strong><small>Enlace · Reacciones · Orgánica</small><span class="bf-subject__arrow">↗</span></a>
+            </div>
+        </section>
+
+        <section class="bf-timeline" aria-labelledby="timeline-title" data-pau-deadline="2026-06-01T09:00:00+02:00">
+            <div class="bf-timeline__intro">
+                <div class="bf-section-label"><span>Calendario PAU</span></div>
+                <h2 id="timeline-title">Cada paso cuenta.</h2>
+                <p>Hitos de preparación para la PAU de Madrid 2026.</p>
+                <p class="bf-timeline__countdown"><strong id="pau-countdown">Calculando la cuenta atrás…</strong></p>
+                <a class="bf-text-link" href="pau-matematicas.html">Practicar con exámenes <span>→</span></a>
+            </div>
+            <ol class="bf-timeline__items">
+                <li><span>Otoño 2025</span><span>Organiza las asignaturas y fija objetivos.</span></li>
+                <li><span>Invierno 2025–26</span><span>Consolida la teoría y repasa los bloques.</span></li>
+                <li><span>Primavera 2026</span><span>Haz simulacros y revisa los errores.</span></li>
+                <li><time datetime="2026-06">Junio 2026</time><span>Convocatoria ordinaria de la PAU en Madrid.</span></li>
+                <li><time datetime="2026-07">Julio 2026</time><span>Convocatoria extraordinaria.</span></li>
+            </ol>
+        </section>
+
+        <section class="bf-progress" aria-labelledby="progress-title">
+            <div class="bf-progress__intro">
+                <div class="bf-section-label"><span>Tu progreso</span></div>
+                <h2 id="progress-title">Celebra cada tema que completas.</h2>
+                <p>Marca los temas que ya has repasado; tu avance se guarda en este navegador.</p>
+                <div class="bf-progress__meter">
+                    <label for="study-progress-meter">Temas completados</label>
+                    <progress id="study-progress-meter" value="0" max="1">0%</progress>
+                    <output id="study-progress-label" for="study-progress-meter">0 temas completados</output>
+                </div>
+                <div class="bf-progress__badges" aria-live="polite">
+                    <h3>Insignias de asignatura</h3>
+                    <p id="study-badges-empty">Completa todos los temas de una asignatura para desbloquear su insignia.</p>
+                    <div id="study-badges"></div>
+                </div>
+            </div>
+            <div id="study-progress-topics" class="bf-progress__topics" aria-label="Temas para marcar como completados"></div>
         </section>
 
         <section class="bf-editorial" aria-labelledby="resources-title">
             <div class="bf-section-label"><span>Selección editorial</span></div>
-            <div class="bf-editorial__body"><div><h2 id="resources-title">Recursos destacados</h2></div><div class="bf-resource-list"><a href="docs/analisis.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Matemáticas II</span><strong>Análisis</strong><span class="bf-resource-list__arrow">Abrir ↗</span></a><a href="docs/campo-gravitatorio-teoria.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Física</span><strong>Campo gravitatorio</strong><span class="bf-resource-list__arrow">Abrir ↗</span></a><a href="filosofia-autores.html"><span class="bf-resource-list__type">Página · Filosofía</span><strong>Autores y teorías</strong><span class="bf-resource-list__arrow">Explorar ↗</span></a><a href="pau-matematicas.html"><span class="bf-resource-list__type">Biblioteca · PAU</span><strong>Exámenes de Matemáticas II</strong><span class="bf-resource-list__arrow">Explorar ↗</span></a></div></div>
+            <div class="bf-editorial__body"><div><h2 id="resources-title">Recursos destacados</h2></div><div class="bf-resource-list"><a href="docs/analisis.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Matemáticas II</span><strong>Análisis</strong><span class="bf-resource-list__arrow">Abrir PDF ↗</span></a><a href="docs/campo-gravitatorio-teoria.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Física</span><strong>Campo gravitatorio</strong><span class="bf-resource-list__arrow">Abrir PDF ↗</span></a><a href="filosofia-autores.html"><span class="bf-resource-list__type">Página · Filosofía</span><strong>Autores y teorías</strong><span class="bf-resource-list__arrow">Explorar página ↗</span></a><a href="pau-matematicas.html"><span class="bf-resource-list__type">Biblioteca · PAU</span><strong>Exámenes de Matemáticas II</strong><span class="bf-resource-list__arrow">Explorar página ↗</span></a></div></div>
         </section>
 
         <section class="bf-pau" aria-labelledby="pau-title"><div class="bf-pau__index">PAU<br><span>Madrid</span></div><div><div class="bf-section-label"><span>Preparación</span></div><h2 id="pau-title">Exámenes PAU<br><em>de Matemáticas II.</em></h2><p>Practica con modelos y convocatorias anteriores.</p><a href="pau-matematicas.html" class="bf-button">Ver exámenes <span>→</span></a></div><div class="bf-pau__years" aria-hidden="true"><span>2026</span><span>2024</span><span>2022</span><span>2020</span><span>2018</span></div></section>
@@ -92,7 +153,7 @@
         <section class="bf-about" aria-labelledby="about-title"><div class="bf-about__mark">BF</div><div><div class="bf-section-label"><span>El proyecto</span></div><h2 id="about-title">Quiénes somos</h2><p>Reunimos apuntes, ejercicios y exámenes PAU de 2º de Bachillerato en una biblioteca gratuita.</p><a href="quienes-somos.html" class="bf-text-link">Conócenos <span>→</span></a></div></section>
     </main>
 
-    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="#sugerencias">Sugerencias</a></div><div><h2>Legal</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
+    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="#sugerencias">Sugerencias</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
 
     <script src="js/home-search.js"></script>
     <script src="js/home-nav.js"></script>
