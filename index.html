@@ -27,7 +27,6 @@
             <a href="mi-estudio.html">Mi estudio</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a href="contacto.html">Contacto</a>
-            <a class="bf-nav__action" href="#sugerencias">Sugerencias</a>
             <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
         </nav>
     </header>
@@ -38,7 +37,10 @@
                 <p class="bf-eyebrow">BachilleratoFacilito · Madrid</p>
                 <h1 id="hero-title">Todo Bachillerato.<br><em>En un solo lugar.</em></h1>
                 <p class="bf-hero__summary">Apuntes, ejercicios, resúmenes y recursos para 2º de Bachillerato y la PAU.</p>
-                <a class="bf-button bf-button--primary bf-hero__cta" href="recursos.html">Empezar a estudiar gratis <span>→</span></a>
+                <div class="bf-hero__actions">
+                    <a class="bf-button bf-button--primary bf-hero__cta" href="recursos.html">Empezar a estudiar gratis <span>→</span></a>
+                    <a class="bf-button bf-button--light bf-hero__cta-secondary" href="mi-estudio.html">Ir a Mi Estudio <span>→</span></a>
+                </div>
                 <div class="bf-hero__meta"><span>Apuntes y ejercicios</span><span>Acceso gratuito</span><span>Preparación PAU</span></div>
             </div>
             <div class="bf-hero__search" id="buscador">
@@ -62,11 +64,6 @@
                 <p id="search-status" class="bf-search-status" role="status" aria-live="polite" aria-atomic="true"></p>
                 <ul id="search-results" class="bf-search-results" role="listbox" aria-label="Resultados de búsqueda" hidden></ul>
             </div>
-        </section>
-
-        <section class="bf-explore" aria-labelledby="explore-title">
-            <div class="bf-section-label"><span>Explora</span></div>
-            <div class="bf-explore__content"><h2 id="explore-title">Empieza por donde lo necesitas.</h2><div class="bf-explore__links"><a href="matematicas.html">Matemáticas II <span>↗</span></a><a href="fisica.html">Física <span>↗</span></a><a href="filosofia-apuntes.html">Filosofía <span>↗</span></a><a href="lengua.html">Lengua <span>↗</span></a><a href="dibujo-tecnico.html">Dibujo Técnico II <span>↗</span></a><a href="historia-de-espana.html">Historia de España <span>↗</span></a><a href="ingles.html">Inglés <span>↗</span></a><a href="biologia.html">Biología <span>↗</span></a><a href="quimica.html">Química <span>↗</span></a></div></div>
         </section>
 
         <section class="bf-stats" aria-labelledby="stats-title">
@@ -143,17 +140,56 @@
 
         <section class="bf-editorial" aria-labelledby="resources-title">
             <div class="bf-section-label"><span>Selección editorial</span></div>
-            <div class="bf-editorial__body"><div><h2 id="resources-title">Recursos destacados</h2></div><div class="bf-resource-list"><a href="docs/analisis.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Matemáticas II</span><strong>Análisis</strong><span class="bf-resource-list__arrow">Abrir PDF ↗</span></a><a href="docs/campo-gravitatorio-teoria.pdf" target="_blank" rel="noopener"><span class="bf-resource-list__type">PDF · Física</span><strong>Campo gravitatorio</strong><span class="bf-resource-list__arrow">Abrir PDF ↗</span></a><a href="filosofia-autores.html"><span class="bf-resource-list__type">Página · Filosofía</span><strong>Autores y teorías</strong><span class="bf-resource-list__arrow">Explorar página ↗</span></a><a href="pau-matematicas.html"><span class="bf-resource-list__type">Biblioteca · PAU</span><strong>Exámenes de Matemáticas II</strong><span class="bf-resource-list__arrow">Explorar página ↗</span></a></div></div>
+            <div class="bf-editorial__body">
+                <div><h2 id="resources-title">Recursos destacados</h2></div>
+                <div class="bf-resource-list">
+                    <a href="docs/analisis.pdf" target="_blank" rel="noopener">
+                        <span class="bf-resource-list__type">PDF · Matemáticas II</span>
+                        <strong>Análisis</strong>
+                        <span class="bf-resource-list__meta">PDF • PAU Madrid</span>
+                        <span class="bf-resource-list__arrow">Abrir PDF ↗</span>
+                    </a>
+                    <a href="docs/campo-gravitatorio-teoria.pdf" target="_blank" rel="noopener">
+                        <span class="bf-resource-list__type">PDF · Física</span>
+                        <strong>Campo gravitatorio</strong>
+                        <span class="bf-resource-list__meta">PDF • PAU Madrid</span>
+                        <span class="bf-resource-list__arrow">Abrir PDF ↗</span>
+                    </a>
+                    <a href="filosofia-autores.html">
+                        <span class="bf-resource-list__type">Página · Filosofía</span>
+                        <strong>Autores y teorías</strong>
+                        <span class="bf-resource-list__meta">Artículo • Biblioteca</span>
+                        <span class="bf-resource-list__arrow">Explorar página ↗</span>
+                    </a>
+                    <a href="pau-matematicas.html">
+                        <span class="bf-resource-list__type">Biblioteca · PAU</span>
+                        <strong>Exámenes de Matemáticas II</strong>
+                        <span class="bf-resource-list__meta">Banco de exámenes</span>
+                        <span class="bf-resource-list__arrow">Explorar página ↗</span>
+                    </a>
+                </div>
+            </div>
         </section>
 
         <section class="bf-pau" aria-labelledby="pau-title"><div class="bf-pau__index">PAU<br><span>Madrid</span></div><div><div class="bf-section-label"><span>Preparación</span></div><h2 id="pau-title">Exámenes PAU<br><em>de Matemáticas II.</em></h2><p>Practica con modelos y convocatorias anteriores.</p><a href="pau-matematicas.html" class="bf-button">Ver exámenes <span>→</span></a></div><div class="bf-pau__years" aria-hidden="true"><span>2026</span><span>2024</span><span>2022</span><span>2020</span><span>2018</span></div></section>
 
-        <section class="bf-suggestions" id="sugerencias" aria-labelledby="suggestions-title"><div><div class="bf-section-label"><span>Participa</span></div><h2 id="suggestions-title">¿Qué recurso necesitas?</h2><p>Dinos qué tema o asignatura echas en falta.</p></div><div class="bf-suggestions__actions"><a href="contacto.html" class="bf-suggestion-choice"><span>01</span><strong>Falta un tema</strong><small>Indica la asignatura</small><span>→</span></a><a href="contacto.html" class="bf-suggestion-choice"><span>02</span><strong>Quiero más ejercicios</strong><small>Indica el tema</small><span>→</span></a><a href="contacto.html" class="bf-suggestion-choice"><span>03</span><strong>Tengo una propuesta</strong><small>Escríbenos</small><span>→</span></a></div><a href="contacto.html" class="bf-text-link">Enviar sugerencia <span>→</span></a></section>
+        <section class="bf-trust" aria-labelledby="trust-title">
+            <div class="bf-section-label"><span>Confianza</span></div>
+            <h2 id="trust-title">Una comunidad que repasa y comparte lo que realmente ayuda.</h2>
+            <div class="bf-trust__stats">
+                <article><strong>1.600+</strong><span>recursos organizados por asignatura</span></article>
+                <article><strong>12</strong><span>bloques de estudio para repasar mejor</span></article>
+            </div>
+            <div class="bf-trust__quote">
+                <p>“Lo mejor es que todo está ordenado por temas y asignaturas; te ahorra horas de búsqueda.”</p>
+                <span>Estudiantes de 2º de Bachillerato</span>
+            </div>
+        </section>
 
         <section class="bf-about" aria-labelledby="about-title"><div class="bf-about__mark">BF</div><div><div class="bf-section-label"><span>El proyecto</span></div><h2 id="about-title">Quiénes somos</h2><p>Reunimos apuntes, ejercicios y exámenes PAU de 2º de Bachillerato en una biblioteca gratuita.</p><a href="quienes-somos.html" class="bf-text-link">Conócenos <span>→</span></a></div></section>
     </main>
 
-    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="#sugerencias">Sugerencias</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
+        <div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div>
 
     <script src="js/home-search.js"></script>
     <script src="js/home-nav.js"></script>

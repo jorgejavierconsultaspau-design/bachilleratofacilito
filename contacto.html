@@ -12,7 +12,12 @@
         <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
         <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
         <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
-            <a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a><a href="quienes-somos.html">Quiénes somos</a><a class="is-current" href="contacto.html">Contacto</a><a class="bf-nav__action" href="index.html#sugerencias">Sugerencias</a><button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
+            <a href="index.html">Inicio</a>
+            <a href="recursos.html">Recursos</a>
+            <a href="mi-estudio.html">Mi estudio</a>
+            <a href="quienes-somos.html">Quiénes somos</a>
+            <a class="is-current" href="contacto.html">Contacto</a>
+            <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
         </nav>
     </header>
 
@@ -22,31 +27,56 @@
             <div class="bf-editorial__body">
                 <div><h1 id="contact-title">Contacto</h1><p>Dudas, sugerencias o propuestas docentes: escríbenos.</p><h2>Elige tu canal</h2></div>
                 <div class="bf-resource-list">
-                    <a href="mailto:jorgejavierconsultaspau@gmail.com"><span class="bf-resource-list__type">Hablemos</span><strong>Correo electrónico</strong><span class="bf-resource-list__arrow">✉</span><small>jorgejavierconsultaspau@gmail.com</small></a>
+                    <a href="mailto:contacto@bachilleratofacilito.es"><span class="bf-resource-list__type">Hablemos</span><strong>Correo electrónico</strong><span class="bf-resource-list__arrow">✉</span><small>contacto@bachilleratofacilito.es</small></a>
                     <a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer"><span class="bf-resource-list__type">Síguenos</span><strong>Instagram</strong><span class="bf-resource-list__arrow">↗</span><small>@bachilleratofacilito</small></a>
                 </div>
+            </div>
+        </section>
+
+        <section class="bf-suggestions" aria-labelledby="contact-suggestions-title">
+            <div>
+                <div class="bf-section-label"><span>02</span><span>Participa</span></div>
+                <h2 id="contact-suggestions-title">¿Qué necesitas que añadamos?</h2>
+                <p>Si falta un recurso, una explicación o un tema concreto, te lo resolvemos por aquí.</p>
+            </div>
+            <div class="bf-suggestions__actions">
+                <a href="#contact-form" class="bf-suggestion-choice"><span>01</span><strong>Falta un tema</strong><small>Indica la asignatura</small><span>→</span></a>
+                <a href="#contact-form" class="bf-suggestion-choice"><span>02</span><strong>Quiero más ejercicios</strong><small>Indica el bloque</small><span>→</span></a>
+                <a href="#contact-form" class="bf-suggestion-choice"><span>03</span><strong>Tengo una propuesta</strong><small>Escríbenos</small><span>→</span></a>
             </div>
         </section>
 
         <section class="bf-pau bf-contact-section" aria-labelledby="contact-form-title">
             <div class="bf-pau__index">BF<br><span>Contacto</span></div>
             <div>
-                <div class="bf-section-label"><span>02</span><span>Escríbenos</span></div>
+                <div class="bf-section-label"><span>03</span><span>Escríbenos</span></div>
                 <h2 id="contact-form-title">¿Eres profesor?</h2>
                 <p>¿Tienes una propuesta para el aula? Cuéntanosla.</p>
                 <form id="contact-form" class="bf-contact-form" action="https://formsubmit.co/ajax/jorgejavierconsultaspau@gmail.com" method="POST" data-form-provider="FormSubmit">
                     <input type="hidden" name="_captcha" value="false"><input type="hidden" name="_subject" value="Nuevo mensaje desde BachilleratoFacilito"><input type="text" name="_honey" tabindex="-1" autocomplete="off" aria-hidden="true" class="form-honeypot">
                     <label for="contact-name">Nombre</label><input id="contact-name" name="Nombre" type="text" autocomplete="name" required>
                     <label for="contact-email">Correo electrónico</label><input id="contact-email" name="Correo" type="email" autocomplete="email" required>
+                    <label for="contact-subject">Asunto</label><input id="contact-subject" name="Asunto" type="text" required>
                     <label for="contact-message">Mensaje</label><textarea id="contact-message" name="Mensaje" rows="6" required></textarea>
                     <button type="submit" class="bf-button">Enviar mensaje <span>→</span></button>
                     <p id="contact-status" class="contact-status" role="status" aria-live="polite" hidden></p>
                 </form>
             </div>
         </section>
+
+        <section class="bf-editorial" aria-labelledby="contact-direct-title">
+            <div class="bf-section-label"><span>04</span><span>Canales directos</span></div>
+            <div class="bf-editorial__body">
+                <div><h2 id="contact-direct-title">Contacto directo</h2><p>También puedes escribirnos en la vía más rápida.</p></div>
+                <div class="bf-resource-list">
+                    <a href="mailto:contacto@bachilleratofacilito.es"><span class="bf-resource-list__type">Email</span><strong>contacto@bachilleratofacilito.es</strong><span class="bf-resource-list__arrow">✉</span></a>
+                    <a href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer"><span class="bf-resource-list__type">Instagram</span><strong>@bachilleratofacilito</strong><span class="bf-resource-list__arrow">↗</span></a>
+                </div>
+            </div>
+        </section>
     </main>
 
-    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a><a href="index.html#sugerencias">Sugerencias</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
+    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
     <script src="js/home-nav.js"></script><script src="js/cookie-consent.js"></script>
     <script>
         const contactForm = document.getElementById('contact-form');
