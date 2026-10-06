@@ -4029,26 +4029,35 @@ textarea {
 }
 
 .bf-contact-form .bf-study-consent {
-    display: flex;
-    align-items: flex-start;
-    gap: 12px;
+    display: grid;
+    grid-template-columns: 42px minmax(0, 1fr);
+    align-items: center;
+    gap: 16px;
+    max-width: 640px;
     margin: 8px 0 4px;
-    color: rgba(255, 255, 255, 0.9);
-    font-size: 0.9rem;
-    line-height: 1.5;
+    color: rgba(255, 255, 255, 0.96);
+    font-size: clamp(1.05rem, 1.2vw, 1.35rem);
+    line-height: 1.45;
+    text-align: left;
 }
 
 .bf-contact-form .bf-study-consent input {
-    width: 20px;
-    height: 20px;
-    margin: 2px 0 0;
+    width: 26px;
+    height: 26px;
+    margin: 0;
     accent-color: var(--bf-lime);
-    flex: 0 0 auto;
+    justify-self: center;
+}
+
+.bf-contact-form .bf-study-consent span {
+    display: block;
+    min-width: 0;
 }
 
 .bf-contact-form .bf-study-consent a {
     color: var(--bf-lime);
     text-decoration: underline;
+    text-underline-offset: 2px;
 }
 
 .bf-contact-form .bf-button {
@@ -4111,8 +4120,14 @@ textarea {
     }
 
     .bf-contact-form .bf-study-consent {
-        align-items: flex-start;
-        font-size: 0.83rem;
+        grid-template-columns: 34px minmax(0, 1fr);
+        gap: 12px;
+        font-size: 1.02rem;
+    }
+
+    .bf-contact-form .bf-study-consent input {
+        width: 22px;
+        height: 22px;
     }
 
     .bf-contact-form .bf-button {
