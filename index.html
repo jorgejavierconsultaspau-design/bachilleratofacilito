@@ -6,6 +6,7 @@
     <meta name="description" content="Encuentra apuntes, resúmenes y exámenes de 2º de Bachillerato para estudiar cada asignatura y preparar la PAU gratis, con recursos claros y organizados.">
     <title>Apuntes 2 Bachillerato | BachilleratoFacilito</title>
     <link rel="canonical" href="https://bachilleratofacilito.pages.dev/">
+    <link rel="icon" href="og-image.png" type="image/png">
     <meta property="og:title" content="Apuntes 2 Bachillerato | BachilleratoFacilito">
     <meta property="og:description" content="Encuentra apuntes, resúmenes y exámenes de 2º de Bachillerato para estudiar cada asignatura y preparar la PAU gratis, con recursos claros y organizados.">
     <meta property="og:type" content="website">
@@ -31,8 +32,16 @@
         </nav>
     </header>
 
+    <div id="app-loader" class="site-loader" aria-live="polite" aria-label="Cargando contenido">
+        <div class="site-loader__card">
+            <span class="site-loader__dot"></span>
+            <span class="site-loader__dot"></span>
+            <span class="site-loader__dot"></span>
+        </div>
+    </div>
+
     <main>
-        <section class="bf-hero" aria-labelledby="hero-title">
+        <section class="bf-hero reveal" aria-labelledby="hero-title">
             <div class="bf-hero__copy">
                 <p class="bf-eyebrow">BachilleratoFacilito · Madrid</p>
                 <h1 id="hero-title">Todo Bachillerato.<br><em>En un solo lugar.</em></h1>
@@ -66,7 +75,7 @@
             </div>
         </section>
 
-        <section class="bf-stats" aria-labelledby="stats-title">
+        <section class="bf-stats reveal" aria-labelledby="stats-title">
             <div class="bf-section-label"><span>La biblioteca</span></div>
             <h2 id="stats-title">Recursos para avanzar a tu ritmo.</h2>
             <div class="bf-stats__grid">
@@ -76,7 +85,7 @@
             </div>
         </section>
 
-        <section class="bf-testimonials" aria-labelledby="testimonials-title">
+        <section class="bf-testimonials reveal" aria-labelledby="testimonials-title">
             <div class="bf-section-label"><span>Experiencias</span></div>
             <h2 id="testimonials-title">Estudiar con un plan claro ayuda.</h2>
             <p class="bf-testimonials__notice">Ejemplos de contenido para la maqueta; sustituir por opiniones verificadas antes de publicarlos como testimonios.</p>
@@ -87,7 +96,7 @@
             </div>
         </section>
 
-        <section class="bf-subjects" aria-labelledby="subjects-title">
+        <section class="bf-subjects reveal" aria-labelledby="subjects-title">
             <div class="bf-section-heading"><div><div class="bf-section-label"><span>Asignaturas</span></div><h2 id="subjects-title">Una ruta clara para cada materia.</h2></div><a href="recursos.html" class="bf-button bf-button--light">Ver todas <span>→</span></a></div>
             <div class="bf-subjects__grid">
                 <a href="matematicas.html" class="bf-subject bf-subject--math" data-subject="Matemáticas II"><span class="bf-subject__symbol" aria-hidden="true">∑</span><strong>Matemáticas II</strong><small>Análisis · Álgebra · Geometría</small><span class="bf-subject__arrow">↗</span></a>
@@ -102,7 +111,7 @@
             </div>
         </section>
 
-        <section class="bf-timeline" aria-labelledby="timeline-title" data-pau-deadline="2026-06-01T09:00:00+02:00">
+        <section class="bf-timeline reveal" aria-labelledby="timeline-title" data-pau-deadline="2026-06-01T09:00:00+02:00">
             <div class="bf-timeline__intro">
                 <div class="bf-section-label"><span>Calendario PAU</span></div>
                 <h2 id="timeline-title">Cada paso cuenta.</h2>
@@ -119,7 +128,7 @@
             </ol>
         </section>
 
-        <section class="bf-progress" aria-labelledby="progress-title">
+        <section class="bf-progress reveal" aria-labelledby="progress-title">
             <div class="bf-progress__intro">
                 <div class="bf-section-label"><span>Tu progreso</span></div>
                 <h2 id="progress-title">Celebra cada tema que completas.</h2>
@@ -138,7 +147,7 @@
             <div id="study-progress-topics" class="bf-progress__topics" aria-label="Temas para marcar como completados"></div>
         </section>
 
-        <section class="bf-editorial" aria-labelledby="resources-title">
+        <section class="bf-editorial reveal" aria-labelledby="resources-title">
             <div class="bf-section-label"><span>Selección editorial</span></div>
             <div class="bf-editorial__body">
                 <div><h2 id="resources-title">Recursos destacados</h2></div>
@@ -171,9 +180,9 @@
             </div>
         </section>
 
-        <section class="bf-pau" aria-labelledby="pau-title"><div class="bf-pau__index">PAU<br><span>Madrid</span></div><div><div class="bf-section-label"><span>Preparación</span></div><h2 id="pau-title">Exámenes PAU<br><em>de Matemáticas II.</em></h2><p>Practica con modelos y convocatorias anteriores.</p><a href="pau-matematicas.html" class="bf-button">Ver exámenes <span>→</span></a></div><div class="bf-pau__years" aria-hidden="true"><span>2026</span><span>2024</span><span>2022</span><span>2020</span><span>2018</span></div></section>
+        <section class="bf-pau reveal" aria-labelledby="pau-title"><div class="bf-pau__index">PAU<br><span>Madrid</span></div><div><div class="bf-section-label"><span>Preparación</span></div><h2 id="pau-title">Exámenes PAU<br><em>de Matemáticas II.</em></h2><p>Practica con modelos y convocatorias anteriores.</p><a href="pau-matematicas.html" class="bf-button">Ver exámenes <span>→</span></a></div><div class="bf-pau__years" aria-hidden="true"><span>2026</span><span>2024</span><span>2022</span><span>2020</span><span>2018</span></div></section>
 
-        <section class="bf-trust" aria-labelledby="trust-title">
+        <section class="bf-trust reveal" aria-labelledby="trust-title">
             <div class="bf-section-label"><span>Confianza</span></div>
             <h2 id="trust-title">Una comunidad que repasa y comparte lo que realmente ayuda.</h2>
             <div class="bf-trust__stats">
@@ -186,8 +195,11 @@
             </div>
         </section>
 
-        <section class="bf-about" aria-labelledby="about-title"><div class="bf-about__mark">BF</div><div><div class="bf-section-label"><span>El proyecto</span></div><h2 id="about-title">Quiénes somos</h2><p>Reunimos apuntes, ejercicios y exámenes PAU de 2º de Bachillerato en una biblioteca gratuita.</p><a href="quienes-somos.html" class="bf-text-link">Conócenos <span>→</span></a></div></section>
+        <section class="bf-about reveal" aria-labelledby="about-title"><div class="bf-about__mark">BF</div><div><div class="bf-section-label"><span>El proyecto</span></div><h2 id="about-title">Quiénes somos</h2><p>Reunimos apuntes, ejercicios y exámenes PAU de 2º de Bachillerato en una biblioteca gratuita.</p><a href="quienes-somos.html" class="bf-text-link">Conócenos <span>→</span></a></div></section>
     </main>
+
+    <button id="back-to-top" class="back-to-top" type="button" aria-label="Volver arriba">↑</button>
+    <div id="toast-container" class="toast-container" aria-live="polite" aria-atomic="true"></div>
 
         <div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div>
 

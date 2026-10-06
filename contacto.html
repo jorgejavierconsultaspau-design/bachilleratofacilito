@@ -85,8 +85,12 @@
         const originalButtonText = contactButton.textContent;
         contactForm.addEventListener('submit', async (event) => {
             event.preventDefault(); contactButton.disabled = true; contactButton.textContent = 'Enviando...'; contactStatus.hidden = true; contactStatus.className = 'contact-status';
-            try { const response = await fetch(contactForm.action, { method: contactForm.method, body: new FormData(contactForm), headers: { Accept: 'application/json' } }); if (!response.ok) throw new Error('No se pudo enviar el mensaje'); contactForm.reset(); contactStatus.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.'; contactStatus.classList.add('contact-status--success'); }
-            catch (error) { contactStatus.textContent = 'No se ha podido enviar el mensaje. Inténtalo de nuevo en unos instantes.'; contactStatus.classList.add('contact-status--error'); }
+            try { const response = await fetch(contactForm.action, { method: contactForm.method, body: new FormData(contactForm), headers: { Accept: 'application/json' } }); if (!response.ok) throw new Error('No se pudo enviar el mensaje'); contactForm.reset(); contactStatus.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.'; contactStatus.classList.add('contact-status--success'); if (window.showToast) window.showToast('Mensaje enviado con éxito.', 'success'); }
+            catch (error) {
+                contactStatus.textContent = 'No se ha podido enviar el mensaje. Inténtalo de nuevo en unos instantes.';
+                contactStatus.classList.add('contact-status--error');
+                if (window.showToast) window.showToast('No se pudo enviar el mensaje.', 'error');
+            }
             finally { contactStatus.hidden = false; contactButton.disabled = false; contactButton.textContent = originalButtonText; }
         });
     </script>
