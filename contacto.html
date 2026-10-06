@@ -14,7 +14,6 @@
         <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
             <a href="recursos.html">Recursos</a>
-            <a href="mi-estudio.html">Mi estudio</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a class="is-current" href="contacto.html">Contacto</a>
             <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
@@ -58,6 +57,10 @@
                     <label for="contact-email">Correo electrónico</label><input id="contact-email" name="Correo" type="email" autocomplete="email" required>
                     <label for="contact-subject">Asunto</label><input id="contact-subject" name="Asunto" type="text" required>
                     <label for="contact-message">Mensaje</label><textarea id="contact-message" name="Mensaje" rows="6" required></textarea>
+                    <label class="bf-study-consent" for="contact-privacy">
+                        <input id="contact-privacy" name="privacyAccepted" type="checkbox" required>
+                        <span>Acepto que BachilleratoFacilito gestione este mensaje y he leído la <a href="legal.html#privacidad">política de privacidad</a>.</span>
+                    </label>
                     <button type="submit" class="bf-button">Enviar mensaje <span>→</span></button>
                     <p id="contact-status" class="contact-status" role="status" aria-live="polite" hidden></p>
                 </form>
@@ -76,7 +79,7 @@
         </section>
     </main>
 
-    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a><a href="mi-estudio.html">Mi estudio</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
+    <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
     <script src="js/home-nav.js"></script><script src="js/cookie-consent.js"></script>
     <script>
         const contactForm = document.getElementById('contact-form');
@@ -84,7 +87,16 @@
         const contactStatus = document.getElementById('contact-status');
         const originalButtonText = contactButton.textContent;
         contactForm.addEventListener('submit', async (event) => {
-            event.preventDefault(); contactButton.disabled = true; contactButton.textContent = 'Enviando...'; contactStatus.hidden = true; contactStatus.className = 'contact-status';
+            event.preventDefault();
+            const privacyBox = document.getElementById('contact-privacy');
+            if (!privacyBox || !privacyBox.checked) {
+                contactStatus.textContent = 'Debes aceptar la política de privacidad antes de enviar el mensaje.';
+                contactStatus.classList.add('contact-status--error');
+                contactStatus.hidden = false;
+                if (window.showToast) window.showToast('Debes aceptar la política de privacidad.', 'error');
+                return;
+            }
+            contactButton.disabled = true; contactButton.textContent = 'Enviando...'; contactStatus.hidden = true; contactStatus.className = 'contact-status';
             try { const response = await fetch(contactForm.action, { method: contactForm.method, body: new FormData(contactForm), headers: { Accept: 'application/json' } }); if (!response.ok) throw new Error('No se pudo enviar el mensaje'); contactForm.reset(); contactStatus.textContent = '¡Mensaje enviado con éxito! Te responderemos pronto.'; contactStatus.classList.add('contact-status--success'); if (window.showToast) window.showToast('Mensaje enviado con éxito.', 'success'); }
             catch (error) {
                 contactStatus.textContent = 'No se ha podido enviar el mensaje. Inténtalo de nuevo en unos instantes.';

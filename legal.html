@@ -3,6 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Información legal, privacidad y cookies de BachilleratoFacilito.">
+    <meta name="theme-color" content="#14532d">
     <title>Información legal | BachilleratoFacilito</title>
     <link rel="stylesheet" href="css/estilos.css">
     <style>
@@ -31,14 +33,16 @@
         }
     </style>
 </head>
-<body>
-    <header>
-        <div class="logo">Bachillerato<span>Facilito</span></div>
-        <nav aria-label="Navegación principal">
+<body class="bf-home">
+    <header class="bf-header">
+        <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
+        <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
+        <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
             <a href="recursos.html">Recursos</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a href="contacto.html">Contacto</a>
+            <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
         </nav>
     </header>
 
@@ -71,11 +75,11 @@
                     <h3>Finalidad del tratamiento:</h3>
                     <ul>
                         <li>Gestionar las consultas recibidas a través de los formularios de contacto.</li>
-                        <li>Mostrar publicidad adaptada a los hábitos de navegación del usuario mediante proveedores de terceros.</li>
-                        <li>Analizar el tráfico de la web para mejorar la experiencia de usuario y los contenidos académicos ofrecidos.</li>
+                        <li>Responder mensajes y atender peticiones de información sobre recursos, dudas o colaboraciones.</li>
+                        <li>Guardar la preferencia de cookies en el navegador para respetar la decisión del usuario sin seguimiento publicitario.</li>
                     </ul>
                     <h3>Legitimación y Conservación:</h3>
-                    <p>La base legal para el tratamiento de los datos es el consentimiento expreso del usuario al aceptar las cookies o al enviar un formulario de contacto. Los datos se conservarán mientras exista un interés mutuo para mantener el fin del tratamiento.</p>
+                    <p>La base legal para el tratamiento de los datos es el consentimiento expreso del usuario al enviar un formulario de contacto o al aceptar la configuración de cookies. Los datos se conservarán únicamente durante el tiempo necesario para atender la consulta y atender obligaciones legales aplicables.</p>
                     <h3>Derechos del Usuario:</h3>
                     <p>Tienes derecho a ejercer los derechos de Acceso, Rectificación, Supresión, Limitación, Portabilidad y Oposición. Podrás ejercerlos contactando con nosotros a través de los canales habilitados en la sección "Contacto".</p>
                 </section>
@@ -85,7 +89,7 @@
                     <h3>¿Qué son las cookies?</h3>
                     <p>Una cookie es un fichero que se descarga en tu ordenador al acceder a determinadas páginas web. Permiten a una página web, entre otras cosas, almacenar y recuperar información sobre los hábitos de navegación de un usuario o de su equipo.</p>
                     <h3>¿Qué almacenamiento utiliza actualmente esta web?</h3>
-                    <p>Actualmente esta web no incorpora herramientas de analítica ni publicidad personalizada. Para recordar tu elección, guarda en el almacenamiento local del navegador (localStorage) el valor de la clave <code>bachilleratoFacilitoCookieConsent</code> (aceptación o rechazo de servicios no esenciales). Esta preferencia técnica se conserva hasta que la cambies desde el botón «Cookies» o borres los datos del sitio; no es una cookie de seguimiento.</p>
+                    <p>Actualmente esta web no incorpora herramientas de analítica ni publicidad personalizada. Para recordar tu elección, guarda en el almacenamiento local del navegador (localStorage) el valor de la clave <code>bachilleratoFacilitoCookieConsent</code> (aceptación o rechazo de servicios no esenciales). Esta preferencia técnica se conserva hasta que la cambies desde el botón «Cookies» o borres los datos del sitio; no se usa para perfiles de usuario ni para publicidad dirigida.</p>
                     <p>Si se incorporan servicios que utilicen almacenamiento no esencial, esta política se actualizará y dichos servicios no deberán activarse antes de obtener tu consentimiento.</p>
                     <h3>Desactivación y eliminación de cookies:</h3>
                     <p>Tienes la opción de permitir, bloquear o eliminar las cookies instaladas en tu equipo mediante la configuración de las opciones del navegador instalado en tu dispositivo, así como a través del panel de configuración de cookies de esta web.</p>

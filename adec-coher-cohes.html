@@ -3,23 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Guía de adecuación, coherencia y cohesión para la PAU de Lengua Castellana y Literatura.">
     <title>Adecuación, coherencia y cohesión | BachilleratoFacilito</title>
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Bachillerato<span>Facilito</span></div>
-        <nav aria-label="Navegación principal">
+<header class="bf-header">
+        <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
+        <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
+        <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
-            <a href="recursos.html" class="active">Recursos</a>
+            <a href="recursos.html" class="is-current">Recursos</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a href="contacto.html">Contacto</a>
-            </nav>
+            <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
+        </nav>
     </header>
 
-            
     <div class="container">
         <a href="javascript:history.back()" class="btn-neon btn-back">← Volver</a>
-        <div class="glass-panel">
-            <h1>Adecuación, coherencia y cohesión </h1>
-<script src="js/cookie-consent.js"></script>
+
+        <section class="subject-hero">
+            <div class="subject-hero__content">
+                <div class="subject-hero__icon">🧩</div>
+                <div>
+                    <p class="subject-hero__eyebrow">Bloque textos</p>
+                    <h1>Adecuación, coherencia y cohesión</h1>
+                    <p>Aspectos clave para redactar textos claros, ordenados y adaptados al destinatario y a la intención del texto.</p>
+                </div>
+            </div>
+            <aside class="subject-summary-card">
+                <div class="section-title">Pilares del texto</div>
+                <div class="subject-summary-card__item">Adecuación</div>
+                <div class="subject-summary-card__item">Coherencia</div>
+                <div class="subject-summary-card__item">Cohesión</div>
+                <div class="subject-summary-card__item">Claridad y estilo</div>
+            </aside>
+        </section>
+
+        <div class="subject-grid">
+            <article class="subject-block-card">
+                <div class="subject-block-card__number">01</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">🎯</span>
+                    <h2>Adecuación</h2>
+                </div>
+                <p>El texto debe adaptarse al contexto, al destinatario, a la intención y al registro adecuado.</p>
+                <ul class="card-tags">
+                    <li>Se ajusta al público</li>
+                    <li>Usa un registro apropiado</li>
+                    <li>Responde a la finalidad del texto</li>
+                </ul>
+            </article>
+
+            <article class="subject-block-card">
+                <div class="subject-block-card__number">02</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">🧠</span>
+                    <h2>Coherencia</h2>
+                </div>
+                <p>La información debe estar ordenada y conectada de forma lógica; debe tener sentido global.</p>
+                <ul class="card-tags">
+                    <li>Ideas bien organizadas</li>
+                    <li>Orden temporal o lógico</li>
+                    <li>Sin contradicciones</li>
+                </ul>
+            </article>
+
+            <article class="subject-block-card">
+                <div class="subject-block-card__number">03</div>
+                <div class="subject-block-card__header">
+                    <span class="subject-block-card__icon">🔗</span>
+                    <h2>Cohesión</h2>
+                </div>
+                <p>Las frases han de enlazarse entre sí con conectores, referencias y recursos gramaticales.</p>
+                <ul class="card-tags">
+                    <li>Conectores y enlaces</li>
+                    <li>Pronombres y repeticiones</li>
+                    <li>Relación entre enunciados</li>
+                </ul>
+            </article>
+        </div>
+
+        <article class="glass-panel">
+            <h2>Cómo reconocerlos en un texto</h2>
+            <p>Si un texto es claro, presenta ideas ordenadas, evita saltos bruscos y utiliza enlaces explícitos entre párrafos, entonces suele tener buena adecuación, coherencia y cohesión.</p>
+            <ul class="bullet-list">
+                <li><strong>Adecuación:</strong> el tono, el vocabulario y la estructura encajan con la situación.</li>
+                <li><strong>Coherencia:</strong> se entiende la progresión de la idea principal y su desarrollo.</li>
+                <li><strong>Cohesión:</strong> las palabras y frases se conectan sin romper la fluidez.</li>
+            </ul>
+        </article>
+
+        <article class="glass-panel">
+            <h2>Truco para la PAU</h2>
+            <ol class="bullet-list">
+                <li>Identifica la intención del texto: explicar, convencer, describir, narrar.</li>
+                <li>Comprueba si la idea principal aparece clara y si las partes se ordenan lógicamente.</li>
+                <li>Busca conectores: por tanto, además, sin embargo, en conclusión, por ejemplo.</li>
+                <li>Revisa si el registro y el vocabulario se adaptan al destinatario.</li>
+            </ol>
+        </article>
+
+        <article class="glass-panel">
+            <h2>Ejemplo breve</h2>
+            <p>Si un texto habla de la contaminación del aire, debe mantener el tema central, explicar sus causas y consecuencias con un orden lógico y usar conectores como “en primer lugar”, “por otro lado” o “por tanto”. Si cambia repentinamente de tema o usa un registro demasiado informal, perderá adecuación y coherencia.</p>
+        </article>
+    </div>
+
+    <script src="js/home-nav.js"></script>
+    <script src="js/cookie-consent.js"></script>
+</body>
+</html>

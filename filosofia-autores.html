@@ -7,13 +7,15 @@
     <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
-    <header>
-        <div class="logo">Bachillerato<span>Facilito</span></div>
-        <nav aria-label="Navegación principal">
+    <header class="bf-header">
+        <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
+        <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
+        <nav id="main-navigation" class="bf-nav" aria-label="Navegación principal">
             <a href="index.html">Inicio</a>
-            <a href="recursos.html">Recursos</a>
+            <a href="recursos.html" class="is-current">Recursos</a>
             <a href="quienes-somos.html">Quiénes somos</a>
             <a href="contacto.html">Contacto</a>
+            <button class="bf-theme-toggle" type="button" aria-label="Activar modo oscuro" aria-pressed="false"><span data-theme-icon aria-hidden="true">◐</span><span data-theme-label>Modo oscuro</span></button>
         </nav>
     </header>
 
@@ -365,6 +367,7 @@
         // Inicializar
         applyFilters();
     </script>
+    <script src="js/home-nav.js"></script>
     <script src="js/cookie-consent.js"></script>
 </body>
 </html>
