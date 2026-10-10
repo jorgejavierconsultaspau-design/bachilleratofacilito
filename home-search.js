@@ -267,12 +267,12 @@
             const updateCountdown = () => {
                 const remaining = deadline - Date.now();
                 if (remaining <= 0) {
-                    countdown.textContent = 'La convocatoria ordinaria de la PAU 2026 ya se ha celebrado.';
+                    countdown.textContent = 'La convocatoria ordinaria de la PAU 2027 ya se ha celebrado.';
                     return false;
                 }
                 const days = Math.floor(remaining / 86_400_000);
                 const hours = Math.floor((remaining % 86_400_000) / 3_600_000);
-                countdown.textContent = `Quedan ${days} días y ${hours} horas para la PAU 2026.`;
+                countdown.textContent = `Quedan ${days} días y ${hours} horas para la PAU 2027.`;
                 return true;
             };
 

@@ -1,0 +1,473 @@
+/* =========================================================================
+   BachilleratoFacilito · Banners animados de asignatura
+   Se carga después de futuro.css. La escena SVG de cada asignatura la inserta
+   banners.js dentro del banner (.bf-banner > .bfb).
+   ========================================================================= */
+
+/* ---------- 1. Colores por asignatura ------------------------------------ */
+
+/* Oscuro (por defecto) */
+.bf-banner {
+  --ba: #2ef2c8;
+  --ba2: #818cf8;
+  --bfb-bg1: rgba(15, 23, 42, 0.92);
+  --bfb-bg2: rgba(7, 11, 24, 0.94);
+}
+.bf-banner[data-bf-scene="mates"]     { --ba: #2ef2c8; --ba2: #818cf8; }
+.bf-banner[data-bf-scene="fisica"]    { --ba: #38bdf8; --ba2: #c084fc; }
+.bf-banner[data-bf-scene="filosofia"] { --ba: #c084fc; --ba2: #f472b6; }
+.bf-banner[data-bf-scene="lengua"]    { --ba: #fb923c; --ba2: #fbbf24; }
+.bf-banner[data-bf-scene="dibujo"]    { --ba: #a3e635; --ba2: #22d3ee; }
+.bf-banner[data-bf-scene="historia"]  { --ba: #facc15; --ba2: #fb923c; }
+.bf-banner[data-bf-scene="ingles"]    { --ba: #818cf8; --ba2: #38bdf8; }
+.bf-banner[data-bf-scene="biologia"]  { --ba: #34d399; --ba2: #bef264; }
+.bf-banner[data-bf-scene="quimica"]   { --ba: #f472b6; --ba2: #a78bfa; }
+
+/* Claro */
+html.theme-light .bf-banner {
+  --bfb-bg1: #ffffff;
+  --bfb-bg2: #f4f6ff;
+}
+html.theme-light .bf-banner[data-bf-scene="mates"]     { --ba: #0d9488; --ba2: #6366f1; }
+html.theme-light .bf-banner[data-bf-scene="fisica"]    { --ba: #0284c7; --ba2: #7c3aed; }
+html.theme-light .bf-banner[data-bf-scene="filosofia"] { --ba: #7c3aed; --ba2: #db2777; }
+html.theme-light .bf-banner[data-bf-scene="lengua"]    { --ba: #ea580c; --ba2: #d97706; }
+html.theme-light .bf-banner[data-bf-scene="dibujo"]    { --ba: #4d7c0f; --ba2: #0891b2; }
+html.theme-light .bf-banner[data-bf-scene="historia"]  { --ba: #b45309; --ba2: #ca8a04; }
+html.theme-light .bf-banner[data-bf-scene="ingles"]    { --ba: #4f46e5; --ba2: #0ea5e9; }
+html.theme-light .bf-banner[data-bf-scene="biologia"]  { --ba: #059669; --ba2: #65a30d; }
+html.theme-light .bf-banner[data-bf-scene="quimica"]   { --ba: #db2777; --ba2: #7c3aed; }
+
+/* ---------- 2. Contenedor del banner -------------------------------------- */
+
+html body .bf-banner {
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  min-height: 250px;
+  border: 1px solid color-mix(in srgb, var(--ba) 32%, transparent) !important;
+  border-radius: 32px !important;
+  background: linear-gradient(135deg, var(--bfb-bg1), var(--bfb-bg2)) !important;
+  box-shadow:
+    0 24px 60px -24px color-mix(in srgb, var(--ba) 45%, transparent),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06) !important;
+}
+
+/* El banner de Dibujo, Inglés y Biología era solo una cabecera con línea inferior */
+html body .subject-page-heading.bf-banner {
+  display: flex;
+  align-items: center;
+  margin: 0 0 28px;
+  padding: 34px 32px;
+}
+
+/* Lo que ya había en el banner, por encima de la escena */
+html body .bf-banner > :not(.bfb):not(.bfb-glow) {
+  position: relative;
+  z-index: 2;
+}
+.bf-banner__old { display: none !important; }
+
+/* Resplandores que se desplazan despacio */
+.bfb-glow {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+.bfb-glow::before,
+.bfb-glow::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+}
+.bfb-glow::before {
+  right: -8%;
+  top: -35%;
+  width: 62%;
+  height: 170%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--ba) 34%, transparent), transparent);
+  animation: bfb-drift 13s ease-in-out infinite alternate;
+}
+.bfb-glow::after {
+  right: 34%;
+  bottom: -70%;
+  width: 40%;
+  height: 120%;
+  background: radial-gradient(closest-side, color-mix(in srgb, var(--ba2) 26%, transparent), transparent);
+  animation: bfb-drift 17s ease-in-out infinite alternate-reverse;
+}
+/* Punteado técnico sobre el lado de la escena */
+html body .bf-banner::before {
+  content: "" !important;
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: radial-gradient(color-mix(in srgb, var(--ba) 34%, transparent) 1px, transparent 1.4px) 0 0 / 22px 22px !important;
+  -webkit-mask-image: linear-gradient(100deg, transparent 40%, #000 100%);
+  mask-image: linear-gradient(100deg, transparent 40%, #000 100%);
+  opacity: 0.7;
+}
+
+/* Escena */
+.bfb {
+  position: absolute;
+  right: clamp(8px, 2.4%, 34px);
+  top: 50%;
+  z-index: 1;
+  width: min(41%, 540px);
+  aspect-ratio: 5 / 3;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+.bfb svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  animation: bfb-in 1s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* Texto del banner: no invade la escena en pantallas anchas */
+@media (min-width: 900px) {
+  html body .bf-banner > :not(.bfb):not(.bfb-glow) { max-width: 64%; }
+  /* Con tarjeta de datos a la derecha: texto | escena | tarjeta */
+  html body .bf-banner--card > :not(.bfb):not(.bfb-glow):first-of-type { max-width: 42%; }
+  .bf-banner--card .bfb { right: 330px; width: min(29%, 370px); }
+}
+@media (max-width: 899px) {
+  /* Móvil: el texto va arriba y la escena animada en una franja propia debajo,
+     así nunca se superponen. */
+  html body .bf-banner {
+    min-height: 0;
+    display: flex !important;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 6px;
+    padding: 28px 22px 14px !important;
+  }
+  html body .bf-banner > :not(.bfb):not(.bfb-glow) { max-width: 100%; }
+  .bfb {
+    position: relative;
+    right: auto;
+    top: auto;
+    transform: none;
+    width: 100%;
+    max-width: 380px;
+    margin: 10px auto 0;
+    opacity: 1;
+    order: 99;
+  }
+}
+
+/* Títulos algo más contenidos para que no ocupen demasiadas líneas */
+html body .bf-banner h1 { font-size: clamp(2.3rem, 5vw, 4.4rem) !important; }
+html body .bf-banner[data-bf-scene="lengua"] h1 { font-size: clamp(2rem, 3.7vw, 3.3rem) !important; line-height: 1.02 !important; }
+
+/* Detalles del texto: acento de la asignatura */
+html body .bf-banner .subject-hero__eyebrow { color: var(--ba) !important; }
+html body .bf-banner .subject-hero__icon {
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--ba) 40%, transparent), 0 10px 30px color-mix(in srgb, var(--ba) 38%, transparent);
+  animation: bfb-bob 4.5s ease-in-out infinite;
+}
+html body .bf-banner h1::after {
+  content: "";
+  display: block;
+  width: 72px;
+  height: 5px;
+  margin-top: 16px;
+  border-radius: 5px;
+  background: linear-gradient(90deg, var(--ba), var(--ba2));
+  transform-origin: left center;
+  animation: bfb-bar 1.1s 0.25s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+}
+
+/* ---------- 3. Elementos comunes de las escenas --------------------------- */
+
+.bfb-l, .bfb-l2 {
+  fill: none;
+  stroke: var(--ba);
+  stroke-width: 2.4;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.bfb-l2 { stroke: var(--ba2); }
+.bfb-f  { fill: var(--ba); }
+.bfb-f2 { fill: var(--ba2); }
+.bfb-soft { opacity: 0.4; }
+.bfb-dash { stroke-dasharray: 4 8; }
+.bfb-grid path { fill: none; stroke: var(--ba); stroke-opacity: 0.13; stroke-width: 1; }
+
+.bfb-t {
+  fill: var(--ba2);
+  font-family: 'Fraunces', Georgia, serif;
+  font-size: 30px;
+  font-weight: 600;
+  opacity: 0.88;
+}
+.bfb-t.bfb-sm {
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+/* Dibujado de trazos */
+.bfb-draw { stroke-dasharray: 1; stroke-dashoffset: 1; }
+
+.bfb-float, .bfb-rise { transform-box: fill-box; transform-origin: center; }
+.bfb-float { animation: bfb-float 6.5s ease-in-out infinite var(--d, 0s); }
+.bfb-rise  { animation: bfb-rise 7s linear infinite var(--d, 0s); opacity: 0; }
+
+/* ---------- 4. Matemáticas ------------------------------------------------- */
+
+.bfb-math-curve { animation: bfb-m-draw 9s linear infinite; }
+.bfb-math-dot {
+  offset-rotate: 0deg;
+  filter: drop-shadow(0 0 8px var(--ba));
+  animation: bfb-m-dot 9s linear infinite;
+}
+.bfb-math-tan {
+  opacity: 0.5;
+  transform-origin: 200px 120px;
+  animation: bfb-m-tan 6s ease-in-out infinite alternate;
+}
+
+/* ---------- 5. Física ------------------------------------------------------ */
+
+.bfb-electron {
+  offset-rotate: 0deg;
+  filter: drop-shadow(0 0 7px var(--ba));
+  animation: bfb-orbit 5.2s linear infinite var(--d, 0s);
+}
+.bfb-nucleus-halo {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bfb-pulse 2.8s ease-in-out infinite;
+}
+.bfb-wave { animation: bfb-wave 2.6s linear infinite; }
+
+/* ---------- 6. Filosofía ---------------------------------------------------- */
+
+.bfb-sun { opacity: 0.16; transform-box: fill-box; transform-origin: center; animation: bfb-pulse 5s ease-in-out infinite; }
+.bfb-spin { animation: bfb-spin 60s linear infinite; }
+.bfb-pediment, .bfb-slab, .bfb-column {
+  fill: var(--ba);
+  fill-opacity: 0.2;
+  stroke: var(--ba);
+  stroke-width: 2.2;
+  stroke-linejoin: round;
+}
+.bfb-pediment, .bfb-slab { animation: bfb-temple-in 1.1s cubic-bezier(0.2, 0.7, 0.2, 1) both; }
+.bfb-column {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation:
+    bfb-col-in 0.9s cubic-bezier(0.2, 0.7, 0.2, 1) both,
+    bfb-col-glow 5s ease-in-out infinite;
+  animation-delay: calc(0.15s + var(--i) * 0.12s), calc(1.4s + var(--i) * 0.45s);
+}
+
+/* ---------- 7. Lengua ------------------------------------------------------- */
+
+.bfb-page { fill: var(--ba); fill-opacity: 0.13; stroke: var(--ba); stroke-width: 2.4; stroke-linejoin: round; }
+.bfb-flip {
+  fill: var(--ba2);
+  fill-opacity: 0.32;
+  stroke: var(--ba2);
+  stroke-width: 2.4;
+  stroke-linejoin: round;
+  transform-origin: 200px 130px;
+  opacity: 0;
+  animation: bfb-flip 7s ease-in-out infinite;
+}
+.bfb-writing {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: bfb-write 8s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.55s);
+}
+.bfb-lt { font-size: 26px; }
+
+/* ---------- 8. Dibujo técnico ----------------------------------------------- */
+
+.bfb-cd-circle { animation: bfb-cd-circle 8s linear infinite; }
+.bfb-compass   { animation: bfb-cd-compass 8s linear infinite; }
+.bfb-cd-tri    { animation: bfb-cd-tri 8s ease-in-out infinite; }
+.bfb-cota      { animation: bfb-cd-cota 8s ease-in-out infinite; }
+.bfb-cb1       { animation: bfb-cd-cube 8s ease-in-out infinite; }
+.bfb-cb2       { animation: bfb-cd-cube 8s ease-in-out infinite 0.4s; }
+
+/* ---------- 9. Historia ------------------------------------------------------ */
+
+.bfb-hmap { animation: bfb-h-map 10s ease-in-out infinite; }
+.bfb-ping { transform-box: fill-box; transform-origin: center; animation: bfb-ping 3s ease-out infinite var(--d, 0s); }
+.bfb-hand-min { animation: bfb-spin 8s linear infinite; }
+.bfb-hand-hr  { animation: bfb-spin 96s linear infinite; }
+.bfb-hline { animation: bfb-h-line 10s ease-in-out infinite; }
+.bfb-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bfb-pop 10s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 0.55s);
+}
+.bfb-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bfb-ring 2.6s ease-out infinite;
+}
+.bfb-yr { font-family: 'JetBrains Mono', ui-monospace, monospace; font-size: 14px; font-weight: 700; }
+
+/* ---------- 10. Inglés ------------------------------------------------------- */
+
+.bfb-bubble {
+  transform-box: fill-box;
+  transform-origin: 18% 100%;
+  animation: bfb-bubble 9s ease-in-out infinite;
+  animation-delay: calc(var(--i) * 1.1s);
+}
+.bfb-bubble.bfb-right { transform-origin: 82% 100%; }
+.bfb-bub { fill: var(--ba); fill-opacity: 0.14; stroke: var(--ba); stroke-width: 2.4; stroke-linejoin: round; }
+.bfb-bub2 { fill: var(--ba2); fill-opacity: 0.2; stroke: var(--ba2); }
+.bfb-bt {
+  fill: var(--bf-text, currentColor);
+  font-family: 'Space Grotesk', Inter, system-ui, sans-serif;
+  font-size: 17px;
+  font-weight: 700;
+}
+.bfb-typing { fill: var(--ba); animation: bfb-dot 1.1s ease-in-out infinite; animation-delay: calc(var(--k) * 0.16s); }
+
+/* ---------- 11. Biología ------------------------------------------------------ */
+
+.bfb-helix .bfb-rung,
+.bfb-helix .bfb-nodeA,
+.bfb-helix .bfb-nodeB {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation-delay: var(--d);
+  animation-duration: var(--p);
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+.bfb-helix .bfb-rung  { animation-name: bfb-rung; stroke-opacity: 0.55; stroke-width: 2; }
+.bfb-helix .bfb-nodeA { animation-name: bfb-nodeA; }
+.bfb-helix .bfb-nodeB { animation-name: bfb-nodeB; }
+
+.bfb-cell { animation: bfb-heartbeat 3.4s ease-in-out infinite; transform-box: view-box; }
+.bfb-membrane { fill: var(--ba); fill-opacity: 0.1; stroke: var(--ba); stroke-width: 2.6; }
+.bfb-nucleus  { fill: var(--ba2); fill-opacity: 0.28; stroke: var(--ba2); stroke-width: 2.2; transform-box: fill-box; transform-origin: center; animation: bfb-pulse 3.4s ease-in-out infinite; }
+.bfb-orgs { transform-box: view-box; transform-origin: 0 0; animation: bfb-spin 26s linear infinite; }
+.bfb-bubl { transform-box: fill-box; transform-origin: center; animation: bfb-bubble-rise 4.5s ease-in infinite var(--d, 0s); }
+
+/* ---------- 12. Química -------------------------------------------------------- */
+
+.bfb-spin-slow { transform-origin: 0 0; transform-box: view-box; animation: bfb-spin 26s linear infinite; }
+.bfb-atom { transform-box: fill-box; transform-origin: center; animation: bfb-pulse 2.6s ease-in-out infinite; animation-delay: calc(var(--i) * 0.3s); }
+.bfb-liquid { fill: var(--ba); fill-opacity: 0.28; }
+.bfb-lwave { animation: bfb-liquid 2.4s linear infinite; }
+.bfb-fill { fill: #fff; fill-opacity: 0.75; animation-name: bfb-fizz; animation-duration: 3.2s; }
+.bfb-flask-o { stroke-width: 2.8; }
+
+/* ---------- 13. Animaciones ----------------------------------------------------- */
+
+@keyframes bfb-in      { from { opacity: 0; transform: translateX(26px) scale(0.96); } to { opacity: 1; transform: none; } }
+@keyframes bfb-bar     { from { transform: scaleX(0); } to { transform: scaleX(1); } }
+@keyframes bfb-bob     { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-6px) rotate(-3deg); } }
+@keyframes bfb-drift   { from { transform: translate3d(-6%, -4%, 0) scale(1); } to { transform: translate3d(8%, 6%, 0) scale(1.18); } }
+@keyframes bfb-float   { 0%, 100% { transform: translateY(0) rotate(-3deg); } 50% { transform: translateY(-11px) rotate(4deg); } }
+@keyframes bfb-rise    { 0% { transform: translateY(16px); opacity: 0; } 18% { opacity: 0.9; } 100% { transform: translateY(-58px); opacity: 0; } }
+@keyframes bfb-pulse   { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.14); } }
+@keyframes bfb-spin    { to { transform: rotate(360deg); } }
+
+/* Mates */
+@keyframes bfb-m-draw { 0% { stroke-dashoffset: 1; opacity: 1; } 40% { stroke-dashoffset: 0; } 88% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes bfb-m-dot  { 0% { offset-distance: 0%; opacity: 1; } 40% { offset-distance: 100%; } 88% { offset-distance: 100%; opacity: 1; } 100% { offset-distance: 100%; opacity: 0; } }
+@keyframes bfb-m-tan  { from { transform: rotate(-26deg); } to { transform: rotate(26deg); } }
+
+/* Física */
+@keyframes bfb-orbit { to { offset-distance: 100%; } }
+@keyframes bfb-wave  { to { transform: translateX(80px); } }
+
+/* Filosofía */
+@keyframes bfb-temple-in { from { opacity: 0; transform: translateY(-14px); } to { opacity: 1; transform: none; } }
+@keyframes bfb-col-in    { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+@keyframes bfb-col-glow  { 0%, 100% { fill-opacity: 0.2; } 50% { fill-opacity: 0.6; } }
+
+/* Lengua */
+@keyframes bfb-flip  { 0% { transform: scaleX(1); opacity: 0; } 6% { opacity: 1; } 36% { transform: scaleX(0.02); } 62% { transform: scaleX(-1); opacity: 1; } 72% { transform: scaleX(-1); opacity: 0; } 100% { transform: scaleX(-1); opacity: 0; } }
+@keyframes bfb-write { 0% { stroke-dashoffset: 1; opacity: 1; } 28% { stroke-dashoffset: 0; } 86% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+
+/* Dibujo */
+@keyframes bfb-cd-circle  { 0% { stroke-dashoffset: 1; opacity: 1; } 55% { stroke-dashoffset: 0; } 92% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes bfb-cd-compass { 0% { transform: rotate(0); opacity: 1; } 55% { transform: rotate(360deg); opacity: 1; } 62% { transform: rotate(360deg); opacity: 0; } 100% { transform: rotate(360deg); opacity: 0; } }
+@keyframes bfb-cd-tri     { 0%, 50% { stroke-dashoffset: 1; opacity: 1; } 74% { stroke-dashoffset: 0; } 92% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes bfb-cd-cota    { 0%, 62% { opacity: 0; } 74%, 92% { opacity: 1; } 100% { opacity: 0; } }
+@keyframes bfb-cd-cube    { 0% { stroke-dashoffset: 1; opacity: 1; } 40% { stroke-dashoffset: 0; } 92% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+
+/* Historia */
+@keyframes bfb-h-map  { 0% { stroke-dashoffset: 1; opacity: 1; } 35% { stroke-dashoffset: 0; } 90% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes bfb-h-line { 0% { stroke-dashoffset: 1; opacity: 1; } 38% { stroke-dashoffset: 0; } 90% { stroke-dashoffset: 0; opacity: 1; } 100% { stroke-dashoffset: 0; opacity: 0; } }
+@keyframes bfb-ping   { 0% { transform: scale(0.6); opacity: 1; } 70%, 100% { transform: scale(2.6); opacity: 0; } }
+@keyframes bfb-pop    { 0% { opacity: 0; transform: scale(0.3); } 6% { opacity: 1; transform: scale(1.18); } 10%, 88% { opacity: 1; transform: scale(1); } 100% { opacity: 0; transform: scale(1); } }
+@keyframes bfb-ring   { 0% { transform: scale(1); opacity: 0.8; } 100% { transform: scale(2.8); opacity: 0; } }
+
+/* Inglés */
+@keyframes bfb-bubble { 0% { opacity: 0; transform: scale(0); } 6% { opacity: 1; transform: scale(1.1); } 9%, 78% { opacity: 1; transform: scale(1); } 90%, 100% { opacity: 0; transform: scale(0.94); } }
+@keyframes bfb-dot    { 0%, 100% { transform: translateY(0); opacity: 0.5; } 40% { transform: translateY(-6px); opacity: 1; } }
+
+/* Biología */
+@keyframes bfb-nodeA { from { transform: translateX(-44px) scale(1.15); } to { transform: translateX(44px) scale(0.8); } }
+@keyframes bfb-nodeB { from { transform: translateX(44px) scale(0.8); } to { transform: translateX(-44px) scale(1.15); } }
+@keyframes bfb-rung  { from { transform: scaleX(1); } to { transform: scaleX(-1); } }
+@keyframes bfb-heartbeat { 0%, 100% { transform: translate(296px, 118px) scale(1); } 50% { transform: translate(296px, 118px) scale(1.035); } }
+@keyframes bfb-bubble-rise { 0% { transform: translateY(0) scale(0.6); opacity: 0; } 15% { opacity: 0.9; } 100% { transform: translateY(-120px) scale(1.2); opacity: 0; } }
+
+/* Química */
+@keyframes bfb-liquid { to { transform: translateX(60px); } }
+@keyframes bfb-fizz   { 0% { transform: translateY(0) scale(0.7); opacity: 0; } 15% { opacity: 0.85; } 100% { transform: translateY(-52px) scale(1.1); opacity: 0; } }
+
+/* ---------- 14. Movimiento reducido --------------------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html body .bfb *,
+  html body .bfb svg,
+  html body .bfb-glow::before,
+  html body .bfb-glow::after,
+  html body .bf-banner .subject-hero__icon,
+  html body .bf-banner h1::after {
+    animation: none !important;
+  }
+  html body .bfb .bfb-draw,
+  html body .bfb .bfb-writing { stroke-dashoffset: 0; }
+  html body .bfb .bfb-rise { opacity: 0.6; }
+  html body .bfb .bfb-flip { opacity: 0; }
+  html body .bfb .bfb-math-dot { offset-distance: 100%; }
+  html body .bfb .bfb-electron { offset-distance: 25%; }
+  html body .bfb .bfb-cota { opacity: 1; }
+  html body .bfb .bfb-nodeA { transform: translateX(-30px); }
+  html body .bfb .bfb-nodeB { transform: translateX(30px); }
+  html body .bfb .bfb-rung { transform: scaleX(0.7); }
+}
+
+/* Banners con tarjeta de datos a la derecha (Filosofía): título algo más pequeño
+   para que no se parta en tres líneas. */
+@media (min-width: 900px) {
+  html body .bf-banner--card h1 { font-size: clamp(2rem, 3.4vw, 3.3rem) !important; }
+}
+
+/* Química en móvil: el banner antiguo no tenía margen interior */
+@media (max-width: 899px) {
+  html body .chemistry-hero.bf-banner { padding: 30px 24px !important; }
+  html body .history-hero.bf-banner { padding: 30px 24px !important; }
+}
+
+/* Móvil: títulos siempre alineados a la izquierda (Inglés, Biología y Dibujo salían centrados) */
+@media (max-width: 899px) {
+  html body .bf-banner,
+  html body .bf-banner h1,
+  html body .bf-banner > div:first-child { text-align: left !important; }
+  html body .subject-page-heading.bf-banner > div:first-child { align-self: flex-start; width: 100%; }
+}

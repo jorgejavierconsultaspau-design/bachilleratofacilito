@@ -1934,3 +1934,88 @@ html body:has(.cookie-banner:not(.cookie-banner--hidden)) .back-to-top {
   visibility: hidden;
   pointer-events: none;
 }
+
+/* ---------- 24. Correcciones de modo oscuro y móvil ----------------------- */
+
+/* "Tu progreso" tenía un fondo blanco semitransparente también en oscuro:
+   quedaba gris y el texto claro no se leía. */
+html:not(.theme-light) body .bf-progress {
+  background: var(--bf-card) !important;
+}
+
+/* Contraste en modo oscuro: tarjetas claras con texto claro y botones cian con
+   texto blanco eran ilegibles. */
+html:not(.theme-light) body .bf-suggestion-choice {
+  background: var(--bf-card) !important;
+  border-color: var(--bf-border-strong) !important;
+}
+html:not(.theme-light) body .bf-suggestion-choice strong { color: var(--bf-ink) !important; }
+html:not(.theme-light) body .bf-suggestion-choice small { color: var(--bf-text-2) !important; }
+
+html:not(.theme-light) body .btn-library--primary,
+html:not(.theme-light) body .physics-directory-card a[href*="fiquipedia"] {
+  color: #04141c !important;
+}
+html:not(.theme-light) body .card-tags li {
+  background: rgba(255, 255, 255, 0.06) !important;
+  border-color: var(--bf-border) !important;
+  color: var(--bf-text-2) !important;
+}
+
+/* Botón de enviar del formulario: fondo verde claro, texto oscuro también en oscuro */
+html:not(.theme-light) body .bf-contact-form .bf-button,
+html:not(.theme-light) body .bf-contact-form .bf-button span { color: #0b2a1e !important; }
+
+/* Tarjetas de asignaturas: el círculo decorativo queda detrás del texto */
+html body .bf-subject::after { opacity: 0.16; z-index: 0; }
+html body .bf-subject > strong,
+html body .bf-subject > small,
+html body .bf-subject > .bf-subject__number,
+html body .bf-subject > .bf-subject__symbol { position: relative; z-index: 1; }
+
+/* Móvil: separación entre el sello "BF · Contacto" y la etiqueta de sección */
+@media (max-width: 920px) {
+  html body .bf-contact-section .bf-pau__index { margin-bottom: 20px; }
+}
+
+/* Tarjetas de bloques (Temas de literatura, Matemáticas…): con min-height:100% la
+   tarjeta era más alta que su fila y se montaba sobre la siguiente en móvil. */
+html body .subject-grid > .subject-block-card,
+html body .subject-grid > article {
+  min-height: 0;
+  height: auto;
+}
+html body .subject-grid { grid-auto-rows: auto; align-items: stretch; }
+
+/* Buscador de la biblioteca de filosofía: margen interior del texto y botón en fila */
+html body .library-search-field input { padding-left: 16px; }
+@media (max-width: 680px) {
+  html body .library-search-field { display: flex; gap: 8px; align-items: stretch; }
+  html body .library-search-field input { flex: 1 1 auto; min-width: 0; }
+  html body .library-search-field button { flex: 0 0 52px; width: 52px; }
+  /* Quiénes somos: la etiqueta no pega con la cabecera */
+  html body .bf-team-intro { padding-top: 34px; }
+}
+
+/* ---------- 25. Arranque sincronizado y modo ligero ------------------------ */
+
+/* Mientras la transición de entrada está en marcha, el resto de animaciones
+   esperan (quedan en su primer fotograma). Al terminar, todas arrancan a la vez,
+   así que se ven igual en cualquier dispositivo. */
+html.bf-booting body *:not(.bf-transition):not(.bf-transition *),
+html.bf-booting body *:not(.bf-transition):not(.bf-transition *)::before,
+html.bf-booting body *:not(.bf-transition):not(.bf-transition *)::after {
+  animation-play-state: paused !important;
+}
+
+/* Equipos que no llegan a ~30 fps: se quitan los efectos más pesados.
+   Las duraciones y el orden de las animaciones no cambian. */
+html.bf-lite body * {
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+html.bf-lite body .reveal { filter: none !important; }
+html.bf-lite body .bfb-glow,
+html.bf-lite body .bf-cursor-glow,
+html.bf-lite body .bf-banner::before { display: none !important; }
+html.bf-lite body .bf-timeline::before { animation: none !important; }

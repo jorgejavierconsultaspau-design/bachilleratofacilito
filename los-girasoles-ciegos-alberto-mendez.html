@@ -32,12 +32,18 @@
     <meta property="og:image:alt" content="BachilleratoFacilito, recursos de 2º de Bachillerato y PAU">
     <script data-bf-pre-enter>
         (() => {
+            const root = document.documentElement;
             try {
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                // Las animaciones de contenido esperan a que acabe la transición de entrada
+                // para que empiecen a la vez en cualquier dispositivo (red de seguridad: 3,5 s).
+                root.classList.add('bf-booting');
+                setTimeout(() => root.classList.remove('bf-booting'), 3500);
+                if (sessionStorage.getItem('bf-lite') === '1') root.classList.add('bf-lite');
                 const file = location.pathname.split('/').pop().toLowerCase();
                 const isSubject = /^(matematicas|fisica|filosofia|lengua|ingles|biologia|quimica|dibujo-tecnico|historia-de-espana|filosofia-apuntes|filosofia-autores|filosofia-comparaciones)\.html$/.test(file);
                 const pending = sessionStorage.getItem('bf-transition-pending') === '1';
-                if (isSubject || pending) document.documentElement.classList.add('bf-pre-enter');
+                if (isSubject || pending) root.classList.add('bf-pre-enter');
             } catch (_) {}
         })();
     </script>

@@ -52,6 +52,15 @@
     };
 
     const setupReveal = () => {
+        // Espera a que termine la transición de entrada (evento de page-transitions.js)
+        if (document.documentElement.classList.contains('bf-booting') && !setupReveal.started) {
+            setupReveal.started = true;
+            let done = false;
+            const go = () => { if (done) return; done = true; setupReveal(); };
+            document.addEventListener('bf:ready', go, { once: true });
+            window.setTimeout(go, 3600);
+            return;
+        }
         const elements = document.querySelectorAll('.reveal');
         if (!('IntersectionObserver' in window) || elements.length === 0) {
             elements.forEach((element) => element.classList.add('is-visible'));

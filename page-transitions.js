@@ -152,10 +152,47 @@
   };
 
   const root = document.documentElement;
+
+  /* Arranque sincronizado: las animaciones de contenido (cascada, banners, reveal)
+     esperan a este momento, así empiezan igual en equipos rápidos y lentos. */
+  let readyFired = false;
+  const markReady = () => {
+    if (readyFired) return;
+    readyFired = true;
+    root.classList.remove('bf-booting');
+    document.dispatchEvent(new Event('bf:ready'));
+  };
+
   const resetOverlay = () => {
     overlay.classList.remove('is-active', 'is-enter', 'is-exit');
     root.classList.remove('bf-pre-enter');
+    markReady();
   };
+
+  /* Modo ligero: si el equipo no mantiene ~30 fps, se quitan los efectos más
+     costosos (desenfoques, brillos). Las duraciones NO cambian. */
+  const probePerformance = () => {
+    try {
+      if (navigator.connection && navigator.connection.saveData) {
+        root.classList.add('bf-lite');
+        return;
+      }
+      let last = 0;
+      let frames = 0;
+      let total = 0;
+      const step = (now) => {
+        if (last) { total += now - last; frames += 1; }
+        last = now;
+        if (frames < 16) { requestAnimationFrame(step); return; }
+        const slow = total / frames > 40; // < 25 fps sostenidos
+        root.classList.toggle('bf-lite', slow);
+        try { sessionStorage.setItem('bf-lite', slow ? '1' : '0'); } catch (_) { /* sin almacenamiento */ }
+      };
+      requestAnimationFrame(step);
+    } catch (_) { /* sin sonda de rendimiento */ }
+  };
+  // Se mide ya en reposo (tras arrancar las animaciones), no durante la carga
+  if (!reduceMotion.matches) document.addEventListener('bf:ready', () => window.setTimeout(probePerformance, 500), { once: true });
 
   /* ---------- Entrada ---------------------------------------------------- */
 
@@ -173,6 +210,7 @@
     window.setTimeout(resetOverlay, ENTER_MS + 120);
   } else {
     root.classList.remove('bf-pre-enter');
+    requestAnimationFrame(() => requestAnimationFrame(markReady));
   }
 
   /* ---------- Salida ----------------------------------------------------- */

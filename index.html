@@ -46,12 +46,18 @@
     <meta property="og:locale" content="es_ES">
     <script data-bf-pre-enter>
         (() => {
+            const root = document.documentElement;
             try {
                 if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                // Las animaciones de contenido esperan a que acabe la transición de entrada
+                // para que empiecen a la vez en cualquier dispositivo (red de seguridad: 3,5 s).
+                root.classList.add('bf-booting');
+                setTimeout(() => root.classList.remove('bf-booting'), 3500);
+                if (sessionStorage.getItem('bf-lite') === '1') root.classList.add('bf-lite');
                 const file = location.pathname.split('/').pop().toLowerCase();
                 const isSubject = /^(matematicas|fisica|filosofia|lengua|ingles|biologia|quimica|dibujo-tecnico|historia-de-espana|filosofia-apuntes|filosofia-autores|filosofia-comparaciones)\.html$/.test(file);
                 const pending = sessionStorage.getItem('bf-transition-pending') === '1';
-                if (isSubject || pending) document.documentElement.classList.add('bf-pre-enter');
+                if (isSubject || pending) root.classList.add('bf-pre-enter');
             } catch (_) {}
         })();
     </script>
@@ -109,7 +115,7 @@ html[data-theme="dark"] {
                 <div class="bf-search-heading"><span class="bf-search-kicker">Biblioteca de estudio</span><h2>¿Qué necesitas estudiar?</h2></div>
                 <form id="search-form" class="bf-search" role="search" autocomplete="off">
                     <span class="bf-search__icon" aria-hidden="true">⌕</span>
-                    <input id="search-input" type="search" placeholder="Busca una asignatura o tema…" aria-label="Buscar en BachilleratoFacilito" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="search-results">
+                    <input id="search-input" type="search" placeholder="Busca asignatura o tema…" aria-label="Buscar en BachilleratoFacilito" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="search-results">
                     <kbd aria-hidden="true">Enter</kbd>
                     <button type="button" id="search-clear" aria-label="Limpiar búsqueda" hidden>Esc</button>
                 </form>
@@ -213,14 +219,6 @@ html[data-theme="dark"] {
         </section>
 
         <section class="bf-pau reveal" aria-labelledby="pau-title"><div class="bf-pau__index">PAU<br><span>Madrid</span></div><div><div class="bf-section-label"><span>Preparación</span></div><h2 id="pau-title">Exámenes PAU<br><em>de Matemáticas II.</em></h2><p>Practica con modelos y convocatorias anteriores.</p><a href="pau-matematicas.html" class="bf-button">Ver exámenes <span>→</span></a></div><div class="bf-pau__years" aria-hidden="true"><span>2027</span><span>2025</span><span>2023</span><span>2021</span><span>2019</span></div></section>
-
-        <section class="bf-trust reveal" aria-labelledby="trust-title">
-            <div class="bf-section-label"><span>Actualización</span></div>
-            <h2 id="trust-title">Recursos en crecimiento y revisión constante.</h2>
-            <p>Se incorporan nuevos apuntes y ejercicios de forma gradual para mantener la plataforma útil, clara y coherente con la PAU 2027.</p>
-        </section>
-
-        <section class="bf-about reveal" aria-labelledby="about-title"><div class="bf-about__mark">BF</div><div><div class="bf-section-label"><span>El proyecto</span></div><h2 id="about-title">Quiénes somos</h2><p>Reunimos apuntes, ejercicios y exámenes PAU de 2º de Bachillerato en una biblioteca gratuita.</p><a href="quienes-somos.html" class="bf-text-link">Conócenos <span>→</span></a></div></section>
     </main>
 
     <button id="back-to-top" class="back-to-top" type="button" aria-label="Volver arriba">↑</button>
