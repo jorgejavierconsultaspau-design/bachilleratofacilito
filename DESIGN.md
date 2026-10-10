@@ -10,11 +10,11 @@ The visible product language comes from the site itself: “Todo Bachillerato. E
 
 - `index.html`: homepage structure, navigation, search entry point, subject routes, editorial resources, PAU section and suggestions.
 - `recursos.html`: complete subject catalogue and the terminology used to describe each subject.
-- `css/estilos.css`: shared base styles plus the editorial `bf-*` homepage system, responsive rules and subject accent tokens.
+- `estilos.css`: shared base styles plus the editorial `bf-*` homepage system, responsive rules and subject accent tokens.
 - `style.css`: stylesheet entry point. It imports the shared stylesheet and should only contain deliberate homepage overrides.
-- `js/home-search.js`: client-side catalogue and search behavior. Its records are the source of truth for searchable titles, subjects, topics, resource types and URLs.
-- `js/subject-template.js`: subject data model and block descriptions for Mathematics II, Physics, Philosophy, Language, Technical Drawing II, History of Spain, English, Biology and Chemistry.
-- `js/home-nav.js`: responsive navigation behavior for the shared homepage header.
+- `home-search.js`: client-side catalogue and search behavior. Its records are the source of truth for searchable titles, subjects, topics, resource types and URLs.
+- `subject-template.js`: subject data model and block descriptions for Mathematics II, Physics, Philosophy, Language, Technical Drawing II, History of Spain, English, Biology and Chemistry.
+- `home-nav.js`: responsive navigation behavior for the shared homepage header.
 - `pdf/` and `docs/`: study documents linked from the catalogue and resource lists.
 
 ## Product Goals

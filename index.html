@@ -2,13 +2,16 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Encuentra apuntes, resúmenes y exámenes de 2º de Bachillerato para estudiar cada asignatura y preparar la PAU gratis, con recursos claros y organizados.">
-    <title>Apuntes 2 Bachillerato | BachilleratoFacilito</title>
+    <meta name="description" content="Apuntes de 2º de Bachillerato gratis, ejercicios, exámenes y recursos para preparar la PAU. Matemáticas, Física, Química, Lengua, Filosofía y más.">
+    <title>Apuntes de 2º de Bachillerato gratis | PAU | BachilleratoFacilito</title>
     <link rel="canonical" href="https://bachilleratofacilito.es/">
     <link rel="icon" href="og-image.png" type="image/png">
-    <meta property="og:title" content="Apuntes 2 Bachillerato | BachilleratoFacilito">
-    <meta property="og:description" content="Encuentra apuntes, resúmenes y exámenes de 2º de Bachillerato para estudiar cada asignatura y preparar la PAU gratis, con recursos claros y organizados.">
+    <meta property="og:title" content="Apuntes de 2º de Bachillerato gratis | PAU | BachilleratoFacilito">
+    <meta property="og:description" content="Apuntes de 2º de Bachillerato gratis, ejercicios, exámenes y recursos para preparar la PAU. Matemáticas, Física, Química, Lengua, Filosofía y más.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bachilleratofacilito.es/">
     <meta property="og:image" content="https://bachilleratofacilito.es/og-image.png">
@@ -16,12 +19,12 @@
     <meta property="og:image:height" content="630">
     <meta property="og:image:alt" content="BachilleratoFacilito: apuntes, resúmenes y exámenes de 2º de Bachillerato">
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="BachilleratoFacilito">
-    <meta name="twitter:description" content="Recursos de 2º de Bachillerato para preparar la PAU con apuntes, ejercicios y exámenes.">
+    <meta name="twitter:title" content="Apuntes de 2º de Bachillerato gratis | PAU | BachilleratoFacilito">
+    <meta name="twitter:description" content="Apuntes de 2º de Bachillerato gratis, ejercicios, exámenes y recursos para preparar la PAU. Matemáticas, Física, Química, Lengua, Filosofía y más.">
     <meta name="twitter:image" content="https://bachilleratofacilito.es/og-image.png">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="futuro.css">
     <meta name="google-site-verification" content="Oa0651s8HuOn-Z6SBq-6q3loLOOEUqqrYdgkelM1PrY" />
-    <meta name="strix-verification" content="strix-verify-26e459d9dec600a2b07c65e3ccb95881">
     <script type="application/ld+json">
         {
           "@context": "https://schema.org",
@@ -35,8 +38,42 @@
           ]
         }
     </script>
+
+    <meta name="author" content="BachilleratoFacilito">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="theme-color" content="#6757f5">
+    <meta property="og:site_name" content="BachilleratoFacilito">
+    <meta property="og:locale" content="es_ES">
+    <script data-bf-pre-enter>
+        (() => {
+            try {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                const file = location.pathname.split('/').pop().toLowerCase();
+                const isSubject = /^(matematicas|fisica|filosofia|lengua|ingles|biologia|quimica|dibujo-tecnico|historia-de-espana|filosofia-apuntes|filosofia-autores|filosofia-comparaciones)\.html$/.test(file);
+                const pending = sessionStorage.getItem('bf-transition-pending') === '1';
+                if (isSubject || pending) document.documentElement.classList.add('bf-pre-enter');
+            } catch (_) {}
+        })();
+    </script>
+    <script data-bf-theme-boot>
+        (() => {
+            try {
+                const saved = localStorage.getItem('bf-theme');
+                if (saved === 'dark') document.documentElement.dataset.theme = 'dark';
+            } catch (_) {}
+        })();
+    </script>
+<style>
+html[data-theme="dark"] {
+  --bf-bg:#080b12; --bf-surface:rgba(18,22,32,.74); --bf-surface-solid:#111620;
+  --bf-text:#f3f5f9; --bf-text-2:#b7c0ce; --bf-text-3:#8994a5;
+  --bf-border:rgba(255,255,255,.09); --bf-border-strong:rgba(255,255,255,.15);
+  --bf-shadow:0 18px 55px rgba(0,0,0,.30); --bf-shadow-lg:0 35px 90px rgba(0,0,0,.42);
+}
+</style>
 </head>
 <body class="bf-home">
+    <a class="bf-skip-link" href="#main-content">Saltar al contenido</a>
     <header class="bf-header">
         <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
         <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
@@ -57,12 +94,12 @@
         </div>
     </div>
 
-    <main>
+    <main id="main-content">
         <section class="bf-hero reveal" aria-labelledby="hero-title">
             <div class="bf-hero__copy">
                 <p class="bf-eyebrow">BachilleratoFacilito · Madrid</p>
-                <h1 id="hero-title">Recursos de<br><em>Ciencias y STEM</em><br>para la PAU.</h1>
-                <p class="bf-hero__summary">Apuntes, ejercicios y esquemas de Matemáticas, Física, Química y más para preparar la PAU 2027 con rigor y orden.</p>
+                <h1 id="hero-title">Todo 2º de<br><em>Bachillerato</em><br>en un solo sitio.</h1>
+                <p class="bf-hero__summary">Apuntes, ejercicios, esquemas y exámenes para estudiar cada asignatura de 2º de Bachillerato y llegar a la PAU con todo bajo control.</p>
                 <div class="bf-hero__actions">
                     <a class="bf-button bf-button--primary bf-hero__cta" href="recursos.html">Empezar a estudiar gratis <span>→</span></a>
                 </div>
@@ -72,7 +109,7 @@
                 <div class="bf-search-heading"><span class="bf-search-kicker">Biblioteca de estudio</span><h2>¿Qué necesitas estudiar?</h2></div>
                 <form id="search-form" class="bf-search" role="search" autocomplete="off">
                     <span class="bf-search__icon" aria-hidden="true">⌕</span>
-                    <input id="search-input" type="search" placeholder="Asignatura, tema, ejercicio o recurso..." aria-label="Buscar en BachilleratoFacilito" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="search-results">
+                    <input id="search-input" type="search" placeholder="Busca una asignatura o tema…" aria-label="Buscar en BachilleratoFacilito" role="combobox" aria-autocomplete="list" aria-haspopup="listbox" aria-expanded="false" aria-controls="search-results">
                     <kbd aria-hidden="true">Enter</kbd>
                     <button type="button" id="search-clear" aria-label="Limpiar búsqueda" hidden>Esc</button>
                 </form>
@@ -193,8 +230,11 @@
         <div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div>
     </footer>
 
-    <script src="js/home-search.js"></script>
-    <script src="js/home-nav.js"></script>
-    <script src="js/cookie-consent.js"></script>
+    <script src="home-search.js" defer></script>
+    <script src="home-nav.js" defer></script>
+    <script src="cookie-consent.js" defer></script>
+    <script src="page-transitions.js" defer></script>
+    <script src="motion-ui.js" defer></script>
+    <script src="motion-futuro.js" defer></script>
 </body>
 </html>

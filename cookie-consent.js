@@ -50,13 +50,15 @@
         return manageButton;
     };
 
-    const closeBanner = (consent) => {
+    const closeBanner = (consent, viaKeyboard = true) => {
         if (consent) saveConsent(consent);
         isOpen = false;
         banner.classList.add('cookie-banner--hidden');
         banner.setAttribute('aria-hidden', 'true');
         setBackgroundInert(false);
-        createManageButton().focus({ preventScroll: true });
+        // Con ratón no se devuelve el foco (evita que quede un aro de foco visible)
+        const manage = createManageButton();
+        if (viaKeyboard) manage.focus({ preventScroll: true });
     };
 
     const openBanner = (trigger) => {
@@ -97,8 +99,8 @@
         actions.append(acceptButton, rejectButton);
         banner.append(content, actions);
 
-        acceptButton.addEventListener('click', () => closeBanner('all'));
-        rejectButton.addEventListener('click', () => closeBanner('essential'));
+        acceptButton.addEventListener('click', (event) => closeBanner('all', event.detail === 0));
+        rejectButton.addEventListener('click', (event) => closeBanner('essential', event.detail === 0));
         document.body.appendChild(banner);
     };
 

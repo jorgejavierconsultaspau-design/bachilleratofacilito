@@ -2,6 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Conoce el proyecto BachilleratoFacilito y a sus creadores, con información sobre la misión educativa de la plataforma.">
     <title>Quiénes somos | BachilleratoFacilito</title>
@@ -10,9 +13,64 @@
     <meta property="og:description" content="Conoce el proyecto BachilleratoFacilito y a sus creadores, con información sobre la misión educativa de la plataforma.">
     <meta property="og:url" content="https://bachilleratofacilito.es/quienes-somos.html">
     <meta property="og:image" content="https://bachilleratofacilito.es/og-image.png">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="futuro.css">
+
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="author" content="BachilleratoFacilito">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="theme-color" content="#6757f5">
+    <meta property="og:site_name" content="BachilleratoFacilito">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:title" content="Quiénes somos | BachilleratoFacilito">
+    <meta name="twitter:description" content="Conoce el proyecto BachilleratoFacilito y a sus creadores, con información sobre la misión educativa de la plataforma.">
+    <meta name="twitter:image" content="https://bachilleratofacilito.es/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BachilleratoFacilito, recursos de 2º de Bachillerato y PAU">
+    <script data-bf-pre-enter>
+        (() => {
+            try {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                const file = location.pathname.split('/').pop().toLowerCase();
+                const isSubject = /^(matematicas|fisica|filosofia|lengua|ingles|biologia|quimica|dibujo-tecnico|historia-de-espana|filosofia-apuntes|filosofia-autores|filosofia-comparaciones)\.html$/.test(file);
+                const pending = sessionStorage.getItem('bf-transition-pending') === '1';
+                if (isSubject || pending) document.documentElement.classList.add('bf-pre-enter');
+            } catch (_) {}
+        })();
+    </script>
+    <script data-bf-theme-boot>
+        (() => {
+            try {
+                const saved = localStorage.getItem('bf-theme');
+                if (saved === 'dark') document.documentElement.dataset.theme = 'dark';
+            } catch (_) {}
+        })();
+    </script>
+<script type="application/ld+json" data-bf-breadcrumb>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://bachilleratofacilito.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Quiénes somos | BachilleratoFacilito",
+      "item": "https://bachilleratofacilito.es/quienes-somos.html"
+    }
+  ]
+}</script>
 </head>
 <body class="bf-home">
+    <a class="bf-skip-link" href="#main-content">Saltar al contenido</a>
     <header class="bf-header">
         <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
         <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
@@ -25,7 +83,7 @@
         </nav>
     </header>
 
-    <main class="bf-team-page">
+    <main id="main-content" class="bf-team-page">
         <section class="bf-team-intro" aria-labelledby="about-title">
             <div class="bf-section-label"><span>01</span><span>Detrás de BachilleratoFacilito</span></div>
             <h1 id="about-title">Quiénes somos</h1>
@@ -59,6 +117,9 @@
     </main>
 
     <footer class="bf-footer"><div class="bf-footer__main"><div><a class="bf-brand" href="index.html">Bachillerato<span>Facilito</span></a><p>Apuntes y exámenes PAU para 2º de Bachillerato.<br>Creado por Jorge Pérez Caballero y Javier Martín Montoro.</p></div><div><h2>Explorar</h2><a href="index.html">Inicio</a><a href="recursos.html">Recursos</a></div><div><h2>Proyecto</h2><a href="quienes-somos.html">Quiénes somos</a><a href="contacto.html">Contacto</a></div><div><h2>Legal y redes</h2><a href="legal.html#aviso-legal">Aviso legal</a><a href="legal.html#privacidad">Privacidad</a><a href="legal.html#cookies">Cookies</a><a class="bf-footer__social" href="https://www.instagram.com/bachilleratofacilito/" target="_blank" rel="noopener noreferrer">Instagram ↗</a></div></div><div class="bf-footer__bottom"><span>© 2026 BachilleratoFacilito</span></div></footer>
-    <script src="js/home-nav.js"></script><script src="js/cookie-consent.js"></script>
+    <script src="home-nav.js" defer></script><script src="cookie-consent.js" defer></script>
+    <script src="page-transitions.js" defer></script>
+    <script src="motion-ui.js" defer></script>
+    <script src="motion-futuro.js" defer></script>
 </body>
 </html>

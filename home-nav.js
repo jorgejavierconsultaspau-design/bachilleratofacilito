@@ -4,7 +4,7 @@
     const themeLabel = themeToggle?.querySelector('[data-theme-label]');
     const toastContainer = document.getElementById('toast-container');
     const loader = document.getElementById('app-loader');
-    let theme = 'light';
+    let theme = 'dark';
 
     const showToast = (message, type = 'success') => {
         if (!toastContainer) return;
@@ -24,7 +24,7 @@
     };
 
     try {
-        if (localStorage.getItem('bf-theme') === 'dark') theme = 'dark';
+        if (localStorage.getItem('bf-theme') === 'light') theme = 'light';
     } catch (error) {
         console.error('No se pudo recuperar la preferencia del tema.', error);
     }
@@ -33,6 +33,7 @@
         theme = nextTheme;
         document.body.dataset.theme = theme;
         document.body.classList.toggle('theme-dark', theme === 'dark');
+        document.documentElement.classList.toggle('theme-light', theme === 'light');
         if (themeToggle) {
             const isDark = theme === 'dark';
             themeToggle.setAttribute('aria-pressed', String(isDark));
@@ -112,18 +113,11 @@
         }, { once: true });
     };
 
-    const setupPageExit = () => {
-        window.addEventListener('beforeunload', () => {
-            document.body.classList.add('is-leaving');
-        });
-    };
-
     applyTheme(theme);
     setupReveal();
     setupRipple();
     setupBackToTop();
     setupLoader();
-    setupPageExit();
 
     themeToggle?.addEventListener('click', () => {
         const nextTheme = theme === 'dark' ? 'light' : 'dark';

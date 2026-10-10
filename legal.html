@@ -2,6 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Información legal, privacidad y cookies de BachilleratoFacilito.">
     <meta name="theme-color" content="#14532d">
@@ -11,7 +14,8 @@
     <meta property="og:description" content="Información legal, privacidad y cookies de BachilleratoFacilito.">
     <meta property="og:url" content="https://bachilleratofacilito.es/legal.html">
     <meta property="og:image" content="https://bachilleratofacilito.es/og-image.png">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="futuro.css">
     <style>
         .legal-page { max-width: 1040px; margin: 0 auto; padding: 42px 24px 80px; }
         .legal-page__intro { margin-bottom: 30px; }
@@ -37,8 +41,62 @@
             .legal-nav a { padding: 9px 8px; font-size: 0.75rem; }
         }
     </style>
+
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="author" content="BachilleratoFacilito">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="theme-color" content="#6757f5">
+    <meta property="og:site_name" content="BachilleratoFacilito">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:title" content="Información legal | BachilleratoFacilito">
+    <meta name="twitter:description" content="Información legal, privacidad y cookies de BachilleratoFacilito.">
+    <meta name="twitter:image" content="https://bachilleratofacilito.es/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BachilleratoFacilito, recursos de 2º de Bachillerato y PAU">
+    <script data-bf-pre-enter>
+        (() => {
+            try {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                const file = location.pathname.split('/').pop().toLowerCase();
+                const isSubject = /^(matematicas|fisica|filosofia|lengua|ingles|biologia|quimica|dibujo-tecnico|historia-de-espana|filosofia-apuntes|filosofia-autores|filosofia-comparaciones)\.html$/.test(file);
+                const pending = sessionStorage.getItem('bf-transition-pending') === '1';
+                if (isSubject || pending) document.documentElement.classList.add('bf-pre-enter');
+            } catch (_) {}
+        })();
+    </script>
+    <script data-bf-theme-boot>
+        (() => {
+            try {
+                const saved = localStorage.getItem('bf-theme');
+                if (saved === 'dark') document.documentElement.dataset.theme = 'dark';
+            } catch (_) {}
+        })();
+    </script>
+<script type="application/ld+json" data-bf-breadcrumb>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://bachilleratofacilito.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Información legal | BachilleratoFacilito",
+      "item": "https://bachilleratofacilito.es/legal.html"
+    }
+  ]
+}</script>
 </head>
 <body class="bf-home">
+    <a class="bf-skip-link" href="#main-content">Saltar al contenido</a>
     <header class="bf-header">
         <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
         <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
@@ -51,7 +109,7 @@
         </nav>
     </header>
 
-    <main class="legal-page">
+    <main id="main-content" class="legal-page">
         <div class="legal-page__intro">
             <h1>Información Legal</h1>
         </div>
@@ -109,6 +167,10 @@
             <p>© 2026 BachilleratoFacilito · <a href="legal.html">Información legal</a></p>
         </footer>
     </main>
-    <script src="js/cookie-consent.js"></script>
+    <script src="cookie-consent.js" defer></script>
+    <script src="home-nav.js" defer></script>
+    <script src="page-transitions.js" defer></script>
+    <script src="motion-ui.js" defer></script>
+    <script src="motion-futuro.js" defer></script>
 </body>
 </html>

@@ -2,6 +2,9 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Banco de exámenes PAU de Matemáticas II para preparar la convocatoria de la comunidad de Madrid con filtros por año y tipo.">
     <title>Exámenes PAU — Matemáticas II | BachilleratoFacilito</title>
@@ -10,7 +13,8 @@
     <meta property="og:description" content="Banco de exámenes PAU de Matemáticas II para preparar la convocatoria de la comunidad de Madrid con filtros por año y tipo.">
     <meta property="og:url" content="https://bachilleratofacilito.es/pau-matematicas.html">
     <meta property="og:image" content="https://bachilleratofacilito.es/og-image.png">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="estilos.css">
+    <link rel="stylesheet" href="futuro.css">
     <style>
         /* Biblioteca de exámenes: estructura ligera y legible en cualquier pantalla. */
         .pau-hero { margin: 18px 0 22px; }
@@ -30,8 +34,62 @@
         .legal-notice { margin:22px 0 0; padding:14px 16px; border-left:3px solid var(--bf-green); color:var(--bf-muted); background:rgba(255,255,255,0.72); font-size:0.88rem; line-height:1.55; }
         @media (max-width:700px){ .filters { grid-template-columns:1fr; } }
     </style>
+
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="author" content="BachilleratoFacilito">
+    <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+    <meta name="theme-color" content="#6757f5">
+    <meta property="og:site_name" content="BachilleratoFacilito">
+    <meta property="og:locale" content="es_ES">
+    <meta name="twitter:title" content="Exámenes PAU — Matemáticas II | BachilleratoFacilito">
+    <meta name="twitter:description" content="Banco de exámenes PAU de Matemáticas II para preparar la convocatoria de la comunidad de Madrid con filtros por año y tipo.">
+    <meta name="twitter:image" content="https://bachilleratofacilito.es/og-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="BachilleratoFacilito, recursos de 2º de Bachillerato y PAU">
+    <script data-bf-pre-enter>
+        (() => {
+            try {
+                if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+                const file = location.pathname.split('/').pop().toLowerCase();
+                const isSubject = /^(matematicas|fisica|filosofia|lengua|ingles|biologia|quimica|dibujo-tecnico|historia-de-espana|filosofia-apuntes|filosofia-autores|filosofia-comparaciones)\.html$/.test(file);
+                const pending = sessionStorage.getItem('bf-transition-pending') === '1';
+                if (isSubject || pending) document.documentElement.classList.add('bf-pre-enter');
+            } catch (_) {}
+        })();
+    </script>
+    <script data-bf-theme-boot>
+        (() => {
+            try {
+                const saved = localStorage.getItem('bf-theme');
+                if (saved === 'dark') document.documentElement.dataset.theme = 'dark';
+            } catch (_) {}
+        })();
+    </script>
+<script type="application/ld+json" data-bf-breadcrumb>
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Inicio",
+      "item": "https://bachilleratofacilito.es/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Exámenes PAU — Matemáticas II | BachilleratoFacilito",
+      "item": "https://bachilleratofacilito.es/pau-matematicas.html"
+    }
+  ]
+}</script>
 </head>
 <body>
+    <a class="bf-skip-link" href="#main-content">Saltar al contenido</a>
     <header class="bf-header">
         <a class="bf-brand" href="index.html" aria-label="BachilleratoFacilito, inicio">Bachillerato<span>Facilito</span></a>
         <button class="bf-menu-toggle" type="button" aria-expanded="false" aria-controls="main-navigation">Menú</button>
@@ -44,7 +102,7 @@
         </nav>
     </header>
 
-    <main class="container">
+    <main id="main-content" class="container">
         <a href="matematicas.html" class="btn-neon btn-back">← Volver a Matemáticas II</a>
 
         <div class="page-hero pau-hero">
@@ -222,7 +280,10 @@
         render();
         window.pau = { examenesMates, render, populateFilters };
     </script>
-    <script src="js/home-nav.js"></script>
-    <script src="js/cookie-consent.js"></script>
+    <script src="home-nav.js" defer></script>
+    <script src="cookie-consent.js" defer></script>
+    <script src="page-transitions.js" defer></script>
+    <script src="motion-ui.js" defer></script>
+    <script src="motion-futuro.js" defer></script>
 </body>
 </html>
